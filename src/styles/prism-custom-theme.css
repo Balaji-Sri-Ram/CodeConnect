@@ -1,0 +1,153 @@
+/**
+ * Custom PrismJS Theme based on User Request
+ * Matches VS Code Dark+ style with specific user overrides
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #d4d4d4;
+    text-shadow: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+/* Inline code */
+:not(pre)>code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6A9955;
+    /* Gray / Green */
+}
+
+.token.punctuation {
+    color: #D4D4D4;
+    /* White */
+}
+
+.token.namespace {
+    color: #4EC9B0;
+    /* Light Blue */
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+    color: #e2777a;
+}
+
+.token.function-name {
+    color: #6196cc;
+}
+
+/* Boolean - Light Blue / Orange */
+.token.boolean {
+    color: #569CD6;
+}
+
+/* Number - Light Blue / Orange (Going with Light Greenish/Blue common in VS Code) */
+.token.number {
+    color: #b5cea8;
+}
+
+/* Strings - Green (User Request) */
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+    color: #6A9955;
+    /* Green */
+}
+
+/* Operators - White / Orange */
+.token.operator,
+.token.entity,
+.token.url {
+    color: #D4D4D4;
+}
+
+/* Keywords - Blue / Purple */
+.token.keyword {
+    color: #569CD6;
+    /* Blue */
+}
+
+/* Control flow / specific keywords could be purple if Prism separates them, usually just keyword */
+.token.keyword.control-flow {
+    color: #C586C0;
+    /* Purple */
+}
+
+/* Class names - Light Yellow / Cyan */
+.token.class-name {
+    color: #4EC9B0;
+    /* Cyan/Teal */
+}
+
+/* Functions - Yellow / Light Blue */
+.token.function {
+    color: #DCDCAA;
+    /* Yellow */
+}
+
+.token.important,
+.token.atrule {
+    color: #C586C0;
+    /* Purple */
+}
+
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+/* Custom user requested specifics mapping attempt */
+/* 
+ 1. Keywords: Blue (#569CD6)
+ 2. Data Types: Blue/Teal (#4EC9B0 or #569CD6) - Prism treats int/void often as keyword or separate depending on language
+ 3. Variables: White (#D4D4D4)
+ 4. Constants: Light Blue
+ 5. Strings: Green (#6A9955)
+ 6. Characters: Light Green
+ 7. Comments: Gray/Green (#6A9955)
+ 8. Functions: Yellow (#DCDCAA)
+ 9. Classes: Cyan (#4EC9B0)
+*/

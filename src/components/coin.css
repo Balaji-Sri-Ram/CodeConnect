@@ -1,0 +1,54 @@
+@keyframes rotateContinuous {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes floatIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-modal-float {
+    animation: floatIn 0.2s ease-out forwards;
+}
+
+/* 3D Coin Container */
+.coin-3d-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotateContinuous 6s linear infinite;
+}
+
+/* Coin Layers for Thickness */
+.coin-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 9999px;
+    /* rounded-full */
+    backface-visibility: visible;
+}
+
+/* 
+  We will generate the translateZ classes dynamically or just use nth-child here 
+  if we want to keep it purely CSS, but inline styles in React might be cleaner for the loop.
+  However, let's add some shading to the "side" or back layers if possible.
+  For now, we just rely on the stack.
+*/
