@@ -91,6 +91,32 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// @route   POST /api/auth/forgot-password
+// @desc    Reset password (Unsecure flow as requested)
+// @access  Public
+router.post('/forgot-password', async (req, res) => {
+    const { email, newPassword } = req.body;
+
+    try {
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+        user.password = hashedPassword;
+        await user.save();
+
+        res.json({ message: 'Password reset successfully' });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
 // @route   GET /api/auth/me
 // @desc    Get current user
 // @access  Private

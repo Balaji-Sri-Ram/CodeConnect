@@ -556,10 +556,7 @@ const Compiler = () => {
             <ChevronLeft className="h-5 w-5" />
           </Button>
 
-          {/* Main Title Section - Hidden when bar is expanded on mobile/small screens if needed, 
-              but since bar expands to w-1/2 on large screens, it won't cover title if title is on left.
-              Actually w-1/2 overlaps the right side. The title is on left. It's fine.
-          */}
+          {/* Main Title Section */}
           <div className="flex-1">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-3">
@@ -586,8 +583,8 @@ const Compiler = () => {
 
           {/* Expanding Menu Bar (Sidebar Toggle) */}
           <div
-            className={`absolute right-0 top-0 h-12 flex items-center justify-end transition-all duration-500 ease-in-out z-50 rounded-full border border-transparent ${isSidebarOpen
-              ? 'w-full lg:w-[calc(50%-0.75rem)] bg-white dark:bg-card border-border shadow-xl'
+            className={`hidden lg:flex absolute right-0 top-0 h-12 items-center justify-end transition-all duration-500 ease-in-out z-50 rounded-full border border-transparent ${isSidebarOpen
+              ? 'w-[calc(50%-0.75rem)] bg-white dark:bg-card border-border shadow-xl'
               : 'w-12 bg-transparent'
               }`}
           >
@@ -808,16 +805,17 @@ const Compiler = () => {
             </Button>
           </div>
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6" style={{ minHeight: "calc(100vh - 180px)" }}>
           {/* Problem Description */}
-          <Card className="flex flex-col overflow-hidden">
-            <div className="p-4 border-b border-border bg-muted/30">
+          <Card className="flex flex-col overflow-hidden h-[300px] lg:h-full">
+            <div className="p-3 sm:p-4 border-b border-border bg-muted/30 flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <Code2 className="h-5 w-5 text-primary" />
-                <h2 className="font-semibold">Problem Description</h2>
+                <Code2 className="h-5 w-5 text-primary shrink-0" />
+                <h2 className="font-semibold truncate">Problem Description</h2>
               </div>
             </div>
+
+
             <ScrollArea className="flex-1 p-4">
               {problem ? (
                 <div className="space-y-4">
@@ -851,10 +849,170 @@ const Compiler = () => {
 
           {/* Code Editor */}
           <div className="flex flex-col gap-4">
-            <Card className="p-4">
-              <div className="flex items-center justify-between gap-4">
+            {/* Feature Bar (Mobile) - Positioned Here */}
+            <div className="lg:hidden flex items-center w-full">
+              <div className={`flex items-center bg-muted/30 rounded-full border border-border transition-all duration-700 ease-in-out overflow-hidden ${isSidebarOpen ? 'w-full px-2 py-1.5 gap-2' : 'ml-auto p-1.5 max-w-[50px] border-transparent bg-transparent'}`}>
+                {/* Expandable Content */}
+                <div className={`flex items-center gap-2 w-full justify-between transition-all duration-700 ${isSidebarOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 hidden'}`}>
+
+                  {/* Active Timer/Stopwatch View */}
+                  {(activeTab === 'timer' || activeTab === 'stopwatch') ? (
+                    <div className={`flex items-center w-full gap-2 justify-end ${isExiting ? 'animate-out fade-out slide-out-to-right-4 duration-700' : 'animate-in fade-in slide-in-from-right-4 duration-700'}`}>
+                      <div className={`flex items-center gap-0.5 px-2 py-1 rounded-full border shadow-sm backdrop-blur-sm ${activeTab === 'timer' ? 'bg-[#332D2D] border-orange-500/50' : 'bg-[#1a202c] border-blue-500/50'} h-9 transition-all duration-300`}>
+                        {/* Back / Collapse */}
+                        <button onClick={() => {
+                          setIsExiting(true);
+                          setTimeout(() => {
+                            setIsExiting(false);
+                            setActiveTab(null);
+                          }, 650);
+                        }} className="shrink-0 h-7 w-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+                          <ChevronLeft className={`h-4 w-4 ${activeTab === 'timer' ? 'text-orange-500' : 'text-blue-500'}`} />
+                        </button>
+
+                        {/* Separator */}
+                        <div className={`h-4 w-px mx-0.5 ${activeTab === 'timer' ? 'bg-orange-500/30' : 'bg-blue-500/30'}`}></div>
+
+                        {/* Pause/Play */}
+                        <button onClick={() => activeTab === 'timer' ? setIsTimerRunning(!isTimerRunning) : setIsStopwatchRunning(!isStopwatchRunning)} className="shrink-0 h-7 w-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+                          {activeTab === 'timer' ? (isTimerRunning ? <Pause className="h-4 w-4 text-orange-500 fill-orange-500" /> : <Play className="h-4 w-4 text-orange-500 fill-orange-500" />) : (isStopwatchRunning ? <Pause className="h-4 w-4 text-blue-500 fill-blue-500" /> : <Play className="h-4 w-4 text-blue-500 fill-blue-500" />)}
+                        </button>
+
+                        {/* Time */}
+                        <span className={`font-mono font-medium text-sm min-w-[70px] text-center ${activeTab === 'timer' ? 'text-orange-500' : 'text-blue-500'}`}>
+                          {activeTab === 'timer' ? formatTime(countdownTime) : formatTime(stopwatchTime)}
+                        </span>
+
+                        {/* Restart */}
+                        <button onClick={() => {
+                          if (activeTab === 'timer') { setIsTimerRunning(false); setCountdownTime(0); }
+                          else { setIsStopwatchRunning(false); setStopwatchTime(0); }
+                        }} className="shrink-0 h-7 w-7 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+                          <RotateCcw className={`h-3 w-3 ${activeTab === 'timer' ? 'text-orange-500' : 'text-blue-500'}`} />
+                        </button>
+                      </div>
+
+                      {/* Settings Icon */}
+                      <Button variant="ghost" size="icon" onClick={() => setShowSettings(true)} className="h-9 w-9 text-muted-foreground hover:text-foreground shrink-0 rounded-full">
+                        <Settings className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  ) : (
+                    /* Default Icons View */
+                    <div className="flex items-center gap-2 ml-auto">
+                      {/* Timer */}
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" size="icon" className="h-8 w-8 text-orange-500 dark:text-orange-400 hover:bg-orange-100 dark:hover:bg-orange-900/40">
+                            <Clock className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="w-52 p-3 bg-background border-border shadow-xl rounded-xl z-50">
+                          <div className="mb-2">
+                            <div className="flex flex-col items-center justify-center p-2 gap-2 border-2 border-orange-500/20 bg-orange-500/10 rounded-lg cursor-default">
+                              <Clock className="h-8 w-8 text-orange-500" />
+                              <span className="text-sm font-semibold text-foreground">Timer</span>
+                            </div>
+                          </div>
+                          <div className="mb-3 flex items-center justify-center gap-3">
+                            <div className="flex items-center gap-2">
+                              <input type="number" min="0" max="99" placeholder="00" className="w-12 h-12 rounded-lg border border-input bg-background text-center text-xl font-bold focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                value={timerInput.hours}
+                                onChange={(e) => setTimerInput(prev => ({ ...prev, hours: parseInt(e.target.value) || 0 }))}
+                              />
+                              <span className="text-sm text-muted-foreground font-medium">hr</span>
+                            </div>
+                            <span className="text-xl font-bold text-muted-foreground">:</span>
+                            <div className="flex items-center gap-2">
+                              <input type="number" min="0" max="59" placeholder="00" className="w-12 h-12 rounded-lg border border-input bg-background text-center text-xl font-bold focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                value={timerInput.minutes}
+                                onChange={(e) => setTimerInput(prev => ({ ...prev, minutes: parseInt(e.target.value) || 0 }))}
+                              />
+                              <span className="text-sm text-muted-foreground font-medium">min</span>
+                            </div>
+                          </div>
+                          <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium"
+                            onClick={() => {
+                              const totalSeconds = (timerInput.hours * 3600) + (timerInput.minutes * 60);
+                              if (totalSeconds > 0) {
+                                setCountdownTime(totalSeconds);
+                                setIsTimerRunning(true);
+                                setActiveTab('timer');
+                                setStopwatchTime(0); setIsStopwatchRunning(false);
+                              }
+                            }}
+                          >
+                            <Play className="h-3 w-3 mr-2 fill-current" /> Start Timer
+                          </Button>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+
+                      {/* Stopwatch */}
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" size="icon" className="h-8 w-8 text-blue-500 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40">
+                            <Timer className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="w-52 p-4 bg-background border-border shadow-xl rounded-xl z-50">
+                          <div className="mb-4">
+                            <div className="flex flex-col items-center justify-center p-4 gap-2 border-2 border-blue-500/20 bg-blue-500/10 rounded-lg cursor-default">
+                              <Timer className="h-8 w-8 text-blue-500" />
+                              <span className="text-sm font-semibold text-foreground">Stopwatch</span>
+                              {stopwatchTime > 0 && <span className="text-xs font-mono text-blue-600 dark:text-blue-400 mt-1">{formatTime(stopwatchTime)}</span>}
+                            </div>
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium"
+                              onClick={() => {
+                                setActiveTab('stopwatch');
+                                setIsTimerRunning(false);
+                                setIsStopwatchRunning(true);
+                              }}
+                            >
+                              <Play className="h-3 w-3 mr-2 fill-current" /> {stopwatchTime > 0 ? "Resume" : "Start"}
+                            </Button>
+                            {stopwatchTime > 0 && (
+                              <Button variant="outline" className="w-full border-blue-200 hover:bg-blue-50 dark:border-blue-900 dark:hover:bg-blue-900/20 text-blue-600 dark:text-blue-400"
+                                onClick={() => { setStopwatchTime(0); setIsStopwatchRunning(false); }}
+                              >
+                                <RotateCcw className="h-3 w-3 mr-2" /> Restart
+                              </Button>
+                            )}
+                          </div>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+
+                      {/* Settings */}
+                      <Button variant="ghost" size="icon" onClick={() => setShowSettings(true)} className="h-8 w-8 text-muted-foreground hover:text-foreground">
+                        <Settings className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  )}
+
+                </div>
+
+                {/* Toggle Icon */}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => {
+                    if (!isSidebarOpen && !isTimerRunning && !isStopwatchRunning) {
+                      setActiveTab(null);
+                    }
+                    setIsSidebarOpen(!isSidebarOpen);
+                  }}
+                  className={`transition-transform duration-300 shrink-0 rounded-full ${isSidebarOpen ? 'rotate-0 ml-0' : 'rotate-90 ml-auto'}`}
+                  style={{ width: '48px', height: '48px' }}
+                >
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </div>
+            </div>
+            <Card className="p-3 sm:p-4">
+              <div className="flex items-center justify-between gap-2 sm:gap-4">
                 <Select value={language} onValueChange={handleLanguageChange}>
-                  <SelectTrigger className="w-64">
+                  <SelectTrigger className="w-[110px] sm:w-64">
                     <SelectValue placeholder="Select Language" />
                   </SelectTrigger>
                   <SelectContent>
@@ -865,15 +1023,26 @@ const Compiler = () => {
                     ))}
                   </SelectContent>
                 </Select>
-                <div className="flex gap-2">
+                <div className="flex gap-2 shrink-0">
                   {settings.layout === 'toolbar' && (
                     <>
-                      <Button variant="outline" onClick={handleReset}>
-                        <RotateCcw className="h-4 w-4 mr-2" /> Reset
+                      <Button variant="outline" onClick={handleReset} size="sm" className="px-2 sm:px-4">
+                        <RotateCcw className="h-4 w-4 sm:mr-2" />
+                        <span className="hidden sm:inline">Reset</span>
                       </Button>
-                      <Button variant="hero" onClick={runCode} disabled={isRunning}>
+                      <Button variant="hero" onClick={runCode} disabled={isRunning} size="sm" className="px-3 sm:px-4">
                         {isRunning ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Play className="h-4 w-4 mr-2" />}
-                        {isRunning ? "Running..." : "Run Code"}
+                        {isRunning ? (
+                          <>
+                            <span className="sm:hidden">Running</span>
+                            <span className="hidden sm:inline">Running...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="sm:hidden">Run</span>
+                            <span className="hidden sm:inline">Run Code</span>
+                          </>
+                        )}
                       </Button>
                     </>
                   )}
@@ -963,8 +1132,8 @@ const Compiler = () => {
             </Card>
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

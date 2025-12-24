@@ -206,7 +206,7 @@ const CompanyProfile = () => {
             <CardTitle>Company Logo</CardTitle>
             <CardDescription>Upload your company logo</CardDescription>
           </CardHeader>
-          <CardContent className="flex items-center gap-6">
+          <CardContent className="flex flex-col sm:flex-row items-center gap-6">
             <Avatar className="h-24 w-24">
               <AvatarImage src={profile.logo_url} />
               <AvatarFallback className="text-2xl">

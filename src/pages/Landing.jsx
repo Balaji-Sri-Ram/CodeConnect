@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import api from "@/api/client";
 import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
-import { Code2, Trophy, Briefcase, Target, Zap, Users, Mail, Phone, MapPin, Linkedin, Facebook, Instagram, Github } from "lucide-react";
+import { Code2, Trophy, Users, CheckCircle2, ArrowRight, Star, Quote, Mail, Phone, MapPin, Linkedin, Facebook, Instagram, Github, Briefcase, Target, Zap } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -91,21 +91,21 @@ const Landing = () => {
             <div className="mb-6 inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm">
               Code. Practice. Get Hired.
             </div>
-            <h1 className="mb-6 text-4xl font-bold leading-tight lg:text-6xl">
+            <h1 className="mb-8 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
               Master Coding & Connect with{" "}
               <span className="bg-gradient-hero bg-clip-text text-transparent">
                 Top Companies
               </span>
             </h1>
-            <p className="mb-8 text-lg text-muted-foreground lg:text-xl">
+            <p className="mb-10 text-lg sm:text-xl text-muted-foreground px-2 sm:px-0 max-w-2xl mx-auto leading-relaxed">
               Solve real coding problems, earn rewards, and get discovered by leading tech companies.
               Your journey from student to professional starts here.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button size="lg" variant="hero" onClick={handleStartCoding}>
+            <div className="flex flex-col gap-4 w-full sm:w-auto sm:flex-row sm:justify-center px-4 sm:px-0 mb-16">
+              <Button size="lg" variant="hero" onClick={handleStartCoding} className="w-full sm:w-auto">
                 {isLoggedIn && userRole === 'company' ? "Dashboard" : "Start Coding Free"}
               </Button>
-              <Button size="lg" variant="outline" onClick={handleBrowseProblems}>
+              <Button size="lg" variant="outline" onClick={handleBrowseProblems} className="w-full sm:w-auto">
                 {isLoggedIn && userRole === 'company' ? "View Leaderboard" : "Browse Problems"}
               </Button>
             </div>
@@ -125,7 +125,7 @@ const Landing = () => {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <Card className="p-6 bg-gradient-card shadow-md hover:shadow-lg transition-shadow">
               <div className="mb-4 inline-block rounded-lg bg-primary/10 p-3">
                 <Code2 className="h-6 w-6 text-primary" />
@@ -190,12 +190,12 @@ const Landing = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20">
+      <section id="contact-section" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold lg:text-4xl">Contact Us</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold lg:text-4xl">Contact Developer</h2>
 
           <Card className="mx-auto max-w-5xl overflow-hidden">
-            <div className="grid md:grid-cols-2 gap-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
               {/* Contact Info */}
               <div className="bg-gradient-hero p-8 text-primary-foreground">
                 <h3 className="mb-8 text-2xl font-bold">Get in Touch</h3>
@@ -293,6 +293,58 @@ const Landing = () => {
         </div>
       </section>
 
+      {/* Developer Section */}
+      <section className="py-20 bg-secondary/20">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-5xl">
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              {/* Developer Image (Left) */}
+              <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-hero rounded-[2rem] transform rotate-6 opacity-30 blur-lg"></div>
+                  <img
+                    src="/developer.jpg"
+                    alt="Balaji Sri Ram Parasa"
+                    className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-[2rem] shadow-2xl border-4 border-background"
+                  />
+                </div>
+              </div>
+
+              {/* Developer Info (Right) */}
+              <div className="w-full md:w-1/2 text-center md:text-left">
+                <h2 className="text-3xl font-bold mb-4">Meet the Developer</h2>
+                <h3 className="text-xl text-primary font-semibold mb-6 flex items-center justify-center md:justify-start gap-2">
+                  Balaji Sri Ram Parasa <CheckCircle2 className="h-5 w-5 fill-primary text-background" />
+                </h3>
+
+                <div className="space-y-4 text-muted-foreground mb-8 text-lg">
+                  <p>
+                    Passionate Full Stack Developer with a knack for building scalable web applications.
+                    Dedicated to creating seamless user experiences and robust backend systems.
+                  </p>
+                  <p>
+                    Experienced in the MERN stack and modern web technologies. Always learning,
+                    always coding, and always ready for the next challenge.
+                  </p>
+                </div>
+
+                <Button
+                  size="lg"
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact-section');
+                    contactSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="group"
+                >
+                  Contact Me
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -303,7 +355,7 @@ const Landing = () => {
             <p className="mb-8 text-lg opacity-90">
               Join thousands of students already practicing and getting hired through CodeConnect
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <div className="flex flex-col gap-4 w-full sm:w-auto sm:flex-row sm:justify-center">
               {/* Ready To Start Section Buttons */}
               {isLoggedIn ? (
                 userRole === 'company' ? (
@@ -311,7 +363,7 @@ const Landing = () => {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+                      className="w-full sm:w-auto border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
                       onClick={() => navigate("/dashboard")}
                     >
                       Dashboard
@@ -319,7 +371,7 @@ const Landing = () => {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+                      className="w-full sm:w-auto border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
                       onClick={() => navigate("/company/profile")}
                     >
                       Profile
@@ -330,7 +382,7 @@ const Landing = () => {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+                      className="w-full sm:w-auto border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
                       onClick={() => navigate("/all-problems")}
                     >
                       Practice
@@ -338,7 +390,7 @@ const Landing = () => {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+                      className="w-full sm:w-auto border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
                       onClick={() => navigate("/companies")}
                     >
                       Companies
@@ -350,14 +402,14 @@ const Landing = () => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+                    className="w-full sm:w-auto border-primary-foreground bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
                     onClick={() => navigate("/auth")}
                   >
                     Create Free Account
                   </Button>
                   <Button
                     size="lg"
-                    className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                    className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90"
                     onClick={() => navigate("/auth")}
                   >
                     For Companies

@@ -100,7 +100,7 @@ const StudentDashboard = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Stats Cards */}
-      <div className="grid gap-6 md:grid-cols-4 mb-8">
+      <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mb-8">
         <Card className="p-6 bg-gradient-card shadow-md">
           <div className="flex items-center justify-between">
             <div>
@@ -181,30 +181,32 @@ const StudentDashboard = () => {
                 return (
                   <Card
                     key={index}
-                    className="p-6 hover:shadow-lg transition-shadow bg-white dark:bg-card relative overflow-hidden"
+                    className="p-4 sm:p-6 hover:shadow-lg transition-shadow bg-white dark:bg-card relative overflow-hidden group"
                   >
                     {isSolved && (
-                      <div className="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 text-xs font-semibold rounded-bl-lg flex items-center gap-1 z-10 shadow-sm">
+                      <div className="absolute top-0 right-0 bg-green-500 text-white px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold rounded-bl-lg flex items-center gap-1 z-10 shadow-sm">
                         <CheckCircle2 className="h-3 w-3" />
                         Solved
                       </div>
                     )}
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-xl font-semibold">{problem.title}</h3>
-                          <Badge className={getDifficultyColor(problem.difficulty)}>
+                    <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
+                      <div className="flex-1 w-full">
+                        <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3 mb-2">
+                          <h3 className="text-lg sm:text-xl font-semibold truncate pr-16 sm:pr-0">{problem.title}</h3>
+                          <Badge className={`${getDifficultyColor(problem.difficulty)} text-xs px-2 py-0.5`}>
                             {problem.difficulty}
                           </Badge>
                         </div>
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                        <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-muted-foreground">
                           {problem.topics && problem.topics.length > 0 && (
-                            <span>Topics: {problem.topics.slice(0, 3).join(", ")}</span>
+                            <span className="truncate max-w-[200px]">Topics: {problem.topics.slice(0, 3).join(", ")}</span>
                           )}
                         </div>
                       </div>
                       <Button
                         variant="hero"
+                        size="sm"
+                        className="w-full sm:w-auto mt-2 sm:mt-0"
                         onClick={() => navigate(`/compiler?problemId=${problem._id}&title=${encodeURIComponent(problem.title)}&difficulty=${problem.difficulty}&source=local`)}
                       >
                         {isSolved ? "Practice Again" : "Solve"}
@@ -262,7 +264,7 @@ const StudentDashboard = () => {
                         <p className="text-muted-foreground mb-4 line-clamp-2">
                           {challenge.description}
                         </p>
-                        <div className="flex items-center gap-4 text-sm">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-sm">
                           {challenge.deadline && (
                             <span className="text-muted-foreground">
                               Deadline: {new Date(challenge.deadline).toLocaleDateString()}

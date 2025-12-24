@@ -103,7 +103,7 @@ const DeveloperProfile = () => {
         {/* Profile Header */}
         <Card className="mb-6 overflow-hidden">
           <div className="h-32 bg-blue-600 relative">
-            <h1 className="absolute bottom-4 left-4 md:left-44 text-3xl font-bold text-white z-10 truncate max-w-[calc(100%-200px)] md:max-w-none">
+            <h1 className="hidden md:block absolute bottom-4 left-44 text-3xl font-bold text-white z-10 truncate">
               {profile.full_name || "Developer"}
             </h1>
           </div>
@@ -117,6 +117,11 @@ const DeveloperProfile = () => {
               </Avatar>
 
               <div className="text-center md:text-left flex-1 pb-4 mt-4 md:mt-[72px]">
+                {/* Mobile Name Display */}
+                <h1 className="md:hidden text-2xl font-bold mb-2">
+                  {profile.full_name || "Developer"}
+                </h1>
+
                 {profile.bio && (
                   <p className="text-muted-foreground max-w-2xl">{profile.bio}</p>
                 )}
@@ -146,7 +151,7 @@ const DeveloperProfile = () => {
                 <Mail className="h-5 w-5 text-primary" />
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <a href={`mailto:${profile.user?.email || profile.email}`} className="font-medium hover:text-primary transition-colors">
+                  <a href={`mailto:${profile.user?.email || profile.email}`} className="font-medium hover:text-primary transition-colors block break-all">
                     {profile.user?.email || profile.email || "No email available"}
                   </a>
                 </div>
@@ -246,7 +251,7 @@ const DeveloperProfile = () => {
                 <p className="text-lg font-medium">Total Problems Solved</p>
               </div>
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="text-center p-4 rounded-lg bg-green-500/10 border border-green-500/20">
                   <CheckCircle2 className="h-6 w-6 text-green-500 mx-auto mb-2" />
                   <p className="text-2xl font-bold text-green-500">{stats.easy}</p>

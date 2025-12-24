@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import api from "@/api/client";
 import Landing from "./pages/Landing";
 import Auth from "./pages/Auth";
+import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import CompanyChallenges from "./pages/CompanyChallenges";
 import AllProblems from "./pages/AllProblems";
@@ -65,6 +66,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/company-challenges" element={<CompanyChallenges />} />
           <Route path="/all-problems" element={<AllProblems />} />

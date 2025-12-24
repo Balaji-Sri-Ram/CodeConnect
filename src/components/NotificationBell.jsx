@@ -77,7 +77,7 @@ export const NotificationBell = () => {
                     )}
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-80 p-0 overflow-hidden bg-white dark:bg-[#1a1a1a] border-border shadow-2xl">
+            <DropdownMenuContent align="end" className="w-72 sm:w-80 p-0 overflow-hidden bg-white dark:bg-[#1a1a1a] border-border shadow-2xl">
                 <div className="flex items-center justify-between px-4 py-3 bg-muted/30 border-b border-border">
                     <span className="font-semibold text-sm">Notifications</span>
                     <button

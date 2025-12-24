@@ -6,7 +6,7 @@ export const PasswordRequirements = ({ password, visible }) => {
     if (!visible) return null;
 
     return (
-        <div className="absolute left-full top-0 ml-4 w-64 p-4 bg-popover text-popover-foreground rounded-lg shadow-lg border z-50 animate-in fade-in slide-in-from-left-2">
+        <div className="absolute top-full left-0 mt-2 md:mt-0 md:left-full md:top-0 md:ml-4 w-full md:w-64 p-4 bg-popover text-popover-foreground rounded-lg shadow-lg border z-50 animate-in fade-in zoom-in-95 md:slide-in-from-left-2">
             <h4 className="font-semibold mb-2 text-sm">Password requirements</h4>
             <ul className="space-y-1 text-xs">
                 {Object.entries(validatePassword(password)).map(([key, isValid]) => (

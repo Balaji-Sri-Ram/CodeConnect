@@ -95,76 +95,76 @@ const Leaderboard = () => {
 
         {/* Top 3 Podium */}
         {filteredStudents.length >= 3 && (
-          <div className="grid md:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-3 md:gap-4 mb-8 max-w-3xl mx-auto items-end">
             {/* 2nd Place */}
-            <div className="order-1 md:order-1 md:mt-8">
+            <div className="order-1 md:order-1">
               <Card
-                className="p-6 text-center bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 border-2 border-gray-300 dark:border-gray-600 cursor-pointer hover:shadow-lg transition-all"
+                className="p-4 text-center bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 border-2 border-gray-300 dark:border-gray-600 cursor-pointer hover:shadow-lg transition-all"
                 onClick={() => navigate(`/developer/${filteredStudents[1].user?._id || filteredStudents[1].user}`)}
               >
-                <div className="flex justify-center mb-4">
-                  <Medal className="h-12 w-12 text-gray-400" />
+                <div className="flex justify-center mb-2">
+                  <Medal className="h-8 w-8 text-gray-400" />
                 </div>
-                <Avatar className="h-20 w-20 mx-auto mb-4 ring-4 ring-gray-300">
+                <Avatar className="h-14 w-14 mx-auto mb-2 ring-2 ring-gray-300">
                   <AvatarImage src={filteredStudents[1].avatar_url} />
-                  <AvatarFallback className="text-2xl bg-gray-300">
+                  <AvatarFallback className="text-lg bg-gray-300">
                     {filteredStudents[1].full_name?.charAt(0).toUpperCase() || "?"}
                   </AvatarFallback>
                 </Avatar>
-                <h3 className="font-bold text-lg truncate">{filteredStudents[1].full_name || "Developer"}</h3>
-                <div className="flex items-center justify-center gap-1 mt-2">
-                  <Coins className="h-5 w-5 text-yellow-500" />
-                  <span className="font-bold text-xl">{filteredStudents[1].coins || 0}</span>
+                <h3 className="font-bold text-sm truncate">{filteredStudents[1].full_name || "Developer"}</h3>
+                <div className="flex items-center justify-center gap-1 mt-1">
+                  <Coins className="h-4 w-4 text-yellow-500" />
+                  <span className="font-bold text-base">{filteredStudents[1].coins || 0}</span>
                 </div>
-                <Badge className="mt-3 bg-gray-400 text-white">2nd Place</Badge>
+                <Badge className="mt-2 h-5 text-xs bg-gray-400 text-white">2nd Place</Badge>
               </Card>
             </div>
 
             {/* 1st Place */}
-            <div className="order-0 md:order-2">
+            <div className="order-0 md:order-2 mb-4 md:mb-0">
               <Card
-                className="p-6 text-center bg-gradient-to-b from-yellow-100 to-yellow-200 dark:from-yellow-900/30 dark:to-yellow-800/30 border-2 border-yellow-400 cursor-pointer hover:shadow-lg transition-all transform md:scale-105"
+                className="p-5 text-center bg-gradient-to-b from-yellow-100 to-yellow-200 dark:from-yellow-900/30 dark:to-yellow-800/30 border-2 border-yellow-400 cursor-pointer hover:shadow-lg transition-all transform md:scale-105"
                 onClick={() => navigate(`/developer/${filteredStudents[0].user?._id || filteredStudents[0].user}`)}
               >
-                <div className="flex justify-center mb-4">
-                  <Trophy className="h-14 w-14 text-yellow-500" />
+                <div className="flex justify-center mb-3">
+                  <Trophy className="h-10 w-10 text-yellow-500" />
                 </div>
-                <Avatar className="h-24 w-24 mx-auto mb-4 ring-4 ring-yellow-400">
+                <Avatar className="h-20 w-20 mx-auto mb-3 ring-4 ring-yellow-400">
                   <AvatarImage src={filteredStudents[0].avatar_url} />
-                  <AvatarFallback className="text-3xl bg-yellow-300">
+                  <AvatarFallback className="text-2xl bg-yellow-300">
                     {filteredStudents[0].full_name?.charAt(0).toUpperCase() || "?"}
                   </AvatarFallback>
                 </Avatar>
-                <h3 className="font-bold text-xl truncate">{filteredStudents[0].full_name || "Developer"}</h3>
-                <div className="flex items-center justify-center gap-1 mt-2">
-                  <Coins className="h-6 w-6 text-yellow-500" />
-                  <span className="font-bold text-2xl">{filteredStudents[0].coins || 0}</span>
+                <h3 className="font-bold text-base truncate">{filteredStudents[0].full_name || "Developer"}</h3>
+                <div className="flex items-center justify-center gap-1 mt-1">
+                  <Coins className="h-5 w-5 text-yellow-500" />
+                  <span className="font-bold text-lg">{filteredStudents[0].coins || 0}</span>
                 </div>
-                <Badge className="mt-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white">Champion</Badge>
+                <Badge className="mt-2 h-6 text-xs bg-gradient-to-r from-yellow-400 to-yellow-600 text-white">Champion</Badge>
               </Card>
             </div>
 
             {/* 3rd Place */}
-            <div className="order-2 md:order-3 md:mt-8">
+            <div className="order-2 md:order-3">
               <Card
-                className="p-6 text-center bg-gradient-to-b from-amber-100 to-amber-200 dark:from-amber-900/30 dark:to-amber-800/30 border-2 border-amber-500 cursor-pointer hover:shadow-lg transition-all"
+                className="p-4 text-center bg-gradient-to-b from-amber-100 to-amber-200 dark:from-amber-900/30 dark:to-amber-800/30 border-2 border-amber-500 cursor-pointer hover:shadow-lg transition-all"
                 onClick={() => navigate(`/developer/${filteredStudents[2].user?._id || filteredStudents[2].user}`)}
               >
-                <div className="flex justify-center mb-4">
-                  <Award className="h-12 w-12 text-amber-600" />
+                <div className="flex justify-center mb-2">
+                  <Award className="h-8 w-8 text-amber-600" />
                 </div>
-                <Avatar className="h-20 w-20 mx-auto mb-4 ring-4 ring-amber-400">
+                <Avatar className="h-14 w-14 mx-auto mb-2 ring-2 ring-amber-400">
                   <AvatarImage src={filteredStudents[2].avatar_url} />
-                  <AvatarFallback className="text-2xl bg-amber-300">
+                  <AvatarFallback className="text-lg bg-amber-300">
                     {filteredStudents[2].full_name?.charAt(0).toUpperCase() || "?"}
                   </AvatarFallback>
                 </Avatar>
-                <h3 className="font-bold text-lg truncate">{filteredStudents[2].full_name || "Developer"}</h3>
-                <div className="flex items-center justify-center gap-1 mt-2">
-                  <Coins className="h-5 w-5 text-yellow-500" />
-                  <span className="font-bold text-xl">{filteredStudents[2].coins || 0}</span>
+                <h3 className="font-bold text-sm truncate">{filteredStudents[2].full_name || "Developer"}</h3>
+                <div className="flex items-center justify-center gap-1 mt-1">
+                  <Coins className="h-4 w-4 text-yellow-500" />
+                  <span className="font-bold text-base">{filteredStudents[2].coins || 0}</span>
                 </div>
-                <Badge className="mt-3 bg-amber-500 text-white">3rd Place</Badge>
+                <Badge className="mt-2 h-5 text-xs bg-amber-500 text-white">3rd Place</Badge>
               </Card>
             </div>
           </div>

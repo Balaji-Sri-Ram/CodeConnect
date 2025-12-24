@@ -30,37 +30,40 @@ export function CompilerSettingsDialog({ open, onOpenChange, settings, onSetting
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-[800px] p-0 gap-0 overflow-hidden bg-background border-border text-foreground sm:rounded-xl">
-                <div className="flex h-[500px]">
-                    <Tabs defaultValue="code-editor" orientation="vertical" className="flex w-full">
+            <DialogContent className="max-w-[800px] w-[95vw] sm:w-full p-0 gap-0 overflow-hidden bg-background border-border text-foreground rounded-lg sm:rounded-xl">
+                <div className="flex flex-col sm:flex-row h-auto max-h-[80vh] sm:h-[500px]">
+                    <Tabs defaultValue="code-editor" orientation="vertical" className="flex flex-col sm:flex-row w-full h-full">
                         {/* Sidebar */}
-                        <div className="w-[240px] border-r border-border bg-muted/30 flex flex-col">
-                            <div className="p-4 pl-6 relative">
+                        <div className="w-full sm:w-[240px] border-b sm:border-b-0 sm:border-r border-border bg-muted/30 flex flex-col shrink-0">
+                            <div className="p-3 sm:p-4 pl-4 sm:pl-6 relative">
                                 <DialogTitle className="text-lg font-medium text-foreground">Settings</DialogTitle>
                             </div>
-                            <TabsList className="flex flex-col h-auto w-full bg-transparent p-0 gap-1 items-start justify-start space-y-0">
-                                <TabsTrigger
-                                    value="dynamic-layout"
-                                    className="w-full justify-start gap-3 px-6 py-3 text-muted-foreground data-[state=active]:bg-blue-500/10 data-[state=active]:text-blue-500 data-[state=active]:border-l-2 data-[state=active]:border-blue-500 rounded-none transition-none"
-                                >
-                                    <Layout className="h-4 w-4" />
-                                    Dynamic Layout
-                                </TabsTrigger>
-                                <TabsTrigger
-                                    value="code-editor"
-                                    className="w-full justify-start gap-3 px-6 py-3 text-muted-foreground data-[state=active]:bg-blue-500/10 data-[state=active]:text-blue-500 data-[state=active]:border-l-2 data-[state=active]:border-blue-500 rounded-none transition-none"
-                                >
-                                    <Type className="h-4 w-4" />
-                                    Code Editor
-                                </TabsTrigger>
-                                <TabsTrigger
-                                    value="shortcuts"
-                                    className="w-full justify-start gap-3 px-6 py-3 text-muted-foreground data-[state=active]:bg-blue-500/10 data-[state=active]:text-blue-500 data-[state=active]:border-l-2 data-[state=active]:border-blue-500 rounded-none transition-none"
-                                >
-                                    <Keyboard className="h-4 w-4" />
-                                    Shortcuts
-                                </TabsTrigger>
-                            </TabsList>
+                            <div className="overflow-x-auto w-full no-scrollbar">
+                                <TabsList className="flex flex-row sm:flex-col h-auto w-full bg-transparent p-0 gap-0 sm:gap-1 items-start justify-start space-y-0 min-w-full sm:min-w-0">
+                                    <TabsTrigger
+                                        value="dynamic-layout"
+                                        className="flex-1 sm:flex-none w-auto sm:w-full justify-center sm:justify-start gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 text-sm whitespace-nowrap text-muted-foreground data-[state=active]:bg-blue-500/10 data-[state=active]:text-blue-500 data-[state=active]:border-b-2 sm:data-[state=active]:border-b-0 sm:data-[state=active]:border-l-2 data-[state=active]:border-blue-500 rounded-none transition-none ring-0 focus:ring-0 outline-none"
+                                    >
+                                        <Layout className="h-4 w-4" />
+                                        <span className="hidden sm:inline">Dynamic Layout</span>
+                                        <span className="sm:hidden">Layout</span>
+                                    </TabsTrigger>
+                                    <TabsTrigger
+                                        value="code-editor"
+                                        className="flex-1 sm:flex-none w-auto sm:w-full justify-center sm:justify-start gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 text-sm whitespace-nowrap text-muted-foreground data-[state=active]:bg-blue-500/10 data-[state=active]:text-blue-500 data-[state=active]:border-b-2 sm:data-[state=active]:border-b-0 sm:data-[state=active]:border-l-2 data-[state=active]:border-blue-500 rounded-none transition-none ring-0 focus:ring-0 outline-none"
+                                    >
+                                        <Type className="h-4 w-4" />
+                                        Code Editor
+                                    </TabsTrigger>
+                                    <TabsTrigger
+                                        value="shortcuts"
+                                        className="flex-1 sm:flex-none w-auto sm:w-full justify-center sm:justify-start gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 text-sm whitespace-nowrap text-muted-foreground data-[state=active]:bg-blue-500/10 data-[state=active]:text-blue-500 data-[state=active]:border-b-2 sm:data-[state=active]:border-b-0 sm:data-[state=active]:border-l-2 data-[state=active]:border-blue-500 rounded-none transition-none ring-0 focus:ring-0 outline-none"
+                                    >
+                                        <Keyboard className="h-4 w-4" />
+                                        Shortcuts
+                                    </TabsTrigger>
+                                </TabsList>
+                            </div>
                         </div>
 
                         {/* Content Area */}
@@ -68,7 +71,7 @@ export function CompilerSettingsDialog({ open, onOpenChange, settings, onSetting
 
 
                             {/* Dynamic Layout Content */}
-                            <TabsContent value="dynamic-layout" className="m-0 p-8 space-y-8 mt-0 h-full">
+                            <TabsContent value="dynamic-layout" className="m-0 p-4 sm:p-8 space-y-6 sm:space-y-8 mt-0 h-full">
                                 <div className="space-y-6">
                                     <div className="flex items-center justify-between">
                                         <label className="text-sm font-medium text-foreground">Default layout</label>
@@ -118,7 +121,7 @@ export function CompilerSettingsDialog({ open, onOpenChange, settings, onSetting
                             </TabsContent>
 
                             {/* Code Editor Content */}
-                            <TabsContent value="code-editor" className="m-0 p-8 space-y-6 mt-0 h-full text-sm">
+                            <TabsContent value="code-editor" className="m-0 p-4 sm:p-8 space-y-6 mt-0 h-full text-sm">
                                 <div className="space-y-6">
                                     <div className="flex items-center justify-between">
                                         <label className="text-foreground font-medium">Font</label>
@@ -179,7 +182,7 @@ export function CompilerSettingsDialog({ open, onOpenChange, settings, onSetting
                             </TabsContent>
 
                             {/* Shortcuts Content */}
-                            <TabsContent value="shortcuts" className="m-0 p-8 space-y-6 mt-0 h-full">
+                            <TabsContent value="shortcuts" className="m-0 p-4 sm:p-8 space-y-6 mt-0 h-full">
                                 <div className="space-y-6">
                                     <div className="space-y-4">
                                         <h3 className="text-sm font-medium text-muted-foreground">General</h3>

@@ -162,7 +162,7 @@ const CompanyDashboard = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Stats Cards */}
-      <div className="grid gap-6 md:grid-cols-4 mb-8">
+      <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mb-8">
         <Card className="p-6 bg-gradient-card shadow-md">
           <div className="flex items-center justify-between">
             <div>
@@ -215,7 +215,7 @@ const CompanyDashboard = () => {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid gap-6 md:grid-cols-2 mb-8">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 mb-8">
         <Card className="p-6 bg-gradient-hero text-primary-foreground shadow-glow">
           <h3 className="text-xl font-semibold mb-2">Post a New Challenge</h3>
           <p className="mb-4 opacity-90">
@@ -309,7 +309,7 @@ const CompanyDashboard = () => {
 
       {/* Create Challenge Dialog */}
       <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="w-[90%] sm:max-w-lg max-h-[85vh] overflow-y-auto rounded-xl p-4 sm:p-6">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
               Create New Challenge
@@ -392,7 +392,7 @@ const CompanyDashboard = () => {
 
       {/* Challenge Details Dialog */}
       <Dialog open={showDetailsDialog} onOpenChange={setShowDetailsDialog}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="w-[90%] sm:max-w-lg max-h-[85vh] overflow-y-auto rounded-xl p-4 sm:p-6">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
               Challenge Details

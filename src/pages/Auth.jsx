@@ -88,7 +88,7 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md space-y-4">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 text-2xl font-bold mb-2">
             <Code2 className="h-8 w-8 text-primary" />
@@ -144,6 +144,14 @@ const Auth = () => {
                         <Eye className="h-4 w-4 text-muted-foreground" />
                       )}
                     </Button>
+                  </div>
+                  <div className="flex justify-end pt-1">
+                    <Link
+                      to="/forgot-password"
+                      className="text-sm font-medium text-primary hover:text-primary/80 hover:underline transition-colors"
+                    >
+                      Forgot password?
+                    </Link>
                   </div>
                 </div>
                 <Button type="submit" className="w-full" disabled={loading} variant="hero">

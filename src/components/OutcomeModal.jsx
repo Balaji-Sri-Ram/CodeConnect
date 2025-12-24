@@ -21,7 +21,7 @@ const OutcomeModal = ({ isOpen, onClose, data }) => {
           Dark Mode: bg-[#282828], text-[#eff1f6eb] (as requested)
       */}
             <div
-                className="relative w-full max-w-[480px] bg-white dark:bg-[#282828] text-black dark:text-[#eff1f6eb] rounded-xl shadow-2xl animate-modal-float overflow-hidden flex flex-col items-center"
+                className="relative w-[90vw] sm:max-w-[480px] bg-white dark:bg-[#282828] text-black dark:text-[#eff1f6eb] rounded-xl shadow-2xl animate-modal-float overflow-hidden flex flex-col items-center"
                 style={{ padding: "24px" }}
             >
 

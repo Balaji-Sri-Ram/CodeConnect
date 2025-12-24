@@ -102,7 +102,7 @@ const PublicCompanyProfile = () => {
                 {/* Profile Header */}
                 <Card className="mb-6 overflow-hidden">
                     <div className="h-32 bg-primary relative">
-                        <h1 className="absolute bottom-4 left-4 md:left-44 text-3xl font-bold text-white z-10 truncate max-w-[calc(100%-200px)] md:max-w-none">
+                        <h1 className="hidden md:block absolute bottom-4 left-44 text-3xl font-bold text-white z-10 truncate">
                             {profile.company_name || profile.full_name || "Company"}
                         </h1>
                     </div>
@@ -115,7 +115,12 @@ const PublicCompanyProfile = () => {
                                 </AvatarFallback>
                             </Avatar>
 
-                            <div className="text-center md:text-left flex-1 pb-4 md:pt-16 pr-3">
+                            <div className="text-center md:text-left flex-1 pb-4 mt-4 md:mt-[72px] pr-3">
+                                {/* Mobile Name Display */}
+                                <h1 className="md:hidden text-2xl font-bold mb-2">
+                                    {profile.company_name || profile.full_name || "Company"}
+                                </h1>
+
                                 {profile.bio && (
                                     <p className="text-muted-foreground mt-2">{profile.bio}</p>
                                 )}
