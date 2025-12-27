@@ -24,4 +24,4 @@ This project helped me strengthen my understanding of:
  • Authentication using JWT
  • Building real-world developer tools from scratch
 
-🔗 Live Project: [https://lnkd.in/gvKrjCri]([url](https://code-connect-sand-eta.vercel.app/))
+🔗 Live Project: [https://lnkd.in/gvKrjCri]([https://code-connect-sand-eta.vercel.app/])
