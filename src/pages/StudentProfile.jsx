@@ -90,7 +90,10 @@ const StudentProfile = () => {
         }
       });
 
-      const fullUrl = `${BASE_URL}${filePath}`;
+      let fullUrl = filePath;
+      if (filePath.startsWith('/')) {
+        fullUrl = `${BASE_URL}${filePath}`;
+      }
 
       await api.post('/profile', {
         ...profile,

@@ -207,7 +207,7 @@ const CompanyDashboard = () => {
       {/* Welcome Section */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">
-          Welcome, {companyProfile?.company_name || "Company"}! 🚀
+          Welcome, {companyProfile?.company_name || "Company"}
         </h1>
         <p className="text-muted-foreground">
           Find top talent and post challenges to discover the best developers

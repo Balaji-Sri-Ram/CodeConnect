@@ -149,7 +149,7 @@ const StudentDashboard = () => {
       {/* Welcome Section */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">
-          Welcome back, {profile?.full_name || profile?.company_name || "Developer"}! 👋
+          Welcome back, {profile?.full_name || profile?.company_name || "Developer"}
         </h1>
         <p className="text-muted-foreground">
           Ready to solve some problems and earn more coins?

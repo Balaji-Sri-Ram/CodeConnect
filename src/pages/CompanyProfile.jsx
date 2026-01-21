@@ -86,7 +86,10 @@ const CompanyProfile = () => {
       const { data: filePath } = await api.post('/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
-      const fullUrl = `${BASE_URL}${filePath}`;
+      let fullUrl = filePath;
+      if (filePath.startsWith('/')) {
+        fullUrl = `${BASE_URL}${filePath}`;
+      }
 
       // Update profile
       await api.post('/profile', { ...profile, avatar_url: fullUrl });
