@@ -22,13 +22,22 @@ const StudentDashboard = () => {
         const token = localStorage.getItem('token');
         if (!token) return;
 
-        // Fetch Profile
-        const { data: profileData } = await api.get('/profile/me');
+        // Parallelize all data fetching
+        const [
+          { data: profileData },
+          { data: submissions },
+          { data: problems },
+          { data: challengesData }
+        ] = await Promise.all([
+          api.get('/profile/me'),
+          api.get('/submissions/my'),
+          api.get('/problems?limit=10'),
+          api.get('/challenges?limit=10')
+        ]);
+
         setProfile(profileData);
 
-        // Fetch Submissions for Stats
-        const { data: submissions } = await api.get('/submissions/my');
-
+        // Process Submissions for Stats
         let easyCount = 0;
         let mediumCount = 0;
         let hardCount = 0;
@@ -65,13 +74,8 @@ const StudentDashboard = () => {
           solvedIds: solvedProblemIds
         });
 
-        // Fetch Practice Problems from API
-        const { data: problems } = await api.get('/problems');
-        // Take top 10 for dashboard
-        setCodeforcesProblems(problems.slice(0, 10));
-
-        // Fetch Challenges
-        const { data: challengesData } = await api.get('/challenges');
+        // Set Problems and Challenges (already limited by API)
+        setCodeforcesProblems(problems);
         setCompanyChallenges(challengesData || []);
 
       } catch (error) {

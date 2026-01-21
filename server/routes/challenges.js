@@ -11,7 +11,13 @@ const Profile = require('../models/Profile'); // Ensure Profile is required
 router.get('/', async (req, res) => {
     try {
         // Fetch challenges and populate basic user info
-        const challenges = await Challenge.find().populate('company', ['email']).lean(); // Use lean() for easier modification
+        let query = Challenge.find().populate('company', ['email']);
+
+        if (req.query.limit) {
+            query = query.limit(parseInt(req.query.limit));
+        }
+
+        const challenges = await query.lean(); // Use lean() for easier modification
 
         // Get unique company user IDs
         const companyIds = challenges.map(c => c.company?._id || c.company).filter(id => id);

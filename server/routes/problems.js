@@ -7,7 +7,13 @@ const Problem = require('../models/Problem');
 // @access  Public
 router.get('/', async (req, res) => {
     try {
-        const problems = await Problem.find().select('-input -output'); // Hide test cases from list
+        let query = Problem.find().select('-input -output'); // Hide test cases from list
+
+        if (req.query.limit) {
+            query = query.limit(parseInt(req.query.limit));
+        }
+
+        const problems = await query;
         res.json(problems);
     } catch (err) {
         console.error(err.message);
