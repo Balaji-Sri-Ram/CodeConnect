@@ -2,9 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+const path = require('path');
 
-dotenv.config();
+// Configure dotenv to load from root directory
+dotenv.config({ path: path.join(__dirname, '../.env') });
+
+const connectDB = require('./config/db');
 
 const app = express();
 
@@ -30,7 +33,7 @@ app.use('/api/upload', require('./routes/upload'));
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/notifications', require('./routes/notifications'));
 
-const path = require('path');
+
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 
