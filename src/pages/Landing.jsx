@@ -314,7 +314,10 @@ const Landing = () => {
               <div className="w-full md:w-1/2 text-center md:text-left">
                 <h2 className="text-3xl font-bold mb-4">Meet the Developer</h2>
                 <h3 className="text-xl text-primary font-semibold mb-6 flex items-center justify-center md:justify-start gap-2">
-                  Balaji Sri Ram Parasa <CheckCircle2 className="h-5 w-5 fill-primary text-background" />
+                  <a href="https://balaji-sri-ram.github.io/Portfolio" target="_blank" rel="noopener noreferrer" className="text-inherit no-underline hover:no-underline">
+                    Balaji Sri Ram Parasa
+                  </a>
+                  <CheckCircle2 className="h-5 w-5 fill-primary text-background" />
                 </h3>
 
                 <div className="space-y-4 text-muted-foreground mb-8 text-lg">
