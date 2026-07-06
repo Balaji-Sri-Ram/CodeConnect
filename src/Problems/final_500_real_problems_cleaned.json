@@ -5349,5 +5349,16 @@
     "description": "Given an integer n, return true if it is a power of three. Otherwise, return false.\n\nInput:\nFirst line contains an integer n.\n\nOutput:\nPrint 'true' if the condition is met, otherwise 'false'.",
     "input": "27",
     "output": "true"
+  },
+  {
+    "title": "Find First and Last Position of Element in Sorted Array",
+    "description": "Given a sorted array of integers and a target value, find the starting and ending position of the target using binary search.\nIf the target is not found, return -1 -1.\n\nInput:\nFirst line: n.\nSecond line: n sorted integers.\nLast line: target.\n\nOutput:\nTwo integers representing the first and last occurrence of the target.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Binary Search"
+    ],
+    "input": "6\n5 7 7 8 8 10\n8",
+    "output": "3 4"
   }
 ]
