@@ -26,4 +26,4 @@ This project helped me strengthen my understanding of:
  
 ## Deployments
 
-🔗 Live Project: https://code-connect-sand-eta.vercel.app
+ • Live Project: https://code-connect-sand-eta.vercel.app
