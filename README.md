@@ -16,12 +16,12 @@ To solve this, I built CodeConnect, a full-stack MERN application that helps use
 
 Instead of jumping between resources, CodeConnect brings problem-solving, coding, and learning into one platform, closely simulating real interview practice and competitive coding environments.
 
-This project helped me strengthen my understanding of:
- • Full-stack MERN architecture
- • React state management & component design
- • REST API development using Node & Express
- • MongoDB schema design
- • Authentication using JWT
+This project helped me strengthen my understanding of: <br>
+ • Full-stack MERN architecture <br>
+ • React state management & component design <br>
+ • REST API development using Node & Express <br>
+ • MongoDB schema design <br>
+ • Authentication using JWT <br>
  • Building real-world developer tools from scratch
  
 ## Deployments
