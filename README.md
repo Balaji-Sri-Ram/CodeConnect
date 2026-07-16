@@ -6,6 +6,11 @@ To solve this, I built CodeConnect, a full-stack MERN application that helps use
 
 ## What the platform does: <br>
  • Provides a structured list of coding problems <br>
+ • Categorizes problems by difficulty (Easy / Medium / Hard) <br>
+ • Displays detailed problem statements with input & output formats <br>
+ • Allows users to write code directly in the browser <br>
+ • Supports multiple programming languages <br>
+ • Executes and evaluates code submissions <br>
  • Maintains a clean and distraction-free coding interface <br>
  • Implements secure user authentication <br>
 
