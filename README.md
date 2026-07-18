@@ -20,6 +20,12 @@ Instead of jumping between resources, CodeConnect brings problem-solving, coding
  • User Authentication (JWT) <br>
  • Problem Solving Interface <br>
  • Online Code Editor <br>
+ • Multiple Language Support <br>
+ • Code Execution <br>
+ • Difficulty Filters <br>
+ • Secure Backend APIs <br>
+ • Responsive UI <br>
+ • MongoDB Database <br>
  
 
 This project helped me strengthen my understanding of: <br>
