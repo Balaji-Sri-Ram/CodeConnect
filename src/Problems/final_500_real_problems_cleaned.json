@@ -5360,5 +5360,18 @@
     ],
     "input": "6\n5 7 7 8 8 10\n8",
     "output": "3 4"
+  },
+  {
+    "title": "Find X-Sum of All K-Long Subarrays I",
+    "description": "You are given an integer array nums and two integers k and x. For every contiguous subarray of length k, compute its X-Sum.\n\nThe X-Sum of a subarray is obtained by selecting the x most frequent elements in the subarray. If two elements have the same frequency, the larger element is considered more frequent. The contribution of each selected element is its frequency multiplied by its value.\n\nReturn the X-Sum for every subarray of length k.\n\nInput:\nFirst line contains n — size of array.\nSecond line contains n space-separated integers.\nThird line contains k and x.\n\nOutput:\nPrint the X-Sum for every subarray of length k separated by spaces.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Sliding Window",
+      "Hash Map",
+      "Sorting"
+    ],
+    "input": "6\n1 1 2 2 3 4\n4 2",
+    "output": "6 7 9"
   }
 ]
