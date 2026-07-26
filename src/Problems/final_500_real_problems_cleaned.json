@@ -5386,5 +5386,17 @@
     ],
     "input": "7\n8 3 10 1 6 -1 14",
     "output": "3"
+  }.
+  {
+    "title": "Largest Integer With Given Digit Sum",
+    "description": "You are given an integer n representing the required digit sum.\n\nConstruct the largest possible non-negative integer whose digits sum to exactly n. The integer should not contain leading zeros unless the answer is 0.\n\nInput:\nFirst line contains an integer n.\n\nOutput:\nPrint the largest possible integer whose digits sum is exactly n.",
+    "difficulty": "Easy",
+    "topics": [
+      "Greedy",
+      "Math",
+      "String"
+    ],
+    "input": "20",
+    "output": "992"
   }
 ]
