@@ -5398,5 +5398,18 @@
     ],
     "input": "20",
     "output": "992"
+  },
+  {
+    "title": "Aggregate Two Time Series",
+    "description": "You are given two time series, each represented as a list of timestamp-value pairs sorted by timestamp in ascending order. Merge the two series into a single time series. If the same timestamp appears in both series, their values should be added together. Otherwise, include the existing timestamp-value pair.\n\nInput:\nFirst line contains n — number of entries in the first time series.\nNext n lines contain two integers: timestamp and value.\nNext line contains m — number of entries in the second time series.\nNext m lines contain two integers: timestamp and value.\n\nOutput:\nPrint the merged time series in ascending order of timestamp, one timestamp-value pair per line.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Two Pointers",
+      "Sorting",
+      "Merge"
+    ],
+    "input": "3\n1 5\n3 2\n5 4\n4\n2 7\n3 6\n4 1\n5 8",
+    "output": "1 5\n2 7\n3 8\n4 1\n5 12"
   }
 ]
