@@ -5449,5 +5449,18 @@
     ],
     "input": "6\n2 7 5 3 8 1\n5",
     "output": "2"
+  },
+  {
+    "title": "Minimum Cost Path with Alternating Directions III",
+    "description": "You are given a grid of size m x n. Each cell contains a non-negative cost. Starting from the top-left cell, you need to reach the bottom-right cell. You may move between adjacent cells, but the direction of your movement must alternate between horizontal and vertical moves. The cost of a path is the sum of the costs of all visited cells.\n\nReturn the minimum possible cost to reach the bottom-right cell while satisfying the alternating-direction rule.\n\nInput:\nFirst line contains two integers m and n — the number of rows and columns.\nNext m lines contain n space-separated integers representing the grid costs.\n\nOutput:\nPrint the minimum cost of a valid path.",
+    "difficulty": "Hard",
+    "topics": [
+      "Dynamic Programming",
+      "Graph",
+      "Shortest Path",
+      "State-Based DP"
+    ],
+    "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+    "output": "21"
   }
 ]
