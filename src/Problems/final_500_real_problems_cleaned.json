@@ -5462,5 +5462,17 @@
     ],
     "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
     "output": "21"
+  },
+  {
+    "title": "Minimum Total Price After Applying Discounts",
+    "description": "You are given an array prices representing the prices of items and an array discounts representing available discount percentages. Each discount can be applied to at most one item. Apply the discounts to the items in such a way that the total price after discounts is minimized.\n\nA discount of d percent on an item with price p reduces its price by p * d / 100. Each item can receive at most one discount, and each discount can be used at most once.\n\nInput:\nFirst line contains n — number of items.\nSecond line contains n space-separated integers representing the item prices.\nThird line contains m — number of available discounts.\nFourth line contains m space-separated integers representing the discount percentages.\n\nOutput:\nPrint the minimum possible total price after applying the discounts.",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Greedy",
+      "Sorting"
+    ],
+    "input": "4\n100 50 200 80\n3\n10 20 30",
+    "output": "345"
   }
 ]
