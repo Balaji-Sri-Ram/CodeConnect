@@ -5474,5 +5474,18 @@
     ],
     "input": "4\n100 50 200 80\n3\n10 20 30",
     "output": "345"
+  },
+  {
+    "title": "Maximum Sum of a Subarray With Equal Frequency",
+    "description": "Given an integer array nums, find the maximum sum of a non-empty contiguous subarray in which every distinct element appears the same number of times.\n\nA subarray is valid if all distinct values occurring in it have identical frequencies. Return the maximum possible sum among all valid subarrays.\n\nInput:\nFirst line contains n — size of the array.\nSecond line contains n space-separated integers.\n\nOutput:\nPrint the maximum sum of a valid subarray.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hash Map",
+      "Prefix Sum",
+      "Sliding Window"
+    ],
+    "input": "7\n2 2 1 1 3 3 2",
+    "output": "12"
   }
 ]
