@@ -29,13 +29,7 @@ Instead of jumping between resources, CodeConnect brings problem-solving, coding
  • MongoDB Database <br>
  
 
-This project helped me strengthen my understanding of: <br>
- • Full-stack MERN architecture <br>
- • React state management & component design <br>
- • REST API development using Node & Express <br>
- • MongoDB schema design <br>
- • Authentication using JWT <br>
- • Building real-world developer tools from scratch
+
  
 ## Deployments
 
