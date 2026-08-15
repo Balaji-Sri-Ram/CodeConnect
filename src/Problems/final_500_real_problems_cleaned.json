@@ -5500,5 +5500,18 @@
     ],
     "input": "4 5\n1 1 1 1 1\n1 1 1 1 1\n1 1 1 1 1\n1 1 1 1 1",
     "output": "0"
+  },
+  {
+      "title": "Maximum Square Area",
+    "description": "You are given a binary matrix mat containing only 0s and 1s. Find the largest possible area of a square submatrix that contains only 1s and can be placed so that there are at least two such non-overlapping square regions in the matrix.\n\nTwo squares are considered non-overlapping if they do not share any cell.\n\nReturn the maximum possible area of such a square.\n\nInput:\nFirst line contains two integers m and n — the number of rows and columns in the matrix.\nNext m lines contain n space-separated integers representing the matrix.\n\nOutput:\nPrint the maximum area of a square consisting entirely of 1s for which two non-overlapping such squares can exist.",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Matrix",
+      "Dynamic Programming",
+      "Binary Search"
+    ],
+    "input": "4 5\n1 1 1 0 0\n1 1 1 1 1\n1 1 1 1 1\n0 1 1 1 1",
+    "output": "9"
   }
 ]
