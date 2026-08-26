@@ -5538,5 +5538,17 @@
     ],
     "input": "6\n6 10 15 7 14 21\n3",
     "output": "4"
+  },
+  {
+    "title": "Find All Numbers Disappeared in an Array II",
+    "description": "You are given an integer array nums of length n. Each element of nums is in the range from 1 to n, and some values may appear more than once. Find all numbers from 1 to n that do not appear in the array.\n\nReturn the missing numbers in increasing order.\n\nInput:\nFirst line contains n — size of the array.\nSecond line contains n space-separated integers.\n\nOutput:\nPrint all missing numbers in increasing order. If no number is missing, print -1.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Counting"
+    ],
+    "input": "8\n4 3 2 7 8 2 3 1",
+    "output": "5 6"
   }
 ]
