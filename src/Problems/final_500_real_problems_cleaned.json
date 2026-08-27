@@ -5550,5 +5550,18 @@
     ],
     "input": "8\n4 3 2 7 8 2 3 1",
     "output": "5 6"
+  },
+  {
+     "title": "Elevator Requests IV",
+    "description": "You are given a building with n floors and a sequence of elevator requests. Each request specifies the floor from which a person enters the elevator and the floor to which they want to go. The elevator starts at floor 1. Determine the minimum total distance the elevator must travel to serve all requests in the given order.\n\nThe elevator can move between any two floors, and the distance traveled between floors a and b is |a - b|.\n\nInput:\nFirst line contains n — number of floors.\nSecond line contains m — number of elevator requests.\nNext m lines contain two integers start and destination representing each request.\n\nOutput:\nPrint the minimum total distance traveled by the elevator after serving all requests.",
+    "difficulty": "Hard",
+    "topics": [
+      "Dynamic Programming",
+      "Greedy",
+      "Array",
+      "Math"
+    ],
+    "input": "10\n4\n2 8\n5 3\n7 10\n4 1",
+    "output": "25"
   }
 ]
