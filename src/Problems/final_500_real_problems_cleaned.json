@@ -5563,5 +5563,18 @@
     ],
     "input": "10\n4\n2 8\n5 3\n7 10\n4 1",
     "output": "25"
+  },
+  {
+    "title": "Longest Subarray With at Most K Distinct Prime Factors",
+    "description": "You are given an integer array nums and an integer k. The prime factor set of a positive integer is the set of distinct prime numbers that divide it.\n\nA subarray is called valid if the union of the prime factor sets of all its elements contains at most k distinct prime numbers.\n\nReturn the length of the longest valid contiguous subarray.\n\nInput:\nFirst line contains n — size of array.\nSecond line contains n space-separated positive integers.\nThird line contains k — maximum number of distinct prime factors allowed.\n\nOutput:\nPrint the length of the longest valid contiguous subarray.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Number Theory",
+      "Sliding Window",
+      "Hash Set"
+    ],
+    "input": "6\n6 10 15 7 14 21\n3",
+    "output": "4"
   }
 ]
