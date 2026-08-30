@@ -5576,5 +5576,18 @@
     ],
     "input": "6\n6 10 15 7 14 21\n3",
     "output": "4"
+  },
+  {
+    "title": "Lexicographically Largest String After Pair Transformations",
+    "description": "You are given a string s consisting of lowercase English letters and an integer x. In one operation, you may choose two equal characters and replace them with the next character in the alphabet. For example, two 'a' characters can be transformed into one 'b', two 'b' characters into one 'c', and so on. Determine the lexicographically largest string that can be obtained after applying any number of such operations.\n\nInput:\nFirst line contains a string s.\nSecond line contains an integer x representing the number of transformations allowed.\n\nOutput:\nPrint the lexicographically largest string that can be obtained.",
+    "difficulty": "Medium",
+    "topics": [
+      "String",
+      "Greedy",
+      "Counting",
+      "Bit Manipulation"
+    ],
+    "input": "aabbcccc\n3",
+    "output": "dc"
   }
 ]
