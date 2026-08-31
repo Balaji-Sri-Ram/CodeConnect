@@ -5589,5 +5589,17 @@
     ],
     "input": "aabbcccc\n3",
     "output": "dc"
+  },
+  {
+    "title": "Count Integers Appearing in a Single Block",
+    "description": "You are given an integer array nums. An integer x is called special if all occurrences of x in nums appear in a single contiguous block. Return the number of distinct special integers in nums.\n\nInput:\nFirst line contains n — size of the array.\nSecond line contains n space-separated integers.\n\nOutput:\nPrint the number of distinct integers whose occurrences appear in exactly one contiguous block.",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Counting"
+    ],
+    "input": "6\n3 3 1 2 2 1",
+    "output": "2"
   }
 ]
