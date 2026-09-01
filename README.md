@@ -1,10 +1,6 @@
 # CodeConnect
 CodeConnect - Master Coding & Connect with Top Companies  
-**Coding Practice Platform using MERN Stack**
 
-Learning Data Structures & Algorithms often becomes difficult without a structured platform, real problems, and hands-on practice.
-
-To solve this, I built **CodeConnect**, a full-stack MERN application that helps users practice coding problems and prepare for technical interviews in a focused and interactive way.
 
 ## What the platform does:
 - Contains 500+ curated DSA practice problems tailored for technical interviews
