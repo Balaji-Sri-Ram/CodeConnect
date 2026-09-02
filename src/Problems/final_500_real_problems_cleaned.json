@@ -5601,5 +5601,18 @@
     ],
     "input": "6\n3 3 1 2 2 1",
     "output": "2"
+  },
+  {
+    "title": "Minimum Operations to Form Subset Sum I",
+    "description": "You are given an integer array nums and an integer target. In one operation, you can increase or decrease an element of nums by 1. Find the minimum number of operations required to make it possible to choose a subset of the resulting array whose sum is exactly target.\n\nInput:\nFirst line contains n — size of array.\nSecond line contains n space-separated integers.\nThird line contains the target value.\n\nOutput:\nPrint the minimum number of operations required.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Dynamic Programming",
+      "Subset Sum",
+      "Greedy"
+    ],
+    "input": "5\n1 2 4 7 9\n10",
+    "output": "0"
   }
 ]
