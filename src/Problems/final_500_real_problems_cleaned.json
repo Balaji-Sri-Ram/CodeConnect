@@ -5627,5 +5627,18 @@
     ],
     "input": "2 13\n10 2",
     "output": "3"
+  },
+  {
+     "title": "Minimum Operations to Form Subset Sum II",
+    "description": "You are given an integer array nums and an integer sum.\n\nIn one operation, choose an element with current value x and replace it with either 2 * x or floor(x / 2).\n\nFor each element, multiplication and division operations can be performed in any order.\n\nReturn the minimum number of operations needed so that some subset of the resulting array has a sum exactly equal to sum. If it is impossible, return -1.\n\nInput:\nFirst line contains n and sum — the size of the array and the target sum.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the minimum number of operations needed to obtain a subset whose sum is exactly sum, or -1 if it is impossible.",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Dynamic Programming",
+      "Subset Sum",
+      "Breadth-First Search"
+    ],
+    "input": "2 13\n10 2",
+    "output": "3"
   }
 ]
