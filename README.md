@@ -31,15 +31,3 @@ Instead of jumping between resources, CodeConnect brings problem-solving, coding
 - **MongoDB Database**
 
 ---
-
-### Key Takeaways
-This project strengthened my understanding of:
-- Full-stack MERN architecture
-- React state management & component design
-- REST API development using Node.js & Express
-- MongoDB schema design & indexing
-- Authentication using JWT
-- Building real-world developer tools from scratch
-
-## Deployments
-- **Live Project:** https://code-connect-sand-eta.vercel.app
