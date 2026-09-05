@@ -5629,7 +5629,7 @@
     "output": "3"
   },
   {
-     "title": "Maximum Valid Split Positions I",
+    "title": "Maximum Valid Split Positions I",
     "description": "You are given an integer array nums.\n\nYou may remove at most one element from nums. Let arr be the array of remaining elements in their original order.\n\nA split position i of arr is valid if 0 <= i < m - 1 and the GCD of all elements on the left side is equal to the GCD of all elements on the right side.\n\nThe score of arr is the number of valid split positions.\n\nReturn the maximum possible score after removing at most one element.\n\nInput:\nFirst line contains n — the size of the array.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the maximum possible number of valid split positions.",
     "difficulty": "Medium",
     "topics": [
@@ -5640,5 +5640,20 @@
     ],
     "input": "4\n10 30 15 10",
     "output": "2"
+  },
+  {
+    "title": "Maximum Valid Split Positions II",
+    "description": "You are given an integer array nums.\n\nYou may remove at most one element from nums. Let arr be the array of remaining elements in their original order, and let m be its length.\n\nA split position i of arr is valid if 0 <= i < m - 1 and the GCD of all elements on the left side is equal to the GCD of all elements on the right side.\n\nThe score of arr is the number of valid split positions.\n\nReturn the maximum possible score after removing at most one element.\n\nInput:\nFirst line contains n — the size of the array.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the maximum possible number of valid split positions.",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Math",
+      "Number Theory",
+      "GCD",
+      "Prefix GCD",
+      "Suffix GCD"
+    ],
+    "input": "6\n20 99 20 10 5 5",
+    "output": "1"
   }
 ]
