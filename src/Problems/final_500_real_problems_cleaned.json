@@ -5655,5 +5655,18 @@
     ],
     "input": "6\n20 99 20 10 5 5",
     "output": "1"
+  },
+  {
+    "title": "Count Robot Groups",
+    "description": "You are given a strictly increasing integer array position, where position[i] is the initial position of the i-th robot at time t = 0.\n\nYou are also given an integer array speed, where speed[i] is the constant speed of the i-th robot, and an integer distance.\n\nRobots move continuously to the right. Whenever the distance between two robots or groups becomes at most distance, they merge into a single group. If multiple robots or groups satisfy the merging condition at the same time, all merges happen simultaneously.\n\nAfter a merge, the resulting group takes the current position and speed of the rightmost robot in that group. Once merged, robots never separate.\n\nReturn the number of groups remaining after all possible merges have occurred.\n\nInput:\nFirst line contains n — the number of robots.\nSecond line contains n integers representing position.\nThird line contains n integers representing speed.\nFourth line contains distance.\n\nOutput:\nPrint the number of groups remaining after all possible merges.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Greedy",
+      "Monotonic Stack",
+      "Simulation"
+    ],
+    "input": "4\n1 5 6 20\n4 3 2 3\n1",
+    "output": "2"
   }
 ]
