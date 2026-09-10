@@ -5668,5 +5668,18 @@
     ],
     "input": "4\n1 5 6 20\n4 3 2 3\n1",
     "output": "2"
+  },
+  {
+    "title": "Minimum Operations to Make XOR of All Elements Zero",
+    "description": "You are given an integer array nums.\n\nIn one operation, you can modify an element of the array according to the rules of the problem. Your goal is to make the bitwise XOR of all elements in nums equal to zero.\n\nReturn the minimum number of operations required.\n\nInput:\nFirst line contains n — the size of the array.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the minimum number of operations required to make the XOR of all elements equal to zero.",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Bit Manipulation",
+      "XOR",
+      "Greedy"
+    ],
+    "input": "4\n1 2 3 4",
+    "output": "1"
   }
 ]
