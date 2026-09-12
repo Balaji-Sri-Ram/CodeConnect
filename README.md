@@ -6,15 +6,7 @@ Learning Data Structures & Algorithms often becomes difficult without a structur
 
 To solve this, I built **CodeConnect**, a full-stack MERN application that helps users practice coding problems and prepare for technical interviews in a focused and interactive way.
 
-## What the platform does:
-- Contains 500+ curated DSA practice problems tailored for technical interviews
-- Categorizes problems by difficulty (Easy / Medium / Hard)
-- Displays detailed problem statements with input & output formats
-- Allows users to write code directly in the browser
-- Supports multiple programming languages
-- Executes and evaluates code submissions
-- Maintains a clean, distraction-free coding interface
-- Implements secure user authentication
+
 
 Instead of jumping between resources, CodeConnect brings problem-solving, coding, and learning into one platform, closely simulating real interview practice and competitive coding environments.
 
