@@ -5681,5 +5681,19 @@
     ],
     "input": "4\n1 2 3 4",
     "output": "1"
+  },
+  {
+    "title": "Minimum Cost Path With At Most K Turns",
+    "description": "You are given a 2D integer array grid of size m x n, where grid[i][j] represents the cost of visiting cell (i, j), and an integer k.\n\nYou start at the top-left cell (0, 0) and want to reach the bottom-right cell (m - 1, n - 1).\n\nFrom each cell, you may move one step in any of the four directions: up, down, left, or right.\n\nThe cost of a path is the sum of the values of all visited cells, including the starting and ending cells. If a cell is visited more than once, its value is included each time it is visited.\n\nA turn occurs whenever the direction of movement changes. Return the minimum possible path cost to reach the bottom-right cell using at most k turns. If no such path exists, return -1.\n\nInput:\nFirst line contains m, n, and k — the number of rows, columns, and maximum allowed turns.\nNext m lines contain n integers representing the grid.\n\nOutput:\nPrint the minimum possible path cost, or -1 if it is impossible.",
+    "difficulty": "Hard",
+    "topics": [
+      "Dynamic Programming",
+      "Graph",
+      "Shortest Path",
+      "Grid",
+      "Dijkstra"
+    ],
+    "input": "2 3 1\n2 7 3\n1 4 5",
+    "output": "12"
   }
 ]
