@@ -5695,5 +5695,17 @@
     ],
     "input": "2 3 1\n2 7 3\n1 4 5",
     "output": "12"
+  },
+  {
+    "title": "Count Shadow Pairs I",
+    "description": "You are given an integer array nums of length n.\n\nA pair of indices (i, j) is called a shadow pair if all of the following conditions are satisfied:\n\n1. 0 <= i < j < n.\n2. nums[i] < nums[j].\n3. There does not exist an index k such that i < k < j and nums[k] < nums[i] < nums[j].\n\nReturn the total number of shadow pairs.\n\nInput:\nFirst line contains n — the size of the array.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the total number of shadow pairs.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Monotonic Stack",
+      "Binary Search"
+    ],
+    "input": "5\n3 1 4 1 5",
+    "output": "3"
   }
 ]
