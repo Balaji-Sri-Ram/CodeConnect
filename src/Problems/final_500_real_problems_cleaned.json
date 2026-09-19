@@ -5720,5 +5720,17 @@
     ],
     "input": "5\n3 1 4 2 5",
     "output": "5"
+  },
+  {
+      "title": "Cyclically Shift Rows and Columns",
+    "description": "You are given an integer n, a 2D integer array grid of size n x n, and two integer arrays rowShift and colShift, each of length n.\n\nrowShift[i] represents the number of positions to cyclically shift the i-th row of grid to the left.\n\ncolShift[j] represents the number of positions to cyclically shift the j-th column of the resulting grid upward.\n\nFirst, cyclically shift every row according to rowShift. Then, cyclically shift every column of the resulting grid according to colShift.\n\nReturn the resulting grid.\n\nInput:\nFirst line contains n — the size of the square grid.\nNext n lines contain n integers representing grid.\nNext line contains n integers representing rowShift.\nNext line contains n integers representing colShift.\n\nOutput:\nPrint the resulting n x n grid.",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Matrix",
+      "Simulation"
+    ],
+    "input": "2\n1 2\n3 4\n1 0\n0 1",
+    "output": "2 4\n3 1"
   }
 ]
