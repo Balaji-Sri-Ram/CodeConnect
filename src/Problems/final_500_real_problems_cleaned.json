@@ -5732,5 +5732,17 @@
     ],
     "input": "2\n1 2\n3 4\n1 0\n0 1",
     "output": "2 4\n3 1"
+  },
+  {
+    "title": "Maximum Pulse Value After One Subarray Rotation",
+    "description": "You are given an integer array nums of length n.\n\nDefine the pulse value of an array arr as its alternating sum starting from index 0:\npulse(arr) = arr[0] - arr[1] + arr[2] - arr[3] + ...\n\nYou may perform at most one operation on nums. Choose two indices l and r such that 0 <= l < r < n, and left-rotate the subarray nums[l..r] by exactly one position.\n\nFor example, [a, b, c, d] becomes [b, c, d, a].\n\nReturn the maximum pulse value that can be obtained after performing at most one such operation.\n\nInput:\nFirst line contains n — the size of the array.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the maximum possible pulse value.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Greedy",
+      "Dynamic Programming"
+    ],
+    "input": "3\n1 5 2",
+    "output": "6"
   }
 ]
