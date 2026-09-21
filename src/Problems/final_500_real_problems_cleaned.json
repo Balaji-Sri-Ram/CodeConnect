@@ -5744,5 +5744,18 @@
     ],
     "input": "3\n1 5 2",
     "output": "6"
+  },
+  {
+    "title": "Lexicographically Largest Power Array",
+    "description": "You are given an integer array nums of length n. You may rearrange its elements to form any permutation perm.\n\nDefine an array power of length 15. For each index i from 0 to 14, power[i] is the largest integer j such that 0 <= j <= n and the first j elements of perm all have the (14 - i)-th bit set.\n\nBit positions are indexed from right to left, starting from bit 0.\n\nReturn the lexicographically largest possible power array among all permutations of nums.\n\nInput:\nFirst line contains n — the size of the array.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the lexicographically largest power array.",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Bit Manipulation",
+      "Greedy",
+      "Sorting"
+    ],
+    "input": "2\n7 5",
+    "output": "0 0 0 0 0 0 0 0 0 0 0 0 2 1 2"
   }
 ]
