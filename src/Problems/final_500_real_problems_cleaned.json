@@ -5757,5 +5757,17 @@
     ],
     "input": "2\n7 5",
     "output": "0 0 0 0 0 0 0 0 0 0 0 0 2 1 2"
+  },
+  {
+    "title": "Number of Intersecting Interval Pairs I",
+    "description": "You are given a 2D integer array intervals of n elements, where intervals[i] = [start_i, end_i] represents the closed interval from start_i to end_i.\n\nReturn the number of pairs of indices (i, j) such that 0 <= i < j < n and intervals[i] and intervals[j] intersect.\n\nTwo intervals intersect if they have at least one point in common, including when they only share an endpoint.\n\nInput:\nFirst line contains n — the number of intervals.\nNext n lines contain two integers start_i and end_i representing each interval.\n\nOutput:\nPrint the number of pairs of intervals that intersect.",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Sorting",
+      "Intervals"
+    ],
+    "input": "3\n1 2\n2 3\n3 4",
+    "output": "2"
   }
 ]
