@@ -5769,5 +5769,19 @@
     ],
     "input": "3\n1 2\n2 3\n3 4",
     "output": "2"
+  },
+  {
+    "title": "Count Subarrays with Distant Sums",
+    "description": "You are given an integer array nums and two integers goal and k.\n\nA subarray nums[i..j] is considered distant if the absolute difference between its sum and goal is at least k.\n\nReturn the number of distant subarrays.\n\nA subarray is a contiguous non-empty sequence of elements within an array.\n\nInput:\nFirst line contains n, goal, and k — the size of the array, the target sum, and the required minimum difference.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the number of distant subarrays.",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Prefix Sum",
+      "Binary Search",
+      "Fenwick Tree",
+      "Sorting"
+    ],
+    "input": "3 4 1\n1 2 1",
+    "output": "5"
   }
 ]
