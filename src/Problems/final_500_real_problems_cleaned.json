@@ -5808,5 +5808,18 @@
     ],
     "input": "6\n1 2 3 4 5 6",
     "output": "3"
+  },
+  {
+    "title": "Rearrange Array by Removing Distinct Values",
+    "description": "You are given an integer array nums.\n\nYou start with an empty array ans. Repeat the following operation until nums is empty:\n\n1. Identify all distinct values currently present in nums.\n2. Remove one occurrence of every distinct value currently in nums, and append those values to ans in ascending order.\n\nReturn the array ans.\n\nInput:\nFirst line contains n — the size of the array.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the resulting array ans.",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Sorting",
+      "Simulation"
+    ],
+    "input": "6\n3 1 3 2 1 3",
+    "output": "1 2 3 1 3 3"
   }
 ]
