@@ -5834,5 +5834,18 @@
     ],
     "input": "6\n2 3 5 3 2 1",
     "output": "3"
+  },
+  {
+    "title": "Longest Subarray With Restricted Pair Sums",
+    "description": "You are given an integer array nums.\n\nA subarray nums[l..r] is valid if there are no three distinct indices i, j, and k such that l <= i, j, k <= r and nums[i] + nums[j] == nums[k].\n\nReturn the maximum length of a valid subarray of nums.\n\nA subarray is a contiguous non-empty sequence of elements within an array.\n\nInput:\nFirst line contains n — the size of the array.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the maximum length of a valid subarray.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Sliding Window",
+      "Two Pointers"
+    ],
+    "input": "6\n2 3 5 3 2 1",
+    "output": "3"
   }
 ]
