@@ -5847,5 +5847,19 @@
     ],
     "input": "6\n2 3 5 3 2 1",
     "output": "3"
+  },
+  {
+    "title": "Maximize Meeting Earnings with Idle Gaps",
+    "description": "You are given a 2D integer array meetings, where meetings[i] = [start_i, end_i, revenue_i] represents a meeting starting at start_i, ending at end_i, with revenue revenue_i.\n\nAll meetings use half-open intervals [start_i, end_i), so meetings that only touch at endpoints do not overlap.\n\nYou may select any non-empty subset of meetings such that no two selected meetings overlap. You earn the revenue of each selected meeting.\n\nArrange the selected meetings in increasing order of their start times. For each pair of adjacent meetings in this order, you also earn 1 unit of revenue per unit of idle time between them. This idle time equals the later meeting's start time minus the earlier meeting's end time.\n\nNo idle revenue is earned before the earliest selected meeting starts or after the latest selected meeting ends. If only one meeting is selected, no idle revenue is earned.\n\nReturn the maximum total earnings achievable.\n\nInput:\nFirst line contains n — the number of meetings.\nNext n lines contain three integers start_i, end_i, and revenue_i representing each meeting.\n\nOutput:\nPrint the maximum total earnings achievable.",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Dynamic Programming",
+      "Sorting",
+      "Binary Search",
+      "Intervals"
+    ],
+    "input": "2\n2 5 4\n6 8 3",
+    "output": "8"
   }
 ]
