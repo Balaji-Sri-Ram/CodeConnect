@@ -5861,5 +5861,18 @@
     ],
     "input": "2\n2 5 4\n6 8 3",
     "output": "8"
+  },
+  {
+    "title": "Longest Subarray Divisible by K with At Most One Negation II",
+    "description": "You are given an integer array nums and an integer k.\n\nA subarray is valid if its sum is divisible by k, or can become divisible by k by negating one element within that subarray.\n\nNegating an element means replacing its value x with -x.\n\nReturn the length of the longest valid subarray. If no valid subarray exists, return 0.\n\nA subarray is a contiguous, non-empty sequence of elements within an array.\n\nInput:\nFirst line contains n and k — the size of the array and the divisor.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the length of the longest valid subarray.",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Binary Search",
+      "Prefix Sum"
+    ],
+    "input": "3 3\n4 1 2",
+    "output": "3"
   }
 ]
