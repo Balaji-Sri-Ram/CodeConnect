@@ -5874,5 +5874,17 @@
     ],
     "input": "3 3\n4 1 2",
     "output": "3"
+  },
+  {
+    "title": "Minimum Rotations to Dial a Number I",
+    "description": "You are given a string s of length 10 consisting of digits.\n\nThe dial contains the digits 0 through 9 in order and is circular, so 0 and 9 are adjacent. The pointer initially points to 0.\n\nTo dial each digit of s in order, rotate the pointer until it points to that digit. Each rotation moves the pointer to an adjacent digit, and you may rotate in either direction. Dialing a digit that the pointer already points to requires no rotations.\n\nReturn the minimum total number of rotations needed to dial every digit of s.\n\nInput:\nThe input contains a string s of length 10 consisting only of digits.\n\nOutput:\nPrint the minimum total number of rotations needed.",
+    "difficulty": "Easy",
+    "topics": [
+      "String",
+      "Simulation",
+      "Math"
+    ],
+    "input": "0192837465",
+    "output": "25"
   }
 ]
