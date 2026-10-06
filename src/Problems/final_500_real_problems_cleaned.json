@@ -5886,5 +5886,19 @@
     ],
     "input": "0192837465",
     "output": "25"
+  },
+  {
+    "title": "Count Good Strings",
+    "description": "You are given an integer n.\n\nA string is considered good if it consists only of the characters 'a' and 'b', and one of the following holds:\n\n1. It contains exactly one distinct character, and its length is odd.\n2. It can be written as s = s1 + s2, where s1 and s2 are non-empty good strings, and the last character of s1 is different from the first character of s2.\n\nReturn the number of good strings of length n, modulo 10^9 + 7.\n\nInput:\nThe input contains a single integer n.\n\nOutput:\nPrint the number of good strings of length n modulo 10^9 + 7.",
+    "difficulty": "Hard",
+    "topics": [
+      "String",
+      "Dynamic Programming",
+      "Math",
+      "Combinatorics",
+      "Matrix Exponentiation"
+    ],
+    "input": "4",
+    "output": "6"
   }
 ]
