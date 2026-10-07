@@ -5900,5 +5900,17 @@
     ],
     "input": "4",
     "output": "6"
+  },
+  {
+    "title": "Maximum Alternating Subarray Sum With One Deletion",
+    "description": "You are given an integer array nums.\n\nYou may delete at most one element from nums, then choose a subarray of the resulting array.\n\nReturn the maximum possible alternating sum of the chosen subarray.\n\nThe alternating sum of an array is the sum of its elements at even indices minus the sum of its elements at odd indices. The chosen subarray is reindexed starting from 0 before calculating its alternating sum.\n\nInput:\nFirst line contains n — the size of the array.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the maximum possible alternating sum of the chosen subarray.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Dynamic Programming",
+      "Greedy"
+    ],
+    "input": "3\n5 -5 1",
+    "output": "11"
   }
 ]
