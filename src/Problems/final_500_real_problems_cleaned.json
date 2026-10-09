@@ -5912,5 +5912,19 @@
     ],
     "input": "3\n5 -5 1",
     "output": "11"
+  },
+  {
+    "title": "Longest Subarray With at Most K Distinct Prime Factors",
+    "description": "You are given an integer array nums consisting of positive integers and an integer k.\n\nThe prime factor set of a subarray is the union of the distinct prime factors of all its elements.\n\nReturn the length of the longest subarray whose prime factor set contains at most k distinct prime factors. If no such subarray exists, return 0.\n\nInput:\nFirst line contains n and k — the size of the array and the maximum number of distinct prime factors allowed.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the length of the longest valid subarray.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Sliding Window",
+      "Number Theory",
+      "Prime Factorization"
+    ],
+    "input": "5 3\n7 6 10 12 11",
+    "output": "3"
   }
 ]
