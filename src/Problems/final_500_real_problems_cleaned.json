@@ -5926,5 +5926,17 @@
     ],
     "input": "5 3\n7 6 10 12 11",
     "output": "3"
+  },
+  {
+    "title": "Find All Numbers Disappeared in an Array II",
+    "description": "You are given an integer array nums and two integers lower and upper.\n\nA missing integer is an integer in the inclusive range [lower, upper] that does not appear in nums.\n\nReturn a 2D integer array where each element [start, end] represents a contiguous range of missing integers. Return the ranges in increasing order. Consecutive missing integers must be grouped into a single range.\n\nInput:\nFirst line contains n, lower, and upper — the size of the array and the inclusive range boundaries.\nSecond line contains n integers representing nums.\n\nOutput:\nPrint the missing ranges in the format [[start1,end1],[start2,end2],...]. If no integers are missing, print [].",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Sorting",
+      "Intervals"
+    ],
+    "input": "3 1 12\n3 9 7",
+    "output": "[[1,2],[4,6],[8,8],[10,12]]"
   }
 ]
