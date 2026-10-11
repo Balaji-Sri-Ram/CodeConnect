@@ -5938,5 +5938,18 @@
     ],
     "input": "3 1 12\n3 9 7",
     "output": "[[1,2],[4,6],[8,8],[10,12]]"
+  },
+  {
+    "title": "Count Leaf Nodes at Maximum Depth",
+    "description": "You are given the root of a binary tree represented as a level-order array.\n\nA leaf node is a node that has no left or right child. The depth of the root is 0, and the depth of each child is one greater than the depth of its parent.\n\nFind the maximum depth among all leaf nodes and return the number of leaf nodes at that depth.\n\nInput:\nThe first line contains n — the number of entries in the level-order representation.\nThe second line contains n space-separated values representing the binary tree. Use N to represent a null node.\n\nOutput:\nPrint the number of leaf nodes at the maximum depth.",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "Breadth-First Search",
+      "Depth-First Search"
+    ],
+    "input": "7\n1 2 3 4 5 N 6",
+    "output": "3"
   }
 ]
