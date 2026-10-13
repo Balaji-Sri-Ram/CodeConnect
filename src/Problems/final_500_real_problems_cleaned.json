@@ -5953,18 +5953,30 @@
     "output": "3"
   },
   {
-      "title": "Prime Subset Selection II",
-  "description": "You are given two integers n and s.\n\nConsider all prime numbers less than or equal to n. Select a subset of these primes such that each prime can be selected at most once.\n\nChoose the subset according to these priorities:\n1. The sum of the selected primes must be as large as possible without exceeding s.\n2. Among subsets with the maximum sum, choose the one containing the fewest primes.\n3. If multiple subsets remain, choose the lexicographically smallest array when its elements are sorted in increasing order.\n\nReturn the selected primes in increasing order. If no valid non-empty subset exists, return an empty array.\n\nInput:\nThe first line contains two integers n and s — the upper limit for prime numbers and the maximum allowed sum.\n\nOutput:\nPrint the selected prime numbers in increasing order, enclosed in square brackets and separated by commas. If no prime can be selected, print [].",
-  "difficulty": "Hard",
-  "topics": [
-    "Array",
-    "Math",
-    "Dynamic Programming",
-    "Backtracking",
-    "Prime Numbers",
-    "0/1 Knapsack"
-  ],
-  "input": "15 18",
-  "output": "[5, 13]"
+    "title": "Prime Subset Selection II",
+    "description": "You are given two integers n and s.\n\nConsider all prime numbers less than or equal to n. Select a subset of these primes such that each prime can be selected at most once.\n\nChoose the subset according to these priorities:\n1. The sum of the selected primes must be as large as possible without exceeding s.\n2. Among subsets with the maximum sum, choose the one containing the fewest primes.\n3. If multiple subsets remain, choose the lexicographically smallest array when its elements are sorted in increasing order.\n\nReturn the selected primes in increasing order. If no valid non-empty subset exists, return an empty array.\n\nInput:\nThe first line contains two integers n and s — the upper limit for prime numbers and the maximum allowed sum.\n\nOutput:\nPrint the selected prime numbers in increasing order, enclosed in square brackets and separated by commas. If no prime can be selected, print [].",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Math",
+      "Dynamic Programming",
+      "Backtracking",
+      "Prime Numbers",
+      "0/1 Knapsack"
+    ],
+    "input": "15 18",
+    "output": "[5, 13]"
+  },
+  {
+    "title": "Three Fibonacci Sum",
+    "description": "You are given an integer n.\n\nThe Fibonacci sequence starts with 0 and 1, and each subsequent number is the sum of the previous two numbers. The sequence begins with 0, 1, 1, 2, 3, 5, 8, 13, and so on.\n\nReturn true if n can be expressed as the sum of three consecutive terms in the Fibonacci sequence. Otherwise, return false.\n\nInput:\nThe input contains a single integer n.\n\nOutput:\nPrint true if n is the sum of three consecutive Fibonacci numbers; otherwise, print false.",
+    "difficulty": "Easy",
+    "topics": [
+      "Math",
+      "Fibonacci",
+      "Number Theory"
+    ],
+    "input": "16",
+    "output": "true"
   }
 ]
