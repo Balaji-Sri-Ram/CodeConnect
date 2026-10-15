@@ -5978,5 +5978,17 @@
     ],
     "input": "16",
     "output": "true"
+  },
+  {
+    "title": "Minimum Operations to Stabilize a Binary Tree",
+    "description": "You are given a binary tree. Your task is to determine the minimum number of operations required to stabilize the tree. See the official problem statement for the precise definition of a stable tree, the permitted operations, and the input/output format.",
+    "difficulty": "Hard",
+    "topics": [
+      "Binary Tree",
+      "Tree",
+      "Greedy"
+    ],
+    "input": "Refer to the official problem statement.",
+    "output": "Return the minimum number of operations required to stabilize the binary tree."
   }
 ]
