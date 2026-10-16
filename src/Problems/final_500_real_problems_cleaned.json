@@ -5990,5 +5990,18 @@
     ],
     "input": "Refer to the official problem statement.",
     "output": "Return the minimum number of operations required to stabilize the binary tree."
+  },
+  {
+    "title": "Prime Subset Selection II",
+    "description": "You are given two integers n and s.\n\nConsider all prime numbers less than or equal to n. Select a subset of these primes such that:\n\n1. Each prime can be selected at most once.\n2. The sum of the selected primes is as large as possible while remaining less than or equal to s.\n3. Among subsets with the maximum sum, select one containing the fewest primes.\n4. If multiple subsets remain tied, select the one whose elements, written in increasing order, form the lexicographically smallest array.\n\nReturn an integer array containing the selected primes in increasing order. If no valid non-empty subset exists, return an empty array.\n\nConstraints:\n1 <= n <= 1000\n1 <= s <= 1000",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Dynamic Programming",
+      "Bitset",
+      "Prime Numbers"
+    ],
+    "input": "n = 15, s = 18",
+    "output": "[5, 13]"
   }
 ]
