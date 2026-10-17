@@ -11,15 +11,24 @@ const { protect } = require('../middleware/authMiddleware');
 // @access  Private
 router.get('/me', protect, async (req, res) => {
     try {
-        const profile = await Profile.findOne({ user: req.user.id }).populate('user', ['email', 'role']).lean();
+        let profile = await Profile.findOne({ user: req.user.id }).populate('user', ['email', 'role']).lean();
 
         if (!profile) {
-            return res.status(400).json({ message: 'There is no profile for this user' });
+            // Self-healing: auto-create default profile for this user if it doesn't exist
+            const defaultName = req.user.email ? req.user.email.split('@')[0] : 'User';
+            const newProfile = new Profile({
+                user: req.user.id,
+                full_name: defaultName,
+                role: req.user.role || 'student',
+                coins: 0
+            });
+            await newProfile.save();
+            profile = await Profile.findById(newProfile._id).populate('user', ['email', 'role']).lean();
         }
 
         res.json(profile);
     } catch (err) {
-        console.error(err.message);
+        console.error("Error in GET /profile/me:", err.message);
         res.status(500).send('Server error');
     }
 });

@@ -33,36 +33,30 @@ const PageLoader = () => (
 );
 
 const ProfileRouter = () => {
-  const [userRole, setUserRole] = useState(null);
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+  const [userRole, setUserRole] = useState(() => localStorage.getItem('role') || 'student');
 
   useEffect(() => {
-    const checkRole = async () => {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        navigate('/auth');
-        return;
-      }
+    if (!token) {
+      navigate('/auth');
+      return;
+    }
 
-      try {
-        const { data } = await api.get('/profile/me');
-        // Backend returns profile object which contains user object with role
-        // Or sometimes backend structure varies, let's verify profile/me response from profiles.js
-        // profiles.js line 11: populate('user', ['email', 'role'])
-        // So data.user.role is the key.
-        setUserRole(data.user?.role || 'student');
-      } catch (error) {
-        console.error("Profile check failed", error);
-        navigate('/auth');
-      } finally {
-        setLoading(false);
-      }
-    };
-    checkRole();
-  }, [navigate]);
+    // Refresh role in background without blocking UI
+    api.get('/profile/me')
+      .then(({ data }) => {
+        const role = data.user?.role || data.role || 'student';
+        setUserRole(role);
+        localStorage.setItem('role', role);
+      })
+      .catch((error) => {
+        console.warn("Background profile check info:", error.message);
+        // Do not force redirect to /auth if we already have a session token
+      });
+  }, [token, navigate]);
 
-  if (loading) return null;
+  if (!token) return null;
 
   return userRole === "company" ? <CompanyProfile /> : <StudentProfile />;
 };

@@ -23,46 +23,54 @@ api.interceptors.request.use(
     (error) => Promise.reject(error)
 );
 
-// Add a response interceptor to handle expired/invalid tokens
+// Add a response interceptor to handle expired/invalid tokens safely
 api.interceptors.response.use(
     (response) => response,
     (error) => {
         if (error.response && error.response.status === 401) {
-            // Token is expired or invalid — clear stale session data
-            localStorage.removeItem('token');
-            localStorage.removeItem('role');
-            localStorage.removeItem('userId');
+            const hadAuthHeader = error.config?.headers?.Authorization;
+            const publicRoutes = ['/', '/auth', '/forgot-password', '/all-problems', '/companies', '/leaderboard'];
+            const isPublic = publicRoutes.includes(window.location.pathname) || window.location.pathname.startsWith('/developer/');
 
-            // Redirect to auth page (only if not already there)
-            if (window.location.pathname !== '/auth' && window.location.pathname !== '/forgot-password') {
-                window.location.href = '/auth';
+            // Only clear and redirect if the request had an auth header and user was on a protected route
+            if (hadAuthHeader && !isPublic) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('role');
+                localStorage.removeItem('userId');
+
+                if (window.location.pathname !== '/auth') {
+                    window.location.href = '/auth';
+                }
             }
         }
         return Promise.reject(error);
     }
 );
 
-// In-flight GET request deduplication
-// If multiple components (e.g. Navbar, Dashboard, ProfileRouter) request the same endpoint
-// concurrently, share the same in-flight Promise so only 1 network request hits the backend.
-const inFlightGetRequests = new Map();
+// Targeted in-flight deduplication for /profile/me
+// Prevents duplicate concurrent requests on initial page load while avoiding any side effects on other routes
+const inFlightProfileRequests = new Map();
 
 const originalGet = api.get.bind(api);
 api.get = (url, config = {}) => {
-    const token = localStorage.getItem('token') || 'anon';
-    const key = `${token}:${url}:${JSON.stringify(config.params || {})}`;
+    if (url === '/profile/me') {
+        const token = localStorage.getItem('token') || 'anon';
+        const key = `${token}:${url}`;
 
-    if (inFlightGetRequests.has(key)) {
-        return inFlightGetRequests.get(key);
+        if (inFlightProfileRequests.has(key)) {
+            return inFlightProfileRequests.get(key);
+        }
+
+        const promise = originalGet(url, config)
+            .finally(() => {
+                inFlightProfileRequests.delete(key);
+            });
+
+        inFlightProfileRequests.set(key, promise);
+        return promise;
     }
 
-    const promise = originalGet(url, config)
-        .finally(() => {
-            inFlightGetRequests.delete(key);
-        });
-
-    inFlightGetRequests.set(key, promise);
-    return promise;
+    return originalGet(url, config);
 };
 
 export default api;

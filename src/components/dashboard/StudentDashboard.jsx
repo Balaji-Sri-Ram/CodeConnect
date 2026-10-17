@@ -22,20 +22,23 @@ const StudentDashboard = () => {
         const token = localStorage.getItem('token');
         if (!token) return;
 
-        // Parallelize all data fetching
-        const [
-          { data: profileData },
-          { data: submissions },
-          { data: problems },
-          { data: challengesData }
-        ] = await Promise.all([
+        // Fetch all data resiliently using Promise.allSettled
+        // Even if one request fails or has no data, all other features still load
+        const results = await Promise.allSettled([
           api.get('/profile/me'),
           api.get('/submissions/my'),
           api.get('/problems?limit=10'),
           api.get('/challenges?limit=10')
         ]);
 
-        setProfile(profileData);
+        const profileData = results[0].status === 'fulfilled' ? results[0].value.data : null;
+        const submissions = results[1].status === 'fulfilled' ? (results[1].value.data || []) : [];
+        const problems = results[2].status === 'fulfilled' ? (results[2].value.data || []) : [];
+        const challengesData = results[3].status === 'fulfilled' ? (results[3].value.data || []) : [];
+
+        if (profileData) {
+          setProfile(profileData);
+        }
 
         // Process Submissions for Stats
         let easyCount = 0;
@@ -43,7 +46,7 @@ const StudentDashboard = () => {
         let hardCount = 0;
         let solvedProblemIds = [];
 
-        if (submissions && submissions.length > 0) {
+        if (Array.isArray(submissions) && submissions.length > 0) {
           // Filter only passed submissions
           const passedSubmissions = submissions.filter(s => s.status === 'passed');
 
@@ -74,9 +77,13 @@ const StudentDashboard = () => {
           solvedIds: solvedProblemIds
         });
 
-        // Set Problems and Challenges (already limited by API)
-        setCodeforcesProblems(problems);
-        setCompanyChallenges(challengesData || []);
+        // Set Problems and Challenges (guaranteed to render if available)
+        if (Array.isArray(problems) && problems.length > 0) {
+          setCodeforcesProblems(problems);
+        }
+        if (Array.isArray(challengesData)) {
+          setCompanyChallenges(challengesData);
+        }
 
       } catch (error) {
         console.error("Error in dashboard data fetch:", error);
