@@ -6001,7 +6001,19 @@
       "Bitset",
       "Prime Numbers"
     ],
-    "input": "n = 15, s = 18",
+    "input": "15 18",
     "output": "[5, 13]"
+  },
+  {
+    "title": "Count Integers Appearing in a Single Block",
+    "description": "You are given an integer array nums.\n\nAn integer x is special if all occurrences of x in nums appear in a single contiguous block.\n\nReturn the number of distinct special integers in nums.\n\nInput:\nThe input contains an integer array nums.\n\nOutput:\nReturn the number of distinct special integers.",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Counting"
+    ],
+    "input": "[1,2,2,1]",
+    "output": "1"
   }
 ]
