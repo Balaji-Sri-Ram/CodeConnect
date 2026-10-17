@@ -9,10 +9,11 @@ const { protect } = require('../middleware/authMiddleware');
 // @access  Private
 router.post('/', protect, async (req, res) => {
     const { problem_id, code, language, status, type } = req.body; // Added type: 'problem' | 'challenge'
+    const userId = req.user.id || req.user._id;
 
     try {
         const submissionData = {
-            user: req.user.id,
+            user: userId,
             code,
             language,
             status
@@ -29,7 +30,7 @@ router.post('/', protect, async (req, res) => {
         await submission.save();
 
         if (status === 'passed') {
-            const profile = await Profile.findOne({ user: req.user.id });
+            const profile = await Profile.findOne({ user: userId });
 
             // Determine which model to query
             let ProblemModel;
@@ -106,7 +107,8 @@ router.post('/', protect, async (req, res) => {
 // @access  Private
 router.get('/my', protect, async (req, res) => {
     try {
-        const submissions = await Submission.find({ user: req.user.id })
+        const userId = req.user.id || req.user._id;
+        const submissions = await Submission.find({ user: userId })
             .sort({ createdAt: -1 })
             .populate('problem', ['title', 'difficulty'])
             .populate('challenge', ['title', 'difficulty'])
@@ -123,7 +125,8 @@ router.get('/my', protect, async (req, res) => {
 // @access  Private
 router.get('/stats', protect, async (req, res) => {
     try {
-        const submissions = await Submission.find({ user: req.user.id, status: 'passed' })
+        const userId = req.user.id || req.user._id;
+        const submissions = await Submission.find({ user: userId, status: 'passed' })
             .select('problem challenge')
             .populate('problem', 'difficulty')
             .populate('challenge', 'difficulty')

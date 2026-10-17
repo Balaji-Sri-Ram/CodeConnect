@@ -9,7 +9,8 @@ const { protect } = require('../middleware/authMiddleware');
 // @access  Private
 router.get('/', protect, async (req, res) => {
     try {
-        const notifications = await Notification.find({ recipient: req.user.id })
+        const userId = req.user.id || req.user._id;
+        const notifications = await Notification.find({ recipient: userId })
             .sort({ createdAt: -1 })
             .limit(50)
             .lean(); // Limit to last 50 and use lean() for performance

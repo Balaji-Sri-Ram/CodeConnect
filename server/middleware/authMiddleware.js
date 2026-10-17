@@ -13,11 +13,15 @@ const protect = async (req, res, next) => {
 
             const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret123');
 
-            req.user = await User.findById(decoded.id).select('-password').lean();
+            const user = await User.findById(decoded.id).select('-password').lean();
 
-            if (!req.user) {
+            if (!user) {
                 return res.status(401).json({ message: 'User not found' });
             }
+
+            // CRITICAL: .lean() removes Mongoose virtuals, so assign user.id explicitly
+            user.id = user._id.toString();
+            req.user = user;
 
             return next();
         } catch (error) {

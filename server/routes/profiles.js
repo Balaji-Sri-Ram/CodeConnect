@@ -11,13 +11,14 @@ const { protect } = require('../middleware/authMiddleware');
 // @access  Private
 router.get('/me', protect, async (req, res) => {
     try {
-        let profile = await Profile.findOne({ user: req.user.id }).populate('user', ['email', 'role']).lean();
+        const userId = req.user.id || req.user._id;
+        let profile = await Profile.findOne({ user: userId }).populate('user', ['email', 'role']).lean();
 
         if (!profile) {
             // Self-healing: auto-create default profile for this user if it doesn't exist
             const defaultName = req.user.email ? req.user.email.split('@')[0] : 'User';
             const newProfile = new Profile({
-                user: req.user.id,
+                user: userId,
                 full_name: defaultName,
                 role: req.user.role || 'student',
                 coins: 0
@@ -49,26 +50,28 @@ router.post('/', protect, async (req, res) => {
         website
     } = req.body;
 
+    const userId = req.user.id || req.user._id;
+
     // Build profile object
     const profileFields = {};
-    profileFields.user = req.user.id;
-    if (full_name) profileFields.full_name = full_name;
-    if (bio) profileFields.bio = bio;
-    if (resume_url) profileFields.resume_url = resume_url;
-    if (whatsapp) profileFields.whatsapp = whatsapp;
-    if (github_url) profileFields.github_url = github_url;
-    if (linkedin_url) profileFields.linkedin_url = linkedin_url;
+    profileFields.user = userId;
+    if (full_name !== undefined) profileFields.full_name = full_name;
+    if (bio !== undefined) profileFields.bio = bio;
+    if (resume_url !== undefined) profileFields.resume_url = resume_url;
+    if (whatsapp !== undefined) profileFields.whatsapp = whatsapp;
+    if (github_url !== undefined) profileFields.github_url = github_url;
+    if (linkedin_url !== undefined) profileFields.linkedin_url = linkedin_url;
     if (avatar_url !== undefined) profileFields.avatar_url = avatar_url;
-    if (company_name) profileFields.company_name = company_name;
-    if (website) profileFields.website = website;
+    if (company_name !== undefined) profileFields.company_name = company_name;
+    if (website !== undefined) profileFields.website = website;
 
     try {
-        let profile = await Profile.findOne({ user: req.user.id });
+        let profile = await Profile.findOne({ user: userId });
 
         if (profile) {
             // Update
             profile = await Profile.findOneAndUpdate(
-                { user: req.user.id },
+                { user: userId },
                 { $set: profileFields },
                 { new: true }
             );
@@ -80,7 +83,7 @@ router.post('/', protect, async (req, res) => {
         await profile.save();
         res.json(profile);
     } catch (err) {
-        console.error(err.message);
+        console.error("Error in POST /profile:", err.message);
         res.status(500).send('Server error');
     }
 });
