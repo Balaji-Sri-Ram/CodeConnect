@@ -26,4 +26,8 @@ const ProblemSchema = new mongoose.Schema({
     // Can add testCases array if we want structured test cases later
 });
 
+// Index for difficulty filtering
+ProblemSchema.index({ difficulty: 1 });
+
 module.exports = mongoose.model('Problem', ProblemSchema);
+

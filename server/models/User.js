@@ -21,4 +21,8 @@ const UserSchema = new mongoose.Schema({
     },
 });
 
+// Index for role-based counts and notification dispatch
+UserSchema.index({ role: 1 });
+
 module.exports = mongoose.model('User', UserSchema);
+

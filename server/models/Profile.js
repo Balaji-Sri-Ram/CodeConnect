@@ -44,4 +44,8 @@ const ProfileSchema = new mongoose.Schema({
     }
 });
 
+// Index for leaderboard queries and company stats top performer lookups
+ProfileSchema.index({ coins: -1 });
+
 module.exports = mongoose.model('Profile', ProfileSchema);
+

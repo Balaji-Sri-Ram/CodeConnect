@@ -33,9 +33,26 @@ export const NotificationBell = () => {
 
     useEffect(() => {
         fetchNotifications();
-        // Optional: Poll every minute
-        const interval = setInterval(fetchNotifications, 5000);
-        return () => clearInterval(interval);
+
+        // Poll every 45s while tab is visible; pause when tab is inactive to save backend resources
+        const interval = setInterval(() => {
+            if (!document.hidden) {
+                fetchNotifications();
+            }
+        }, 45000);
+
+        const handleVisibilityChange = () => {
+            if (!document.hidden) {
+                fetchNotifications();
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
+        return () => {
+            clearInterval(interval);
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
     }, []);
 
     const handleMarkAllRead = async () => {

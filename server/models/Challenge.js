@@ -37,4 +37,8 @@ const ChallengeSchema = new mongoose.Schema({
     },
 });
 
+// Index for company challenge queries and sorting
+ChallengeSchema.index({ company: 1, createdAt: -1 });
+
 module.exports = mongoose.model('Challenge', ChallengeSchema);
+

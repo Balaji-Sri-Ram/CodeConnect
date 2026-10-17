@@ -109,7 +109,8 @@ router.get('/my', protect, async (req, res) => {
         const submissions = await Submission.find({ user: req.user.id })
             .sort({ createdAt: -1 })
             .populate('problem', ['title', 'difficulty'])
-            .populate('challenge', ['title', 'difficulty']);
+            .populate('challenge', ['title', 'difficulty'])
+            .lean();
         res.json(submissions);
     } catch (err) {
         console.error(err.message);
@@ -123,8 +124,10 @@ router.get('/my', protect, async (req, res) => {
 router.get('/stats', protect, async (req, res) => {
     try {
         const submissions = await Submission.find({ user: req.user.id, status: 'passed' })
+            .select('problem challenge')
             .populate('problem', 'difficulty')
-            .populate('challenge', 'difficulty');
+            .populate('challenge', 'difficulty')
+            .lean();
 
         // Calculate stats
         // Dedup problems
@@ -144,7 +147,7 @@ router.get('/stats', protect, async (req, res) => {
         };
 
         solvedMap.forEach((difficulty) => {
-            const diff = difficulty.toLowerCase();
+            const diff = difficulty ? difficulty.toLowerCase() : 'easy';
             if (stats[diff] !== undefined) {
                 stats[diff]++;
             }
@@ -163,8 +166,10 @@ router.get('/stats', protect, async (req, res) => {
 router.get('/stats/:userId', async (req, res) => {
     try {
         const submissions = await Submission.find({ user: req.params.userId, status: 'passed' })
+            .select('problem challenge')
             .populate('problem', 'difficulty')
-            .populate('challenge', 'difficulty');
+            .populate('challenge', 'difficulty')
+            .lean();
 
         // Calculate stats
         // Dedup problems
@@ -184,7 +189,7 @@ router.get('/stats/:userId', async (req, res) => {
         };
 
         solvedMap.forEach((difficulty) => {
-            const diff = difficulty.toLowerCase();
+            const diff = difficulty ? difficulty.toLowerCase() : 'easy';
             if (stats[diff] !== undefined) {
                 stats[diff]++;
             }

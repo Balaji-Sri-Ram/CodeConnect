@@ -36,4 +36,11 @@ const SubmissionSchema = new mongoose.Schema({
     },
 });
 
+// Indexes for user submission lookups, history sorting, and stats calculation
+SubmissionSchema.index({ user: 1, createdAt: -1 });
+SubmissionSchema.index({ user: 1, status: 1 });
+SubmissionSchema.index({ challenge: 1, status: 1 });
+SubmissionSchema.index({ user: 1, problem: 1, status: 1 });
+
 module.exports = mongoose.model('Submission', SubmissionSchema);
+

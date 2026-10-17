@@ -7,7 +7,16 @@ const Problem = require('../models/Problem');
 // @access  Public
 router.get('/', async (req, res) => {
     try {
-        let query = Problem.find().select('-input -output'); // Hide test cases from list
+        const filter = {};
+        if (req.query.difficulty) {
+            filter.difficulty = req.query.difficulty;
+        }
+
+        let query = Problem.find(filter).select('-input -output').lean(); // Use lean() for read-only speed
+
+        if (req.query.skip) {
+            query = query.skip(parseInt(req.query.skip));
+        }
 
         if (req.query.limit) {
             query = query.limit(parseInt(req.query.limit));
@@ -26,7 +35,7 @@ router.get('/', async (req, res) => {
 // @access  Public
 router.get('/:id', async (req, res) => {
     try {
-        const problem = await Problem.findById(req.params.id);
+        const problem = await Problem.findById(req.params.id).lean();
 
         if (!problem) {
             return res.status(404).json({ message: 'Problem not found' });
@@ -41,5 +50,6 @@ router.get('/:id', async (req, res) => {
         res.status(500).send('Server error');
     }
 });
+
 
 module.exports = router;

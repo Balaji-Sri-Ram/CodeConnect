@@ -32,16 +32,31 @@ export const Navbar = () => {
     const checkAuth = async () => {
       const token = localStorage.getItem('token');
       const role = localStorage.getItem('role');
-      setIsLoggedIn(!!token);
+
+      if (!token) {
+        setIsLoggedIn(false);
+        setUserRole(null);
+        setProfile(null);
+        return;
+      }
+
+      // Immediately set cached auth state for instant UI response
+      setIsLoggedIn(true);
       setUserRole(role);
 
-      if (token && (role === 'student' || role === 'company')) {
-        // Fetch profile for avatar
-        try {
-          const { data } = await api.get('/profile/me');
-          setProfile(data);
-        } catch (e) {
-          console.error("Failed to fetch profile for navbar", e);
+      // Validate the token and update profile in background
+      try {
+        const { data } = await api.get('/profile/me');
+        setProfile(data);
+      } catch (e) {
+        console.error("Auth check failed (token may be expired)", e);
+        if (e.response && e.response.status === 401) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('role');
+          localStorage.removeItem('userId');
+          setIsLoggedIn(false);
+          setUserRole(null);
+          setProfile(null);
         }
       }
     };
@@ -51,7 +66,7 @@ export const Navbar = () => {
     return () => {
       window.removeEventListener('storage', checkAuth);
     };
-  }, [location.pathname]);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');

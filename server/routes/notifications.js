@@ -11,7 +11,8 @@ router.get('/', protect, async (req, res) => {
     try {
         const notifications = await Notification.find({ recipient: req.user.id })
             .sort({ createdAt: -1 })
-            .limit(50); // Limit to last 50 for performance
+            .limit(50)
+            .lean(); // Limit to last 50 and use lean() for performance
         res.json(notifications);
     } catch (err) {
         console.error(err.message);

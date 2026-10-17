@@ -9,6 +9,7 @@ import { Navbar } from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import CodeBackground from "@/components/CodeBackground";
+import profileIcon from "../../public/developer.jpg";
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -18,16 +19,21 @@ const Landing = () => {
   const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
 
   useEffect(() => {
-    const checkAuth = () => {
-      const token = localStorage.getItem('token');
-      const role = localStorage.getItem('role');
-      setIsLoggedIn(!!token);
-      setUserRole(role);
-    };
+    // Read auth state from localStorage — Navbar already validates the token via API.
+    // This avoids a duplicate blocking network request on the landing page.
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
+    setIsLoggedIn(!!token);
+    setUserRole(role);
 
-    checkAuth();
-    window.addEventListener('storage', checkAuth);
-    return () => window.removeEventListener('storage', checkAuth);
+    const onStorageChange = () => {
+      const t = localStorage.getItem('token');
+      const r = localStorage.getItem('role');
+      setIsLoggedIn(!!t);
+      setUserRole(r);
+    };
+    window.addEventListener('storage', onStorageChange);
+    return () => window.removeEventListener('storage', onStorageChange);
   }, []);
 
   const handleContactSubmit = async (e) => {
@@ -204,42 +210,34 @@ const Landing = () => {
                   <div className="flex items-start gap-4">
                     <Mail className="h-6 w-6 mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">ramuparasa02@gmail.com</p>
+                      <p className="font-medium">edemahitharenu@gmail.com</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <Phone className="h-6 w-6 mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">+91 7207674897</p>
+                      <p className="font-medium">+91 9392951294</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <MapPin className="h-6 w-6 mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">1-78 Narsapuram</p>
-                      <p className="opacity-90">West Godavari, Andhra Pradesh</p>
+                      <p className="font-medium">Kadapa,</p>
+                      <p className="opacity-90">Andhra Pradesh</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8 flex gap-4">
-                  <a href="https://github.com/balaji-sri-ram" target="_blank" rel="noopener noreferrer"
+                  <a href="https://github.com/MahithaRenu6" target="_blank" rel="noopener noreferrer"
                     className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary-foreground hover:bg-primary-foreground/10 transition-colors">
                     <Github className="h-5 w-5" />
                   </a>
-                  <a href="https://www.linkedin.com/in/balaji-sri-ram-parasa" target="_blank" rel="noopener noreferrer"
+                  <a href="https://www.linkedin.com/in/ederenu" target="_blank" rel="noopener noreferrer"
                     className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary-foreground hover:bg-primary-foreground/10 transition-colors">
                     <Linkedin className="h-5 w-5" />
-                  </a>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
-                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary-foreground hover:bg-primary-foreground/10 transition-colors">
-                    <Facebook className="h-5 w-5" />
-                  </a>
-                  <a href="https://www.instagram.com/ramu__parasa" target="_blank" rel="noopener noreferrer"
-                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary-foreground hover:bg-primary-foreground/10 transition-colors">
-                    <Instagram className="h-5 w-5" />
                   </a>
                 </div>
               </div>
@@ -303,7 +301,7 @@ const Landing = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-hero rounded-[2rem] transform rotate-6 opacity-30 blur-lg"></div>
                   <img
-                    src="/developer.jpg"
+                    src={profileIcon}
                     alt="Balaji Sri Ram Parasa"
                     className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-[2rem] shadow-2xl border-4 border-background"
                   />

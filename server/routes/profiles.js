@@ -11,7 +11,7 @@ const { protect } = require('../middleware/authMiddleware');
 // @access  Private
 router.get('/me', protect, async (req, res) => {
     try {
-        const profile = await Profile.findOne({ user: req.user.id }).populate('user', ['email', 'role']);
+        const profile = await Profile.findOne({ user: req.user.id }).populate('user', ['email', 'role']).lean();
 
         if (!profile) {
             return res.status(400).json({ message: 'There is no profile for this user' });
@@ -81,7 +81,7 @@ router.post('/', protect, async (req, res) => {
 // @access  Public
 router.get('/:id', async (req, res) => {
     try {
-        const profile = await Profile.findOne({ user: req.params.id }).populate('user', ['email', 'role']);
+        const profile = await Profile.findOne({ user: req.params.id }).populate('user', ['email', 'role']).lean();
 
         if (!profile) return res.status(400).json({ message: 'Profile not found' });
 
@@ -96,11 +96,24 @@ router.get('/:id', async (req, res) => {
 });
 
 // @route   GET /api/profile
-// @desc    Get all profiles
+// @desc    Get all profiles (supports optional ?role=student or ?role=company)
 // @access  Public
 router.get('/', async (req, res) => {
     try {
-        const profiles = await Profile.find().populate('user', ['email', 'role']).sort({ coins: -1 });
+        const query = {};
+        if (req.query.role) {
+            const matchingUsers = await User.find({ role: req.query.role }).select('_id').lean();
+            const userIds = matchingUsers.map(u => u._id);
+            query.user = { $in: userIds };
+        }
+
+        let dbQuery = Profile.find(query).populate('user', ['email', 'role']).sort({ coins: -1 }).lean();
+
+        if (req.query.limit) {
+            dbQuery = dbQuery.limit(parseInt(req.query.limit));
+        }
+
+        const profiles = await dbQuery;
         res.json(profiles);
     } catch (err) {
         console.error(err.message);
@@ -113,55 +126,41 @@ router.get('/', async (req, res) => {
 // @access  Private (Company only ideally, but keeping generic protect for now)
 router.get('/stats/company', protect, async (req, res) => {
     try {
-        // 1. Total Candidates (Students/Developers) -> Count of users with role 'student'
-        const totalCandidates = await User.countDocuments({ role: 'student' });
-
-        // 2. Top Performers
-        // Logic:
-        // - Sort students by coins descending
-        // - If top 1 has more coins than top 2 -> 1
-        // - If top 1 and top 2 same coins -> 2
-        // - If top 1, 2, 3 same coins -> 3
-        // - Generally: Count how many students have the MAX score found.
+        // Parallelize initial queries
+        const [totalCandidates, maxCoinProfile, myChallenges] = await Promise.all([
+            User.countDocuments({ role: 'student' }),
+            Profile.findOne().sort({ coins: -1 }).select('coins').lean(),
+            Challenge.find({ company: req.user.id }).select('_id').lean()
+        ]);
 
         let topPerformersCount = 0;
-
-        // Find highest coin count first
-        const maxCoinProfile = await Profile.findOne().sort({ coins: -1 }).select('coins');
-
-        if (maxCoinProfile) {
-            const maxCoins = maxCoinProfile.coins;
-            // Count how many profiles have this maxCoins
-            topPerformersCount = await Profile.countDocuments({ coins: maxCoins });
-        }
-
-        // 3. Engagement 
-        // Logic: (Unique Users with PASSED submissions / Unique Users with ANY submissions) * 100
-
-        // Get all challenges for this company
-        const myChallenges = await Challenge.find({ company: req.user.id }).select('_id');
-        const challengeIds = myChallenges.map(c => c._id);
-
         let engagement = 0;
 
-        if (challengeIds.length > 0) {
-            // Find unique users who have submitted (ANY status) to these challenges
-            const startersCount = await Submission.distinct('user', {
-                challenge: { $in: challengeIds }
-            });
-            const totalStarters = startersCount.length;
+        const secondaryPromises = [];
 
-            if (totalStarters > 0) {
-                // Find unique users who have passed these challenges
-                const completersCount = await Submission.distinct('user', {
-                    challenge: { $in: challengeIds },
-                    status: 'passed'
-                });
-                const totalCompleters = completersCount.length;
-
-                engagement = Math.round((totalCompleters / totalStarters) * 100);
-            }
+        if (maxCoinProfile) {
+            secondaryPromises.push(
+                Profile.countDocuments({ coins: maxCoinProfile.coins }).then(c => {
+                    topPerformersCount = c;
+                })
+            );
         }
+
+        const challengeIds = myChallenges.map(c => c._id);
+        if (challengeIds.length > 0) {
+            secondaryPromises.push(
+                Promise.all([
+                    Submission.distinct('user', { challenge: { $in: challengeIds } }),
+                    Submission.distinct('user', { challenge: { $in: challengeIds }, status: 'passed' })
+                ]).then(([starters, completers]) => {
+                    if (starters.length > 0) {
+                        engagement = Math.round((completers.length / starters.length) * 100);
+                    }
+                })
+            );
+        }
+
+        await Promise.all(secondaryPromises);
 
         res.json({
             totalCandidates,

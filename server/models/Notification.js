@@ -33,4 +33,9 @@ const NotificationSchema = new mongoose.Schema({
     }
 });
 
+// Indexes for notification queries and mark-all-read updates
+NotificationSchema.index({ recipient: 1, createdAt: -1 });
+NotificationSchema.index({ recipient: 1, isRead: 1 });
+
 module.exports = mongoose.model('Notification', NotificationSchema);
+
