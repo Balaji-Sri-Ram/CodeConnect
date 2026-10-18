@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { Search, CheckCircle2, ChevronLeft, Loader2 } from "lucide-react";
+import { ChallengesGridSkeleton } from "@/components/ui/skeleton-loaders";
 
 const CompanyChallenges = () => {
   const navigate = useNavigate();
@@ -253,11 +254,8 @@ const CompanyChallenges = () => {
         <ScrollArea className="h-[calc(100vh-350px)]">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 pr-4">
             {loading ? (
-              <div className="col-span-full py-12 flex justify-center">
-                <div className="flex flex-col items-center gap-2">
-                  <div className="h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent"></div>
-                  <p className="text-muted-foreground">Loading challenges...</p>
-                </div>
+              <div className="col-span-full">
+                <ChallengesGridSkeleton count={6} />
               </div>
             ) : displayedChallenges.length === 0 ? (
               <div className="col-span-full text-center py-12">

@@ -22,15 +22,10 @@ const PublicCompanyProfile = lazy(() => import("./pages/PublicCompanyProfile"));
 const Companies = lazy(() => import("./pages/Companies"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// Minimal loading spinner shown while a lazy page chunk is being fetched
-const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-background">
-    <div className="flex flex-col items-center gap-4">
-      <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-      <p className="text-sm text-muted-foreground animate-pulse">Loading...</p>
-    </div>
-  </div>
-);
+import { PageSkeleton } from "@/components/ui/skeleton-loaders";
+
+// Skeleton shown while a lazy page chunk is being fetched
+const PageLoader = () => <PageSkeleton />;
 
 const ProfileRouter = () => {
   const navigate = useNavigate();

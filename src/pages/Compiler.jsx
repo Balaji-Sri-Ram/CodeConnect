@@ -18,6 +18,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ProblemDescriptionSkeleton } from "@/components/ui/skeleton-loaders";
 
 const LANGUAGES = [
   { id: 54, name: "C++ (GCC 9.2.0)", extension: "cpp" },
@@ -842,7 +843,7 @@ const Compiler = () => {
                   )}
                 </div>
               ) : (
-                <p className="text-muted-foreground">Loading problem...</p>
+                <ProblemDescriptionSkeleton />
               )}
             </ScrollArea>
           </Card>

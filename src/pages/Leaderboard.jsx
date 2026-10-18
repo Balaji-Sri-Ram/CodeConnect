@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Loader2, Trophy, Medal, Award, Coins, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { LeaderboardSkeleton } from "@/components/ui/skeleton-loaders";
 
 const Leaderboard = () => {
   const navigate = useNavigate();
@@ -56,9 +57,7 @@ const Leaderboard = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <div className="flex items-center justify-center h-[calc(100vh-80px)]">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        </div>
+        <LeaderboardSkeleton />
       </div>
     );
   }

@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import api from "@/api/client";
 
 
+import { StudentDashboardSkeleton } from "@/components/ui/skeleton-loaders";
+
 const StudentDashboard = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
@@ -107,6 +109,10 @@ const StudentDashboard = () => {
         return "bg-muted text-muted-foreground";
     }
   };
+
+  if (loading) {
+    return <StudentDashboardSkeleton />;
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">

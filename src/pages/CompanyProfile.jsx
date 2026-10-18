@@ -11,6 +11,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useToast } from "@/hooks/use-toast";
 import { Upload, Loader2, Trash2, ArrowLeft, AlertTriangle } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
+import { ProfileSkeleton } from "@/components/ui/skeleton-loaders";
 
 import { PasswordRequirements } from "@/components/PasswordRequirements";
 import {
@@ -182,9 +183,7 @@ const CompanyProfile = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <div className="flex items-center justify-center h-[calc(100vh-80px)]">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        </div>
+        <ProfileSkeleton />
       </div>
     );
   }

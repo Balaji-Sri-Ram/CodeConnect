@@ -6,6 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Loader2, ArrowRight, Building2 } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { CompaniesGridSkeleton } from "@/components/ui/skeleton-loaders";
 
 const Companies = () => {
     const navigate = useNavigate();
@@ -40,8 +42,14 @@ const Companies = () => {
         return (
             <div className="min-h-screen bg-background">
                 <Navbar />
-                <div className="flex items-center justify-center h-[calc(100vh-80px)]">
-                    <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                <div className="container mx-auto px-4 py-8">
+                    <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+                        <div className="space-y-2">
+                            <Skeleton className="h-9 w-48 rounded-lg" />
+                            <Skeleton className="h-4 w-72 rounded" />
+                        </div>
+                    </div>
+                    <CompaniesGridSkeleton count={6} />
                 </div>
             </div>
         );

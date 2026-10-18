@@ -9,10 +9,12 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import api from "@/api/client";
 import { Briefcase, Users, Trophy, TrendingUp } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { CompanyDashboardSkeleton } from "@/components/ui/skeleton-loaders";
 
 const CompanyDashboard = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [loading, setLoading] = useState(true);
   const [companyProfile, setCompanyProfile] = useState(null);
   const [challenges, setChallenges] = useState([]);
   const [showCreateDialog, setShowCreateDialog] = useState(false);
@@ -53,8 +55,14 @@ const CompanyDashboard = () => {
 
     } catch (error) {
       console.error("Error fetching company data:", error);
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return <CompanyDashboardSkeleton />;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();

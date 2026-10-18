@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { Search, Loader2, CheckCircle2, ChevronLeft } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { ProblemListSkeleton } from "@/components/ui/skeleton-loaders";
 
 const AllProblems = () => {
   const navigate = useNavigate();
@@ -129,8 +131,24 @@ const AllProblems = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <div className="flex items-center justify-center h-[calc(100vh-80px)]">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <div className="container mx-auto px-4 py-8">
+          <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <Skeleton className="h-10 w-10 rounded-lg shrink-0" />
+              <div className="space-y-2">
+                <Skeleton className="h-8 w-60 rounded-lg" />
+                <Skeleton className="h-4 w-72 max-w-full rounded" />
+              </div>
+            </div>
+            <Skeleton className="h-10 w-80 rounded-md hidden md:block" />
+          </div>
+          <div className="grid gap-4 md:grid-cols-4 mb-6">
+            <Skeleton className="h-10 rounded-md" />
+            <Skeleton className="h-10 rounded-md" />
+            <Skeleton className="h-10 rounded-md" />
+            <Skeleton className="h-10 rounded-md" />
+          </div>
+          <ProblemListSkeleton count={6} />
         </div>
       </div>
     );

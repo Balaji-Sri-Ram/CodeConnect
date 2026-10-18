@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import StudentDashboard from "@/components/dashboard/StudentDashboard";
 import CompanyDashboard from "@/components/dashboard/CompanyDashboard";
+import { StudentDashboardSkeleton, CompanyDashboardSkeleton } from "@/components/ui/skeleton-loaders";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -33,12 +34,7 @@ const Dashboard = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <div className="flex items-center justify-center h-[calc(100vh-80px)]">
-          <div className="text-center">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent"></div>
-            <p className="mt-4 text-muted-foreground">Loading...</p>
-          </div>
-        </div>
+        {userRole === "company" ? <CompanyDashboardSkeleton /> : <StudentDashboardSkeleton />}
       </div>
     );
   }
