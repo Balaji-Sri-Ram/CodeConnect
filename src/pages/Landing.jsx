@@ -9,7 +9,6 @@ import { Navbar } from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import CodeBackground from "@/components/CodeBackground";
-import profileIcon from "../../public/developer.jpg";
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -301,7 +300,7 @@ const Landing = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-hero rounded-[2rem] transform rotate-6 opacity-30 blur-lg"></div>
                   <img
-                    src={profileIcon}
+                    src="/developer.jpg"
                     alt="Balaji Sri Ram Parasa"
                     className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-[2rem] shadow-2xl border-4 border-background"
                   />
