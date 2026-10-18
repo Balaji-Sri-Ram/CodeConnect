@@ -6015,5 +6015,17 @@
     ],
     "input": "[1,2,2,1]",
     "output": "1"
+  },
+  {
+    "title": "Minimum Deletions to Make Array Sharp",
+    "description": "You are given an integer array nums.\n\nYou may delete any number of elements from nums. The remaining elements must preserve their original relative order.\n\nAn array is called sharp if the bitwise XOR of every pair of adjacent elements is non-zero. An array containing at most one element is also considered sharp.\n\nReturn the minimum number of deletions required to make nums sharp.\n\nInput:\nThe input contains an integer array nums.\n\nOutput:\nReturn the minimum number of deletions required to make nums sharp.\n\nConstraints:\n2 <= nums.length <= 100\n1 <= nums[i] <= 100",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Greedy",
+      "Bit Manipulation"
+    ],
+    "input": "[1,1,2,2,2,3]",
+    "output": "3"
   }
 ]
