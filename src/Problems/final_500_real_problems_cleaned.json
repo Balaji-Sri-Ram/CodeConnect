@@ -6027,5 +6027,18 @@
     ],
     "input": "[1,1,2,2,2,3]",
     "output": "3"
+  },
+  {
+    "title": "Last Visited Cell in a Directional Grid",
+    "description": "You are given an m x n matrix grid where each cell contains one of the following characters:\n\n- 'L': Move one cell left.\n- 'R': Move one cell right.\n- 'U': Move one cell up.\n- 'D': Move one cell down.\n\nYou start at cell (0, 0), which is considered visited. At each step, move to the cell indicated by the character in your current cell.\n\nThe process ends if the indicated move would either leave the grid or enter a cell that has already been visited. In either case, the move is not made.\n\nReturn an integer array [r, c] representing the row and column indices of the last visited cell. The indices are 0-based.\n\nInput:\nThe input contains an m x n character matrix grid.\n\nOutput:\nReturn an integer array [r, c] representing the last visited cell.\n\nConstraints:\n1 <= m == grid.length <= 100000\n1 <= n == grid[i].length <= 100000\nm * n <= 100000\ngrid[i][j] is one of 'L', 'R', 'U', or 'D'.",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Matrix",
+      "Simulation",
+      "Hash Table"
+    ],
+    "input": "[[\"R\",\"D\"],[\"U\",\"L\"]]",
+    "output": "[1,0]"
   }
 ]
