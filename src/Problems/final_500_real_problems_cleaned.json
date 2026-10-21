@@ -6052,5 +6052,18 @@
     ],
     "input": "5 6 10\n4",
     "output": "3"
+  },
+  {
+    "title": "Find Root of a Colored Tree",
+    "description": "You are given an undirected tree with n nodes labeled from 0 to n - 1. Each edge connects two nodes, and every node has a color represented by 'R', 'B', or 'W'.\n\nYour task is to find a node that can serve as the root while satisfying all the following conditions:\n\n1. Every node has at most two children when the tree is rooted.\n2. All nodes at the same depth have the same color.\n3. The colors at consecutive depths must follow one of these repeating patterns:\n   - R → B → W → R → ...\n   - B → W → R → B → ...\n   - W → R → B → W → ...\n\nReturn the index of any valid root. If no valid root exists, return -1.\n\nA tree is a connected undirected graph with no cycles. The depth of a node is the number of edges between it and the root.\n\nInput:\nThe first line contains an integer n, representing the number of nodes.\nThe next n - 1 lines each contain two integers u and v, representing an edge between nodes u and v.\nThe final line contains a string colors of length n, where each character represents the color of the corresponding node.\n\nOutput:\nPrint the index of any valid root, or -1 if no such root exists.\n\nConstraints:\n2 <= n <= 100000\nedges.length == n - 1\n0 <= u, v < n\ncolors.length == n\nEach character in colors is 'R', 'B', or 'W'.\nThe graph is guaranteed to be a tree, and every node has degree at most three.",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Graph",
+      "Depth-First Search",
+      "Breadth-First Search"
+    ],
+    "input": "5\n3 1\n3 2\n1 4\n2 0\nBRRWB",
+    "output": "3"
   }
 ]
