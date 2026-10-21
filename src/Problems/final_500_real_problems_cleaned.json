@@ -6050,7 +6050,7 @@
       "Dynamic Programming",
       "Knapsack"
     ],
-    "input": "nums = [5,6,10], sum = 4",
+    "input": "5 6 10\n4",
     "output": "3"
   }
 ]
