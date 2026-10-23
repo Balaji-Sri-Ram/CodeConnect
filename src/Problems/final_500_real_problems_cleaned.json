@@ -6065,5 +6065,20 @@
     ],
     "input": "5\n3 1\n3 2\n1 4\n2 0\nBRRWB",
     "output": "3"
+  },
+  {
+    "title": "Minimum Cost Path With At Most K Turns",
+    "description": "You are given a 2D integer grid of size m x n, where grid[i][j] represents the cost of visiting cell (i, j), and an integer k.\n\nYou start at the top-left cell (0, 0) and want to reach the bottom-right cell (m - 1, n - 1).\n\nFrom each cell, you may move one step in any of the four directions: up, down, left, or right.\n\nThe cost of a path is the sum of the values of all visited cells, including the starting and ending cells. If a cell is visited more than once, its value is included each time.\n\nReturn the minimum possible path cost to reach the bottom-right cell using at most k turns. If no such path exists, return -1.\n\nA turn occurs when the direction changes between two consecutive moves. For example, moving right and then down counts as one turn, while moving right and then right does not.\n\nInput:\nThe first line contains two integers m and n, representing the number of rows and columns.\nThe next m lines each contain n integers representing the grid.\nThe final line contains an integer k.\n\nOutput:\nPrint the minimum possible path cost using at most k turns, or -1 if the destination cannot be reached within the turn limit.\n\nConstraints:\n1 <= m, n <= 75\n0 <= grid[i][j] <= 1000\n0 <= k < min(m, n)",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Graph",
+      "Heap",
+      "Matrix",
+      "Shortest Path",
+      "Dynamic Programming"
+    ],
+    "input": "2 3\n2 7 3\n1 4 5\n1",
+    "output": "12"
   }
 ]
