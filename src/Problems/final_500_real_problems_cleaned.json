@@ -6093,5 +6093,17 @@
     ],
     "input": "4\n1 -1 0 2\n2\n1",
     "output": "3"
+  },
+  {
+    "title": "Count Subarrays With Loose Bounds",
+    "description": "You are given an integer array nums and two integers minK and maxK.\n\nA loose-bound subarray is a non-empty contiguous subarray in which every element is greater than or equal to minK and less than or equal to maxK.\n\nReturn the number of loose-bound subarrays in nums.\n\nInput:\nThe first line contains an integer n, representing the length of the array.\nThe second line contains n space-separated integers representing nums.\nThe third line contains two space-separated integers minK and maxK.\n\nOutput:\nPrint the number of loose-bound subarrays.\n\nConstraints:\n2 <= n <= 100000\n1 <= nums[i], minK, maxK <= 1000000",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Sliding Window",
+      "Counting"
+    ],
+    "input": "4\n1 4 7 3\n1 5",
+    "output": "4"
   }
 ]
