@@ -6105,5 +6105,16 @@
     ],
     "input": "4\n1 4 7 3\n1 5",
     "output": "4"
+  },
+  {
+    "title": "Binary Digit Score",
+    "description": "You are given two integers a and b.\n\nLet s1 be the number of set bits (bits equal to 1) in the binary representation of a, and let s2 be the number of set bits in the binary representation of b.\n\nCalculate the score using the following rules:\n\n1. If s1 is greater than or equal to s2, the score is s1 multiplied by s2.\n2. Otherwise, the score is s2 divided by s1 using integer division.\n\nReturn the calculated score.\n\nInput:\nThe first line contains an integer a.\nThe second line contains an integer b.\n\nOutput:\nPrint the calculated score.\n\nConstraints:\n1 <= a, b <= 100",
+    "difficulty": "Easy",
+    "topics": [
+      "Math",
+      "Bit Manipulation"
+    ],
+    "input": "14\n6",
+    "output": "6"
   }
 ]
