@@ -6116,5 +6116,18 @@
     ],
     "input": "14\n6",
     "output": "6"
+  },
+  {
+    "title": "Count Frequency Staircase Subarrays II",
+    "description": "You are given an integer array nums.\n\nA non-empty contiguous subarray is called a frequency staircase if its distinct elements, ordered by their first appearance, occur exactly 1, 2, 3, ..., k times respectively, where k is the number of distinct elements in that subarray.\n\nFor example, [5, 8, 8, 2, 2, 2] is a frequency staircase because:\n- The first distinct element, 5, occurs once.\n- The second distinct element, 8, occurs twice.\n- The third distinct element, 2, occurs three times.\n\nReturn the total number of frequency staircase subarrays in nums.\n\nInput:\nThe first line contains an integer n, representing the length of the array.\nThe second line contains n space-separated integers representing nums.\n\nOutput:\nPrint the total number of frequency staircase subarrays.\n\nConstraints:\n1 <= n <= 50000\n1 <= nums[i] <= 100000",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Counting",
+      "Sliding Window"
+    ],
+    "input": "6\n5 8 8 2 2 2",
+    "output": "9"
   }
 ]
