@@ -6129,5 +6129,17 @@
     ],
     "input": "6\n5 8 8 2 2 2",
     "output": "9"
+  },
+  {
+    "title": "Count Values With Equally Spaced Occurrences II",
+    "description": "You are given an integer array nums.\n\nAn integer is called special if it appears at least three times in nums and all its occurrences are equally spaced in the array.\n\nIf the indices where an integer appears are i1, i2, ..., im, they must satisfy:\n\n i2 - i1 = i3 - i2 = ... = im - i(m-1)\n\nReturn the number of distinct special integers in nums.\n\nInput:\nThe first line contains an integer n, representing the length of the array.\nThe second line contains n space-separated integers representing nums.\n\nOutput:\nPrint the number of distinct special integers.\n\nConstraints:\n3 <= n <= 100000\n1 <= nums[i] <= 1000000000",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Counting"
+    ],
+    "input": "8\n1 8 1 5 1 5 8 5",
+    "output": "2"
   }
 ]
