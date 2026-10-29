@@ -6141,5 +6141,18 @@
     ],
     "input": "8\n1 8 1 5 1 5 8 5",
     "output": "2"
+  },
+  {
+    "title": "Maximize Sum After At Most K Digit Rearrangements",
+    "description": "You are given an integer array nums of length n and an integer k.\n\nIn one operation, you may choose any element of nums and rearrange its decimal digits in any order to form a new integer.\n\nReturn the maximum possible sum of the array after performing at most k operations.\n\nInput:\nThe first line contains two integers n and k, representing the length of the array and the maximum number of operations.\nThe second line contains n space-separated integers representing nums.\n\nOutput:\nPrint the maximum possible sum of the array after performing at most k operations.\n\nConstraints:\n1 <= n <= 100000\n1 <= nums[i] <= 1000000000\n1 <= k <= n",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Greedy",
+      "Sorting",
+      "Math"
+    ],
+    "input": "3 2\n102 90 14",
+    "output": "341"
   }
 ]
