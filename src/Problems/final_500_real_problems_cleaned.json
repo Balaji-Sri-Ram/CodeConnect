@@ -6154,5 +6154,17 @@
     ],
     "input": "3 2\n102 90 14",
     "output": "341"
+  },
+  {
+    "title": "Minimum Operations to Make Every Element Palindromic",
+    "description": "You are given an integer array nums.\n\nIn one operation, you may choose an index i and either increment or decrement nums[i] by 2.\n\nReturn the minimum number of operations required to make every element in nums a positive palindrome.\n\nDifferent elements may be changed into different palindromic integers.\n\nA positive palindrome is an integer that remains the same when its digits are reversed.\n\nInput:\nThe first line contains an integer n, representing the length of the array.\nThe second line contains n space-separated integers representing nums.\n\nOutput:\nPrint the minimum number of operations required to make every element a positive palindrome.\n\nConstraints:\n1 <= n <= 100000\n1 <= nums[i] <= 1000000000",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Binary Search",
+      "Math"
+    ],
+    "input": "4\n10 12 14 16",
+    "output": "9"
   }
 ]
