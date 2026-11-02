@@ -6179,5 +6179,18 @@
     ],
     "input": "5\n3 1 4 2 5",
     "output": "5"
+  },
+  {
+    "title": "Minimum Value of Merged Integers",
+    "description": "You are given an integer array nums of even length n.\n\nYou must merge the elements of nums in consecutive pairs:\n\n- Merge nums[0] with nums[1].\n- Merge nums[2] with nums[3].\n- Continue this process until nums[n - 2] is merged with nums[n - 1].\n\nTo merge two integers, concatenate all the decimal digits of the second integer after the decimal digits of the first integer.\n\nReturn the minimum value among all the resulting merged integers.\n\nInput:\nThe first line contains an even integer n, representing the length of the array.\nThe second line contains n space-separated integers representing nums.\n\nOutput:\nPrint the minimum value among all merged integers.\n\nConstraints:\n2 <= n <= 100\nn is even\n1 <= nums[i] <= 1000",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Math",
+      "String",
+      "Simulation"
+    ],
+    "input": "4\n23 55 42 21",
+    "output": "2355"
   }
 ]
