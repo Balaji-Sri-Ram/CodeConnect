@@ -209,32 +209,32 @@ const Landing = () => {
                   <div className="flex items-start gap-4">
                     <Mail className="h-6 w-6 mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">edemahitharenu@gmail.com</p>
+                      <p className="font-medium">ramuparasa02@gmail.com</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <Phone className="h-6 w-6 mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">+91 9392951294</p>
+                      <p className="font-medium">+91 7207674897</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <MapPin className="h-6 w-6 mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">Kadapa,</p>
+                      <p className="font-medium">Narsapur, West Godavari</p>
                       <p className="opacity-90">Andhra Pradesh</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8 flex gap-4">
-                  <a href="https://github.com/MahithaRenu6" target="_blank" rel="noopener noreferrer"
+                  <a href="https://github.com/Balaji-Sri-Ram" target="_blank" rel="noopener noreferrer"
                     className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary-foreground hover:bg-primary-foreground/10 transition-colors">
                     <Github className="h-5 w-5" />
                   </a>
-                  <a href="https://www.linkedin.com/in/ederenu" target="_blank" rel="noopener noreferrer"
+                  <a href="https://www.linkedin.com/in/balaji-sri-ram-parasa" target="_blank" rel="noopener noreferrer"
                     className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary-foreground hover:bg-primary-foreground/10 transition-colors">
                     <Linkedin className="h-5 w-5" />
                   </a>
