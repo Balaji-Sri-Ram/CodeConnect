@@ -6192,5 +6192,18 @@
     ],
     "input": "4\n23 55 42 21",
     "output": "2355"
+  },
+  {
+    "title": "Minimize the Maximum Value of GCD-Connected Array",
+    "description": "You are given three integers n, index, and value.\n\nAn integer array nums of length n is called GCD-Connected if it satisfies all the following conditions:\n\n1. Every element is a positive integer.\n2. The array is strictly increasing.\n3. nums[index] is equal to value.\n4. The GCD of every pair of adjacent elements is greater than 1.\n\nReturn the minimum possible value of the last element nums[n - 1] among all valid GCD-Connected arrays. If no valid array exists, return -1.\n\nInput:\nThe first line contains an integer n, representing the length of the array.\nThe second line contains an integer index, representing the required position.\nThe third line contains an integer value, representing the required element.\n\nOutput:\nPrint the minimum possible value of the last element, or -1 if no valid array exists.\n\nConstraints:\n2 <= n <= 1000000000\n1 <= value <= 1000000000\n0 <= index < n",
+    "difficulty": "Medium",
+    "topics": [
+      "Math",
+      "Number Theory",
+      "Greedy",
+      "Greatest Common Divisor"
+    ],
+    "input": "4\n2\n8",
+    "output": "10"
   }
 ]
