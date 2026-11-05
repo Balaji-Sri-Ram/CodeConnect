@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Code2, LogOut, User, ChevronDown, Trophy, Building, LayoutGrid, Users, Moon, Sun, Monitor, Check, Menu, X } from "lucide-react";
+import { Code2, LogOut, User, Trophy, Building, LayoutGrid, Users, Moon, Sun, Monitor, Check, Menu, X } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const Profile = require('../models/Profile');
 const User = require('../models/User'); // Import User model
 const Challenge = require('../models/Challenge'); // Import Challenge model
@@ -89,19 +90,28 @@ router.post('/', protect, async (req, res) => {
 });
 
 // @route   GET /api/profile/:id
-// @desc    Get profile by user ID
+// @desc    Get profile by user ID or profile ID
 // @access  Public
 router.get('/:id', async (req, res) => {
     try {
-        const profile = await Profile.findOne({ user: req.params.id }).populate('user', ['email', 'role']).lean();
+        const id = req.params.id;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(404).json({ message: 'Profile not found' });
+        }
 
-        if (!profile) return res.status(400).json({ message: 'Profile not found' });
+        let profile = await Profile.findOne({ user: id }).populate('user', ['email', 'role']).lean();
+
+        if (!profile) {
+            profile = await Profile.findById(id).populate('user', ['email', 'role']).lean();
+        }
+
+        if (!profile) return res.status(404).json({ message: 'Profile not found' });
 
         res.json(profile);
     } catch (err) {
         console.error(err.message);
-        if (err.kind == 'ObjectId') {
-            return res.status(400).json({ message: 'Profile not found' });
+        if (err.kind === 'ObjectId') {
+            return res.status(404).json({ message: 'Profile not found' });
         }
         res.status(500).send('Server error');
     }

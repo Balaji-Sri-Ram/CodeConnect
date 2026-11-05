@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const Submission = require('../models/Submission');
 const Profile = require('../models/Profile');
 const { protect } = require('../middleware/authMiddleware');
@@ -10,6 +11,10 @@ const { protect } = require('../middleware/authMiddleware');
 router.post('/', protect, async (req, res) => {
     const { problem_id, code, language, status, type } = req.body; // Added type: 'problem' | 'challenge'
     const userId = req.user.id || req.user._id;
+
+    if (!problem_id || !mongoose.Types.ObjectId.isValid(problem_id)) {
+        return res.status(400).json({ message: 'Invalid problem ID' });
+    }
 
     try {
         const submissionData = {

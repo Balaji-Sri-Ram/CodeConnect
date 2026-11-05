@@ -50,8 +50,42 @@ const CompanyChallenges = () => {
   }, []);
 
   useEffect(() => {
-    applyFilters();
-  }, [challenges, difficultyFilter, companyFilter, topicFilter, solvedFilter, searchQuery, solvedIds]); // Add solvedIds to dependency
+    let filtered = [...challenges];
+
+    if (difficultyFilter !== "all") {
+      filtered = filtered.filter((c) => c.difficulty === difficultyFilter);
+    }
+
+    if (companyFilter !== "all") {
+      filtered = filtered.filter((c) => c.company?.company_name === companyFilter);
+    }
+
+    if (topicFilter !== "all") {
+      filtered = filtered.filter((c) => c.topic === topicFilter);
+    }
+
+    if (solvedFilter !== "all") {
+      if (solvedFilter === "solved") {
+        filtered = filtered.filter((c) => solvedIds.includes(c._id || c.id));
+      } else if (solvedFilter === "unsolved") {
+        filtered = filtered.filter((c) => !solvedIds.includes(c._id || c.id));
+      }
+    }
+
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter((c) =>
+        c.title.toLowerCase().includes(query) ||
+        c.company?.company_name?.toLowerCase().includes(query) ||
+        c.difficulty.toLowerCase().includes(query) ||
+        c.topic?.toLowerCase().includes(query)
+      );
+    }
+
+    setFilteredChallenges(filtered);
+    setDisplayedChallenges(filtered.slice(0, CHALLENGES_PER_PAGE));
+    setPage(1);
+  }, [challenges, difficultyFilter, companyFilter, topicFilter, solvedFilter, searchQuery, solvedIds]);
 
   const fetchChallenges = async () => {
     try {
@@ -91,43 +125,6 @@ const CompanyChallenges = () => {
     }
   };
 
-  const applyFilters = () => {
-    let filtered = [...challenges];
-
-    if (difficultyFilter !== "all") {
-      filtered = filtered.filter((c) => c.difficulty === difficultyFilter);
-    }
-
-    if (companyFilter !== "all") {
-      filtered = filtered.filter((c) => c.company?.company_name === companyFilter);
-    }
-
-    if (topicFilter !== "all") {
-      filtered = filtered.filter((c) => c.topic === topicFilter);
-    }
-
-    if (solvedFilter !== "all") {
-      if (solvedFilter === "solved") {
-        filtered = filtered.filter((c) => solvedIds.includes(c._id || c.id));
-      } else if (solvedFilter === "unsolved") {
-        filtered = filtered.filter((c) => !solvedIds.includes(c._id || c.id));
-      }
-    }
-
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
-      filtered = filtered.filter((c) =>
-        c.title.toLowerCase().includes(query) ||
-        c.company?.company_name?.toLowerCase().includes(query) ||
-        c.difficulty.toLowerCase().includes(query) ||
-        c.topic?.toLowerCase().includes(query)
-      );
-    }
-
-    setFilteredChallenges(filtered);
-    setDisplayedChallenges(filtered.slice(0, CHALLENGES_PER_PAGE));
-    setPage(1);
-  };
 
   const loadMore = () => {
     setLoadingMore(true);

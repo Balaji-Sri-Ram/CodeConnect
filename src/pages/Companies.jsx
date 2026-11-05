@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "@/api/client";
 import { Navbar } from "@/components/Navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Loader2, ArrowRight, Building2 } from "lucide-react";
+import { ArrowRight, Building2 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CompaniesGridSkeleton } from "@/components/ui/skeleton-loaders";
 
@@ -14,11 +14,7 @@ const Companies = () => {
     const [companies, setCompanies] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetchCompanies();
-    }, []);
-
-    const fetchCompanies = async () => {
+    const fetchCompanies = useCallback(async () => {
         try {
             // Fetch all profiles
             // In a real app with many users, we should have a specific endpoint for fetching companies
@@ -36,7 +32,11 @@ const Companies = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
+
+    useEffect(() => {
+        fetchCompanies();
+    }, [fetchCompanies]);
 
     if (loading) {
         return (

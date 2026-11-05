@@ -147,7 +147,7 @@ const Compiler = () => {
       interval = setInterval(() => {
         setStopwatchTime((prev) => prev + 1);
       }, 1000);
-    } else if (isTimerRunning && countdownTime > 0) {
+    } else if (isTimerRunning) {
       interval = setInterval(() => {
         setCountdownTime((prev) => {
           if (prev <= 1) {
@@ -252,6 +252,9 @@ const Compiler = () => {
   }, [searchParams]);
 
   const checkSolved = async (problemId) => {
+    const token = localStorage.getItem('token');
+    if (!token || !problemId || problemId === 'company-challenge') return;
+
     try {
       const { data: submissions } = await api.get('/submissions/my');
 
@@ -313,7 +316,7 @@ const Compiler = () => {
 
   const saveSubmission = async (status, difficulty) => {
     const problemId = searchParams.get("problemId");
-    if (!problemId) return null;
+    if (!problemId || problemId === 'company-challenge') return null;
 
     // Determine type based on source
     const source = searchParams.get("source");
@@ -380,12 +383,12 @@ const Compiler = () => {
       if (result.time) setExecutionTime(result.time);
       if (result.memory) setMemory(result.memory);
 
-      if (expectedOutput && result.stdout) {
-        const normalize = (str) => str.replace(/\s+/g, '');
+      if (expectedOutput) {
+        const normalize = (str) => (str || '').replace(/\s+/g, '');
         const expectedNormalized = normalize(expectedOutput);
         const outputNormalized = normalize(programOutput);
 
-        if (expectedNormalized === outputNormalized) {
+        if (result.stdout && expectedNormalized === outputNormalized) {
           setIsCorrect(true);
           const saveResult = await saveSubmission("passed", problem?.difficulty);
 
@@ -409,11 +412,13 @@ const Compiler = () => {
           await saveSubmission("failed", problem?.difficulty);
           toast({
             title: "❌ Wrong Answer",
-            description: "Your output doesn't match the expected output. Try again!",
+            description: result.stderr || result.compile_output
+              ? "Your code produced an error. Check the terminal output."
+              : "Your output doesn't match the expected output. Try again!",
             variant: "destructive",
           });
         }
-      } else if (!expectedOutput) {
+      } else {
         toast({
           title: "Execution Complete",
           description: "Code ran successfully!",

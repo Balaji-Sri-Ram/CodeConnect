@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "@/api/client";
 import { Navbar } from "@/components/Navbar";
@@ -7,7 +7,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  Loader2,
   Mail,
   Phone,
   Linkedin,
@@ -34,11 +33,7 @@ const DeveloperProfile = () => {
     hard: 0,
   });
 
-  useEffect(() => {
-    fetchDeveloper();
-  }, [id]);
-
-  const fetchDeveloper = async () => {
+  const fetchDeveloper = useCallback(async () => {
     try {
       // Fetch profile
       // Note: backend route /profile/:id calls findOne({user: id})
@@ -63,7 +58,11 @@ const DeveloperProfile = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    fetchDeveloper();
+  }, [fetchDeveloper]);
 
   if (loading) {
     return (

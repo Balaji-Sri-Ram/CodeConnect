@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import api from "@/api/client";
 import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
-import { Code2, Trophy, Users, CheckCircle2, ArrowRight, Star, Quote, Mail, Phone, MapPin, Linkedin, Facebook, Instagram, Github, Briefcase, Target, Zap } from "lucide-react";
+import { Code2, Trophy, Users, CheckCircle2, ArrowRight, Mail, Phone, MapPin, Linkedin, Github, Briefcase, Target, Zap } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";

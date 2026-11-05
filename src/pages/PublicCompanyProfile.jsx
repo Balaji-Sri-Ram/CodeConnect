@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "@/api/client";
 import { Navbar } from "@/components/Navbar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-    Loader2,
     Mail,
     Linkedin,
     Github,
     Globe,
     ArrowLeft,
     Building2,
-    Briefcase,
-    MapPin,
     MessageCircle
 } from "lucide-react";
 import { PublicCompanyProfileSkeleton } from "@/components/ui/skeleton-loaders";
@@ -29,11 +25,7 @@ const PublicCompanyProfile = () => {
         challengesAssigned: 0
     });
 
-    useEffect(() => {
-        fetchCompanyData();
-    }, [id]);
-
-    const fetchCompanyData = async () => {
+    const fetchCompanyData = useCallback(async () => {
         try {
             // 1. Fetch profile
             const { data: profileData } = await api.get(`/profile/${id}`);
@@ -62,7 +54,11 @@ const PublicCompanyProfile = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [id]);
+
+    useEffect(() => {
+        fetchCompanyData();
+    }, [fetchCompanyData]);
 
     if (loading) {
         return (

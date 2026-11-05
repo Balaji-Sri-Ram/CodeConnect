@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "@/api/client";
 import { Navbar } from "@/components/Navbar";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, Trophy, Medal, Award, Coins, Search } from "lucide-react";
+import { Trophy, Medal, Award, Coins, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { LeaderboardSkeleton } from "@/components/ui/skeleton-loaders";
 
@@ -15,11 +15,7 @@ const Leaderboard = () => {
   const [students, setStudents] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  useEffect(() => {
-    fetchStudents();
-  }, []);
-
-  const fetchStudents = async () => {
+  const fetchStudents = useCallback(async () => {
     try {
       const { data } = await api.get('/profile');
       // Filter for all non-company profiles (students, developers, etc.)
@@ -32,7 +28,11 @@ const Leaderboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchStudents();
+  }, [fetchStudents]);
 
   const filteredStudents = students.filter((student) =>
     student.full_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import Editor from 'react-simple-code-editor';
 // Prism core
 import Prism from 'prismjs';
