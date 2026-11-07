@@ -6232,5 +6232,17 @@
     ],
     "input": "5\n0 1 4\n0 2 6\n0 3 3\n3 4 5\n3 1 7 1 3",
     "output": "7"
+  },
+  {
+    "title": "Count Evenly Good Integers",
+    "description": "You are given two integers l and r.\n\nAn integer is called evenly good if it contains an even number of even digits in its decimal representation.\n\nFor example:\n- 19 is evenly good because it contains 0 even digits.\n- 20 is evenly good because it contains 2 even digits.\n- 22 is evenly good because it contains 2 even digits.\n- 18 is not evenly good because it contains 1 even digit.\n\nReturn the number of evenly good integers in the inclusive range [l, r].\n\nInput:\nThe first line contains two space-separated integers l and r.\n\nOutput:\nPrint the number of evenly good integers in the range [l, r].\n\nConstraints:\n1 <= l <= r <= 1000000000000000",
+    "difficulty": "Hard",
+    "topics": [
+      "Dynamic Programming",
+      "Math",
+      "Digit DP"
+    ],
+    "input": "18 22",
+    "output": "3"
   }
 ]
