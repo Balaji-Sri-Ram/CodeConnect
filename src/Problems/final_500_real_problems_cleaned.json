@@ -6244,5 +6244,17 @@
     ],
     "input": "18 22",
     "output": "3"
+  },
+  {
+    "title": "Minimum Queen Moves to Reach Target",
+    "description": "There is an 8 x 8 empty chessboard with 1-indexed rows and columns.\n\nYou are given two positions: source = [sr, sc], representing the starting position of a queen, and target = [tr, tc], representing the destination.\n\nIn one move, the queen can travel one or more squares along a single row, column, or diagonal, while staying within the chessboard.\n\nReturn the minimum number of moves required for the queen to reach the target position exactly.\n\nInput:\nThe first line contains two space-separated integers representing the queen's starting row and column.\nThe second line contains two space-separated integers representing the target row and column.\n\nOutput:\nPrint the minimum number of moves required.\n\nConstraints:\n1 <= sr, sc, tr, tc <= 8",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Math",
+      "Geometry"
+    ],
+    "input": "4 2\n1 3",
+    "output": "2"
   }
 ]
