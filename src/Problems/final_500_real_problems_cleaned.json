@@ -6256,5 +6256,18 @@
     ],
     "input": "4 2\n1 3",
     "output": "2"
+  },
+  {
+    "title": "Find Mismatched Segments Between Two Strings",
+    "description": "You are given two strings s1 and s2 of the same length.\n\nA mismatched segment is a maximal contiguous range of indices where the characters of s1 and s2 differ at every corresponding index.\n\nReturn a 2D array containing [sub1, sub2] for each mismatched segment, where sub1 and sub2 are the corresponding substrings from s1 and s2.\n\nReturn the segments in increasing order of their starting indices. If there are no mismatched segments, return an empty array.\n\nA substring is a contiguous non-empty sequence of characters within a string.\n\nInput:\nThe first line contains string s1.\nThe second line contains string s2.\n\nOutput:\nReturn a 2D array containing the corresponding substring pairs for every mismatched segment.\n\nConstraints:\n1 <= s1.length == s2.length <= 100\nBoth strings consist of lowercase English letters.",
+    "difficulty": "Medium",
+    "topics": [
+      "String",
+      "Two Pointers",
+      "Array",
+      "Simulation"
+    ],
+    "input": "earth\nempty",
+    "output": "[[\"ar\",\"mp\"],[\"h\",\"y\"]]"
   }
 ]
