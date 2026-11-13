@@ -6282,5 +6282,18 @@
     ],
     "input": "5\n1 2 3 4 5\n3",
     "output": "4"
+  },
+  {
+    "title": "Count Valid Suffix Sorts II",
+    "description": "You are given two integer arrays nums and target, of lengths n and m respectively, where n <= m.\n\nFor every index i from 0 to n - 1, perform the following operation independently:\n\n1. Take the suffix of nums starting at index i and ending at index n - 1.\n2. Sort this suffix in non-increasing order.\n3. Keep the elements before index i unchanged.\n\nFor every subarray of target having length n, determine how many indices i produce exactly that subarray after the operation.\n\nReturn an integer array ans of length m - n + 1, where ans[k] represents the number of indices i for which the resulting array equals the subarray of target starting at index k.\n\nInput:\nThe first line contains two space-separated integers n and m.\nThe second line contains n space-separated integers representing nums.\nThe third line contains m space-separated integers representing target.\n\nOutput:\nPrint m - n + 1 space-separated integers representing the answer array.\n\nConstraints:\n1 <= n <= m <= 100000\n1 <= nums[i], target[i] <= 100000",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Sorting",
+      "Hashing",
+      "String Matching"
+    ],
+    "input": "3 8\n2 2 3\n2 2 3 2 1 3 2 2",
+    "output": "1 1 0 0 0 1"
   }
 ]
