@@ -6319,5 +6319,16 @@
     ],
     "input": "3\n1 3 5",
     "output": "4"
+  },
+  {
+    "title": "Calculate Digit Sum of a String",
+    "description": "You are given a string s consisting of digits and an integer k.\n\nPerform the following operation repeatedly until the length of s is less than or equal to k:\n\n1. Divide s into consecutive groups of size k, starting from the left.\n2. If the final group contains fewer than k characters, keep it as a smaller group.\n3. For each group, calculate the sum of its digits.\n4. Replace each group with the string representation of its digit sum.\n5. Concatenate all the resulting strings to form the new s.\n\nReturn the final string after all operations.\n\nInput:\nThe first line contains a string s consisting of digits.\nThe second line contains an integer k.\n\nOutput:\nPrint the final string after repeatedly applying the digit-sum operation.\n\nConstraints:\n1 <= s.length <= 100\n2 <= k <= 100\ns consists only of digits.",
+    "difficulty": "Easy",
+    "topics": [
+      "String",
+      "Simulation"
+    ],
+    "input": "11111222223\n3",
+    "output": "135"
   }
 ]
