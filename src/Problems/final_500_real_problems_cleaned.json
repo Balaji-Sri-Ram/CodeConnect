@@ -6330,5 +6330,18 @@
     ],
     "input": "11111222223\n3",
     "output": "135"
+  },
+  {
+    "title": "Minimum Changes to Make K Semi-palindromes",
+    "description": "You are given a string s and an integer k.\n\nYour task is to partition s into exactly k non-empty substrings. You can change any character in these substrings to another lowercase English letter.\n\nA substring is called a semi-palindrome if there exists a positive divisor d of its length, where d is strictly smaller than its length, such that the following condition holds:\n\n1. Divide the substring into groups based on positions that differ by d.\n2. Each group must form a palindrome.\n\nFor example, the string \"abcabc\" is a semi-palindrome because choosing d = 3 creates the groups \"aa\", \"bb\", and \"cc\", all of which are palindromes.\n\nReturn the minimum number of character changes required to make all k substrings semi-palindromes.\n\nInput:\nThe first line contains a string s consisting of lowercase English letters.\nThe second line contains an integer k.\n\nOutput:\nPrint the minimum number of character changes required.\n\nConstraints:\n2 <= s.length <= 200\n1 <= k <= s.length / 2\ns consists only of lowercase English letters.",
+    "difficulty": "Hard",
+    "topics": [
+      "String",
+      "Dynamic Programming",
+      "Number Theory",
+      "Combinatorics"
+    ],
+    "input": "abcac\n2",
+    "output": "1"
   }
 ]
