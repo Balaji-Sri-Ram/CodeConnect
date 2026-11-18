@@ -6343,5 +6343,17 @@
     ],
     "input": "abcac\n2",
     "output": "1"
+  },
+  {
+    "title": "Minimum Number of Changes to Make Binary String Beautiful",
+    "description": "You are given a binary string s consisting only of '0' and '1'.\n\nA string is called beautiful if it can be partitioned into one or more non-empty substrings such that:\n\n1. Every substring has an even length.\n2. Every substring contains only '0' characters or only '1' characters.\n\nIn one operation, you can change any character from '0' to '1' or from '1' to '0'.\n\nReturn the minimum number of operations required to make s beautiful.\n\nInput:\nThe first line contains a binary string s.\n\nOutput:\nPrint the minimum number of character changes required to make s beautiful.\n\nConstraints:\n2 <= s.length <= 100000\ns.length is even.\ns[i] is either '0' or '1'.",
+    "difficulty": "Medium",
+    "topics": [
+      "String",
+      "Greedy",
+      "Bit Manipulation"
+    ],
+    "input": "1001",
+    "output": "2"
   }
 ]
