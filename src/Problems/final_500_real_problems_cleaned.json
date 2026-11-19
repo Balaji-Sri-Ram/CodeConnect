@@ -6355,5 +6355,17 @@
     ],
     "input": "1001",
     "output": "2"
+  },
+  {
+    "title": "Minimum Score by Changing Two Elements",
+    "description": "You are given an integer array nums.\n\nThe low score of nums is the minimum absolute difference between any two elements.\n\nThe high score of nums is the maximum absolute difference between any two elements.\n\nThe score of nums is the sum of its low score and high score.\n\nYou can change the values of at most two elements in nums to any integers you want.\n\nReturn the minimum possible score after changing at most two elements.\n\nInput:\nThe first line contains an integer n, representing the length of the array.\nThe second line contains n space-separated integers representing nums.\n\nOutput:\nPrint the minimum possible score after changing at most two elements.\n\nConstraints:\n3 <= n <= 100000\n1 <= nums[i] <= 1000000000",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Sorting",
+      "Greedy"
+    ],
+    "input": "5\n1 4 7 8 5",
+    "output": "3"
   }
 ]
