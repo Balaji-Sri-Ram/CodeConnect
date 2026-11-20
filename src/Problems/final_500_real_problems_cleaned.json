@@ -6367,5 +6367,18 @@
     ],
     "input": "5\n1 4 7 8 5",
     "output": "3"
+  },
+  {
+    "title": "Maximize Consecutive Elements in an Array After Modification",
+    "description": "You are given an integer array nums.\n\nYou can perform the following operation at most once on each element:\n\n- Choose an index i and increase nums[i] by 1.\n\nYour task is to select some elements from the modified array such that they form a sequence of consecutive integers with no duplicates.\n\nThe selected elements do not need to be contiguous in the original array.\n\nReturn the maximum possible number of selected elements.\n\nInput:\nThe first line contains an integer n, representing the length of the array.\nThe second line contains n space-separated integers representing nums.\n\nOutput:\nPrint the maximum possible length of a sequence of consecutive integers.\n\nConstraints:\n1 <= n <= 100000\n1 <= nums[i] <= 1000000000",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Dynamic Programming",
+      "Greedy",
+      "Sorting"
+    ],
+    "input": "5\n2 1 5 1 1",
+    "output": "3"
   }
 ]
