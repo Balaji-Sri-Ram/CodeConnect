@@ -1056,7 +1056,7 @@ const Compiler = () => {
               </div>
             </Card>
 
-            <Card className="flex flex-col overflow-hidden relative" style={{ minHeight: "350px" }}>
+            <Card className="flex flex-col overflow-hidden relative" style={{ minHeight: "350px", height: "380px" }}>
               <div className="p-3 border-b border-border bg-muted/30">
                 <div className="flex items-center gap-2">
                   <Terminal className="h-4 w-4 text-primary" />
@@ -1082,7 +1082,7 @@ const Compiler = () => {
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  className="flex-1 resize-none border-0 rounded-none focus-visible:ring-0 bg-card leading-6"
+                  className="flex-1 resize-none border-0 rounded-none focus-visible:ring-0 bg-card leading-6 overflow-y-auto"
                   placeholder="Write your code here..."
                   style={{
                     minHeight: "300px",

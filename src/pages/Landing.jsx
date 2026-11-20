@@ -9,6 +9,7 @@ import { Navbar } from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import CodeBackground from "@/components/CodeBackground";
+import DemoVideoSection from "@/components/DemoVideoSection";
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -117,6 +118,9 @@ const Landing = () => {
           </div>
         </div>
       </section>
+
+      {/* Demo Video Section */}
+      <DemoVideoSection />
 
       {/* Features Section */}
       <section className="py-20 bg-secondary/30">
