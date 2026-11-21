@@ -6380,5 +6380,18 @@
     ],
     "input": "5\n2 1 5 1 1",
     "output": "3"
+  },
+  {
+    "title": "Find Subtree Sizes After Changes",
+    "description": "You are given an integer array parent representing a rooted tree with n nodes numbered from 0 to n - 1. Node 0 is the root, and parent[i] represents the parent of node i.\n\nYou are also given a string s of length n, where s[i] represents the character assigned to node i.\n\nBefore calculating subtree sizes, perform the following operation simultaneously for every node i (except the root):\n\n1. Find the closest ancestor of node i whose character is equal to s[i].\n2. If such an ancestor exists, change the parent of node i to that ancestor.\n3. If no such ancestor exists, keep its original parent.\n\nAll ancestor searches must be performed using the original tree, not the modified tree.\n\nAfter modifying the parent relationships, calculate the subtree size of every node.\n\nThe subtree size of a node is the number of nodes in its subtree, including the node itself.\n\nReturn an integer array answer where answer[i] represents the subtree size of node i.\n\nInput:\nThe first line contains an integer n, representing the number of nodes.\nThe second line contains n space-separated integers representing the parent array. The first value must be -1 because node 0 is the root.\nThe third line contains a string s of length n.\n\nOutput:\nPrint n space-separated integers representing the subtree sizes of all nodes.\n\nConstraints:\n1 <= n <= 100000\nparent.length == n\nparent[0] == -1\n0 <= parent[i] < n for i > 0\ns.length == n\ns consists of lowercase English letters.\nThe given parent array represents a valid rooted tree.",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Depth-First Search",
+      "Hash Table",
+      "Graph"
+    ],
+    "input": "6\n-1 0 0 1 1 1\nabaabc",
+    "output": "6 3 1 1 1 1"
   }
 ]
