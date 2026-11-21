@@ -40,11 +40,11 @@ const Companies = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-background">
+            <div className="min-h-screen bg-background pb-20 md:pb-8">
                 <Navbar />
                 <div className="container mx-auto px-4 py-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-                        <div className="space-y-2">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                        <div className="space-y-2 text-left">
                             <Skeleton className="h-9 w-48 rounded-lg" />
                             <Skeleton className="h-4 w-72 rounded" />
                         </div>
@@ -56,11 +56,11 @@ const Companies = () => {
     }
 
     return (
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-background pb-20 md:pb-8">
             <Navbar />
             <div className="container mx-auto px-4 py-8">
-                <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-                    <div>
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                    <div className="text-left">
                         <h1 className="text-3xl font-bold">Companies</h1>
                         <p className="text-muted-foreground mt-2">
                             Discover top companies hiring developers

@@ -18,6 +18,7 @@ import { NotificationBell } from "./NotificationBell";
 import api from '@/api/client';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useTheme } from "./ThemeProvider";
+import { MobileBottomNav } from "./MobileBottomNav";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -87,7 +88,8 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <>
+      <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2 text-xl font-bold">
@@ -365,5 +367,8 @@ export const Navbar = () => {
         </div>
       )}
     </nav>
+    {/* Mobile Bottom Footer Navigation */}
+    <MobileBottomNav isLoggedIn={isLoggedIn} userRole={userRole} />
+  </>
   );
 };

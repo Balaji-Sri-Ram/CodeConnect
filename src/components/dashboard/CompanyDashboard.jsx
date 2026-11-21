@@ -169,45 +169,53 @@ const CompanyDashboard = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Stats Cards */}
-      <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mb-8">
-        <Card className="p-6 bg-gradient-card shadow-md">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Active Challenges</p>
-              <p className="text-3xl font-bold text-primary">{challenges.length}</p>
+      {/* Stats Cards - Responsive 2x2 Grid on Mobile, 4-Cols on Desktop */}
+      <div className="grid gap-3 sm:gap-6 grid-cols-2 lg:grid-cols-4 mb-8">
+        <Card className="p-4 sm:p-5 bg-gradient-card shadow-md flex flex-col justify-between min-h-[110px] sm:min-h-[125px] rounded-2xl hover:shadow-lg transition-shadow">
+          <div className="flex items-center justify-between gap-1 sm:gap-2">
+            <p className="text-xs sm:text-sm text-muted-foreground font-semibold truncate">Active Challenges</p>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary shrink-0">
+              <Briefcase className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
-            <Briefcase className="h-10 w-10 text-primary" />
+          </div>
+          <div className="mt-2">
+            <p className="text-3xl sm:text-4xl font-black tracking-tight text-primary">{challenges.length}</p>
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-card shadow-md">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Total Candidates</p>
-              <p className="text-3xl font-bold text-success">{stats.totalCandidates}</p>
+        <Card className="p-4 sm:p-5 bg-gradient-card shadow-md flex flex-col justify-between min-h-[110px] sm:min-h-[125px] rounded-2xl hover:shadow-lg transition-shadow">
+          <div className="flex items-center justify-between gap-1 sm:gap-2">
+            <p className="text-xs sm:text-sm text-muted-foreground font-semibold truncate">Total Candidates</p>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-success/15 flex items-center justify-center text-success shrink-0">
+              <Users className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
-            <Users className="h-10 w-10 text-success" />
+          </div>
+          <div className="mt-2">
+            <p className="text-3xl sm:text-4xl font-black tracking-tight text-success">{stats.totalCandidates}</p>
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-card shadow-md">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Top Performers</p>
-              <p className="text-3xl font-bold text-accent">{stats.topPerformers}</p>
+        <Card className="p-4 sm:p-5 bg-gradient-card shadow-md flex flex-col justify-between min-h-[110px] sm:min-h-[125px] rounded-2xl hover:shadow-lg transition-shadow">
+          <div className="flex items-center justify-between gap-1 sm:gap-2">
+            <p className="text-xs sm:text-sm text-muted-foreground font-semibold truncate">Top Performers</p>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-accent/15 flex items-center justify-center text-accent shrink-0">
+              <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
-            <Trophy className="h-10 w-10 text-accent" />
+          </div>
+          <div className="mt-2">
+            <p className="text-3xl sm:text-4xl font-black tracking-tight text-accent">{stats.topPerformers}</p>
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-card shadow-md">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Engagement</p>
-              <p className="text-3xl font-bold text-primary">{stats.engagement}</p>
+        <Card className="p-4 sm:p-5 bg-gradient-card shadow-md flex flex-col justify-between min-h-[110px] sm:min-h-[125px] rounded-2xl hover:shadow-lg transition-shadow">
+          <div className="flex items-center justify-between gap-1 sm:gap-2">
+            <p className="text-xs sm:text-sm text-muted-foreground font-semibold truncate">Engagement</p>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary shrink-0">
+              <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
-            <TrendingUp className="h-10 w-10 text-primary" />
+          </div>
+          <div className="mt-2">
+            <p className="text-3xl sm:text-4xl font-black tracking-tight text-primary">{stats.engagement}</p>
           </div>
         </Card>
       </div>

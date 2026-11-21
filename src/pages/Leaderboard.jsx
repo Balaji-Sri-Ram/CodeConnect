@@ -55,7 +55,7 @@ const Leaderboard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background pb-20 md:pb-8">
         <Navbar />
         <LeaderboardSkeleton />
       </div>
@@ -63,7 +63,7 @@ const Leaderboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20 md:pb-8">
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
@@ -92,78 +92,78 @@ const Leaderboard = () => {
           </div>
         </div>
 
-        {/* Top 3 Podium */}
+        {/* Top 3 Podium - Always 3-Column Podium side-by-side on Mobile and Desktop */}
         {filteredStudents.length >= 3 && (
-          <div className="grid md:grid-cols-3 gap-3 md:gap-4 mb-8 max-w-3xl mx-auto items-end">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-8 max-w-2xl sm:max-w-3xl mx-auto items-end pt-2 sm:pt-4">
             {/* 2nd Place */}
-            <div className="order-1 md:order-1">
+            <div className="order-1">
               <Card
-                className="p-4 text-center bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 border-2 border-gray-300 dark:border-gray-600 cursor-pointer hover:shadow-lg transition-all"
+                className="p-2.5 sm:p-4 text-center bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 border-2 border-gray-300 dark:border-gray-600 cursor-pointer hover:shadow-lg transition-all rounded-xl sm:rounded-2xl"
                 onClick={() => navigate(`/developer/${filteredStudents[1].user?._id || filteredStudents[1].user}`)}
               >
-                <div className="flex justify-center mb-2">
-                  <Medal className="h-8 w-8 text-gray-400" />
+                <div className="flex justify-center mb-1 sm:mb-2">
+                  <Medal className="h-5 w-5 sm:h-8 sm:w-8 text-gray-400" />
                 </div>
-                <Avatar className="h-14 w-14 mx-auto mb-2 ring-2 ring-gray-300">
+                <Avatar className="h-10 w-10 sm:h-14 sm:w-14 mx-auto mb-1 sm:mb-2 ring-2 ring-gray-300">
                   <AvatarImage src={filteredStudents[1].avatar_url} />
-                  <AvatarFallback className="text-lg bg-gray-300">
+                  <AvatarFallback className="text-xs sm:text-lg bg-gray-300 font-bold">
                     {filteredStudents[1].full_name?.charAt(0).toUpperCase() || "?"}
                   </AvatarFallback>
                 </Avatar>
-                <h3 className="font-bold text-sm truncate">{filteredStudents[1].full_name || "Developer"}</h3>
-                <div className="flex items-center justify-center gap-1 mt-1">
-                  <Coins className="h-4 w-4 text-yellow-500" />
-                  <span className="font-bold text-base">{filteredStudents[1].coins || 0}</span>
+                <h3 className="font-bold text-xs sm:text-sm truncate px-1">{filteredStudents[1].full_name || "Developer"}</h3>
+                <div className="flex items-center justify-center gap-1 mt-0.5 sm:mt-1">
+                  <Coins className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-500" />
+                  <span className="font-bold text-xs sm:text-base">{filteredStudents[1].coins || 0}</span>
                 </div>
-                <Badge className="mt-2 h-5 text-xs bg-gray-400 text-white">2nd Place</Badge>
+                <Badge className="mt-1.5 sm:mt-2 h-4 sm:h-5 text-[10px] sm:text-xs px-1.5 sm:px-2.5 bg-gray-400 text-white font-semibold">2nd Place</Badge>
               </Card>
             </div>
 
-            {/* 1st Place */}
-            <div className="order-0 md:order-2 mb-4 md:mb-0">
+            {/* 1st Place - Champion (Elevated Center) */}
+            <div className="order-2 transform -translate-y-2 sm:-translate-y-4">
               <Card
-                className="p-5 text-center bg-gradient-to-b from-yellow-100 to-yellow-200 dark:from-yellow-900/30 dark:to-yellow-800/30 border-2 border-yellow-400 cursor-pointer hover:shadow-lg transition-all transform md:scale-105"
+                className="p-3 sm:p-5 text-center bg-gradient-to-b from-yellow-100 to-yellow-200 dark:from-yellow-900/30 dark:to-yellow-800/30 border-2 border-yellow-400 cursor-pointer hover:shadow-xl transition-all rounded-xl sm:rounded-2xl shadow-md"
                 onClick={() => navigate(`/developer/${filteredStudents[0].user?._id || filteredStudents[0].user}`)}
               >
-                <div className="flex justify-center mb-3">
-                  <Trophy className="h-10 w-10 text-yellow-500" />
+                <div className="flex justify-center mb-1.5 sm:mb-3">
+                  <Trophy className="h-7 w-7 sm:h-10 sm:w-10 text-yellow-500" />
                 </div>
-                <Avatar className="h-20 w-20 mx-auto mb-3 ring-4 ring-yellow-400">
+                <Avatar className="h-12 w-12 sm:h-20 sm:w-20 mx-auto mb-1.5 sm:mb-3 ring-2 sm:ring-4 ring-yellow-400">
                   <AvatarImage src={filteredStudents[0].avatar_url} />
-                  <AvatarFallback className="text-2xl bg-yellow-300">
+                  <AvatarFallback className="text-sm sm:text-2xl bg-yellow-300 font-bold">
                     {filteredStudents[0].full_name?.charAt(0).toUpperCase() || "?"}
                   </AvatarFallback>
                 </Avatar>
-                <h3 className="font-bold text-base truncate">{filteredStudents[0].full_name || "Developer"}</h3>
-                <div className="flex items-center justify-center gap-1 mt-1">
-                  <Coins className="h-5 w-5 text-yellow-500" />
-                  <span className="font-bold text-lg">{filteredStudents[0].coins || 0}</span>
+                <h3 className="font-bold text-xs sm:text-base truncate px-1">{filteredStudents[0].full_name || "Developer"}</h3>
+                <div className="flex items-center justify-center gap-1 mt-0.5 sm:mt-1">
+                  <Coins className="h-3.5 w-3.5 sm:h-5 sm:w-5 text-yellow-500" />
+                  <span className="font-extrabold text-sm sm:text-lg">{filteredStudents[0].coins || 0}</span>
                 </div>
-                <Badge className="mt-2 h-6 text-xs bg-gradient-to-r from-yellow-400 to-yellow-600 text-white">Champion</Badge>
+                <Badge className="mt-1.5 sm:mt-2 h-5 sm:h-6 text-[10px] sm:text-xs px-2 sm:px-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white font-bold">Champion</Badge>
               </Card>
             </div>
 
             {/* 3rd Place */}
-            <div className="order-2 md:order-3">
+            <div className="order-3">
               <Card
-                className="p-4 text-center bg-gradient-to-b from-amber-100 to-amber-200 dark:from-amber-900/30 dark:to-amber-800/30 border-2 border-amber-500 cursor-pointer hover:shadow-lg transition-all"
+                className="p-2.5 sm:p-4 text-center bg-gradient-to-b from-amber-100 to-amber-200 dark:from-amber-900/30 dark:to-amber-800/30 border-2 border-amber-500 cursor-pointer hover:shadow-lg transition-all rounded-xl sm:rounded-2xl"
                 onClick={() => navigate(`/developer/${filteredStudents[2].user?._id || filteredStudents[2].user}`)}
               >
-                <div className="flex justify-center mb-2">
-                  <Award className="h-8 w-8 text-amber-600" />
+                <div className="flex justify-center mb-1 sm:mb-2">
+                  <Award className="h-5 w-5 sm:h-8 sm:w-8 text-amber-600" />
                 </div>
-                <Avatar className="h-14 w-14 mx-auto mb-2 ring-2 ring-amber-400">
+                <Avatar className="h-10 w-10 sm:h-14 sm:w-14 mx-auto mb-1 sm:mb-2 ring-2 ring-amber-400">
                   <AvatarImage src={filteredStudents[2].avatar_url} />
-                  <AvatarFallback className="text-lg bg-amber-300">
+                  <AvatarFallback className="text-xs sm:text-lg bg-amber-300 font-bold">
                     {filteredStudents[2].full_name?.charAt(0).toUpperCase() || "?"}
                   </AvatarFallback>
                 </Avatar>
-                <h3 className="font-bold text-sm truncate">{filteredStudents[2].full_name || "Developer"}</h3>
-                <div className="flex items-center justify-center gap-1 mt-1">
-                  <Coins className="h-4 w-4 text-yellow-500" />
-                  <span className="font-bold text-base">{filteredStudents[2].coins || 0}</span>
+                <h3 className="font-bold text-xs sm:text-sm truncate px-1">{filteredStudents[2].full_name || "Developer"}</h3>
+                <div className="flex items-center justify-center gap-1 mt-0.5 sm:mt-1">
+                  <Coins className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-500" />
+                  <span className="font-bold text-xs sm:text-base">{filteredStudents[2].coins || 0}</span>
                 </div>
-                <Badge className="mt-2 h-5 text-xs bg-amber-500 text-white">3rd Place</Badge>
+                <Badge className="mt-1.5 sm:mt-2 h-4 sm:h-5 text-[10px] sm:text-xs px-1.5 sm:px-2.5 bg-amber-500 text-white font-semibold">3rd Place</Badge>
               </Card>
             </div>
           </div>

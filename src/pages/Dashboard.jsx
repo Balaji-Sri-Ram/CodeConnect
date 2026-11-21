@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background pb-20 md:pb-8">
         <Navbar />
         {userRole === "company" ? <CompanyDashboardSkeleton /> : <StudentDashboardSkeleton />}
       </div>
@@ -40,7 +40,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20 md:pb-8">
       <Navbar />
       {userRole === "student" && <StudentDashboard />}
       {userRole === "company" && <CompanyDashboard />}

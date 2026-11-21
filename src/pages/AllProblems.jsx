@@ -241,46 +241,46 @@ const AllProblems = () => {
                 <p className="text-muted-foreground">No problems found</p>
               </div>
             ) : (
-              displayedProblems.map((problem) => (
-                <Card
-                  key={problem._id}
-                  className="p-6 hover:shadow-lg transition-shadow"
-                >
-                  <div className="flex items-start justify-between gap-4 relative">
-                    {solvedProblemIds.includes(problem._id) && (
-                      <div className="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 text-xs font-semibold rounded-bl-lg flex items-center gap-1 z-10 shadow-sm">
+              displayedProblems.map((problem) => {
+                const isSolved = solvedProblemIds.includes(problem._id);
+
+                return (
+                  <Card
+                    key={problem._id}
+                    className="p-4 sm:p-6 hover:shadow-lg transition-shadow bg-white dark:bg-card relative overflow-hidden group"
+                  >
+                    {isSolved && (
+                      <div className="absolute top-0 right-0 bg-green-500 text-white px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold rounded-bl-lg flex items-center gap-1 z-10 shadow-sm">
                         <CheckCircle2 className="h-3 w-3" />
                         Solved
                       </div>
                     )}
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-xl font-semibold mb-2">{problem.title}</h3>
-                        {solvedProblemIds.includes(problem._id) && (
-                          <CheckCircle2 className="h-5 w-5 text-success" />
+                    <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
+                      <div className="flex-1 w-full">
+                        <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3 mb-1 sm:mb-2">
+                          <h3 className="text-lg sm:text-xl font-semibold truncate pr-16 sm:pr-0">{problem.title}</h3>
+                          <Badge className={`${getDifficultyColor(problem.difficulty)} text-xs px-2 py-0.5`}>
+                            {problem.difficulty}
+                          </Badge>
+                        </div>
+                        {problem.topics && problem.topics.length > 0 && (
+                          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-muted-foreground mt-2">
+                            <span>Topics: {problem.topics.slice(0, 3).join(", ")}</span>
+                          </div>
                         )}
                       </div>
-                      <Badge className={getDifficultyColor(problem.difficulty)}>
-                        {problem.difficulty}
-                      </Badge>
-                      {problem.topics && problem.topics.length > 0 && (
-                        <div className="mt-3">
-                          <span className="text-sm text-muted-foreground">
-                            Topics: {problem.topics.slice(0, 3).join(", ")}
-                          </span>
-                        </div>
-                      )}
+                      <Button
+                        variant="hero"
+                        size="sm"
+                        className="w-full sm:w-auto mt-2 sm:mt-0"
+                        onClick={() => handleSolve(problem)}
+                      >
+                        {isSolved ? "Practice Again" : "Solve"}
+                      </Button>
                     </div>
-                    <Button
-                      variant="hero"
-                      className="self-center"
-                      onClick={() => handleSolve(problem)}
-                    >
-                      {solvedProblemIds.includes(problem._id) ? "Practice Again" : "Solve"}
-                    </Button>
-                  </div>
-                </Card>
-              ))
+                  </Card>
+                );
+              })
             )}
           </div>
 

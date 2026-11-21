@@ -259,43 +259,52 @@ const CompanyChallenges = () => {
                 <p className="text-muted-foreground">No challenges found</p>
               </div>
             ) : (
-              displayedChallenges.map((challenge) => (
-                <Card
-                  key={challenge._id || challenge.id}
-                  className="p-6 hover:shadow-lg transition-shadow relative overflow-hidden"
-                >
-                  {solvedIds.includes(challenge._id || challenge.id) && (
-                    <div className="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 text-xs font-semibold rounded-bl-lg flex items-center gap-1 z-10 shadow-sm">
-                      <CheckCircle2 className="h-3 w-3" />
-                      Solved
-                    </div>
-                  )}
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2">{challenge.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-2">
-                        by {challenge.company?.company_name || "Unknown Company"}
-                      </p>
-                      <Badge className={getDifficultyColor(challenge.difficulty)}>
-                        {challenge.difficulty}
-                      </Badge>
-                      <p className="text-muted-foreground mt-3 line-clamp-3">
-                        {challenge.description}
-                      </p>
-                      {challenge.topic && (
-                        <div className="flex items-center gap-4 text-sm mt-3">
-                          <span className="text-muted-foreground">
-                            Topic: {challenge.topic}
-                          </span>
+              displayedChallenges.map((challenge) => {
+                const isSolved = solvedIds.includes(challenge._id || challenge.id);
+
+                return (
+                  <Card
+                    key={challenge._id || challenge.id}
+                    className="p-4 sm:p-6 hover:shadow-lg transition-shadow bg-white dark:bg-card relative overflow-hidden group"
+                  >
+                    {isSolved && (
+                      <div className="absolute top-0 right-0 bg-green-500 text-white px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold rounded-bl-lg flex items-center gap-1 z-10 shadow-sm">
+                        <CheckCircle2 className="h-3 w-3" />
+                        Solved
+                      </div>
+                    )}
+                    <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
+                      <div className="flex-1 w-full">
+                        <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3 mb-1 sm:mb-2">
+                          <h3 className="text-lg sm:text-xl font-semibold truncate pr-16 sm:pr-0">{challenge.title}</h3>
+                          <Badge className={`${getDifficultyColor(challenge.difficulty)} text-xs px-2 py-0.5`}>
+                            {challenge.difficulty}
+                          </Badge>
                         </div>
-                      )}
+                        <p className="text-xs sm:text-sm text-primary font-medium mb-1.5 sm:mb-2">
+                          by {challenge.company?.company_name || "Unknown Company"}
+                        </p>
+                        <p className="text-xs sm:text-sm text-muted-foreground mb-3 line-clamp-2">
+                          {challenge.description}
+                        </p>
+                        {challenge.topic && (
+                          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-0">
+                            <span>Topic: {challenge.topic}</span>
+                          </div>
+                        )}
+                      </div>
+                      <Button
+                        variant="hero"
+                        size="sm"
+                        className="w-full sm:w-auto mt-2 sm:mt-0"
+                        onClick={() => handleSolve(challenge)}
+                      >
+                        {isSolved ? "Practice Again" : "Solve"}
+                      </Button>
                     </div>
-                    <Button variant="hero" className="self-center" onClick={() => handleSolve(challenge)}>
-                      {solvedIds.includes(challenge._id || challenge.id) ? "Practice Again" : "Solve"}
-                    </Button>
-                  </div>
-                </Card>
-              ))
+                  </Card>
+                );
+              })
             )}
           </div>
 

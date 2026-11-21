@@ -116,45 +116,53 @@ const StudentDashboard = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Stats Cards */}
-      <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mb-8">
-        <Card className="p-6 bg-gradient-card shadow-md">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Total Coins</p>
-              <p className="text-3xl font-bold text-accent">{profile?.coins || 0}</p>
+      {/* Stats Cards - Responsive 2x2 Grid on Mobile, 4-Cols on Desktop */}
+      <div className="grid gap-3 sm:gap-6 grid-cols-2 lg:grid-cols-4 mb-8">
+        <Card className="p-4 sm:p-5 bg-gradient-card shadow-md flex flex-col justify-between min-h-[110px] sm:min-h-[125px] rounded-2xl hover:shadow-lg transition-shadow">
+          <div className="flex items-center justify-between gap-1 sm:gap-2">
+            <p className="text-xs sm:text-sm text-muted-foreground font-semibold truncate">Total Coins</p>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-accent/15 flex items-center justify-center text-accent shrink-0">
+              <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
-            <Trophy className="h-10 w-10 text-accent" />
+          </div>
+          <div className="mt-2">
+            <p className="text-3xl sm:text-4xl font-black tracking-tight text-accent">{profile?.coins || 0}</p>
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-card shadow-md">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Easy Problems</p>
-              <p className="text-3xl font-bold text-success">{stats.easy}</p>
+        <Card className="p-4 sm:p-5 bg-gradient-card shadow-md flex flex-col justify-between min-h-[110px] sm:min-h-[125px] rounded-2xl hover:shadow-lg transition-shadow">
+          <div className="flex items-center justify-between gap-1 sm:gap-2">
+            <p className="text-xs sm:text-sm text-muted-foreground font-semibold truncate">Easy Problems</p>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-success/15 flex items-center justify-center text-success shrink-0">
+              <Target className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
-            <Target className="h-10 w-10 text-success" />
+          </div>
+          <div className="mt-2">
+            <p className="text-3xl sm:text-4xl font-black tracking-tight text-success">{stats.easy}</p>
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-card shadow-md">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Medium Problems</p>
-              <p className="text-3xl font-bold text-accent">{stats.medium}</p>
+        <Card className="p-4 sm:p-5 bg-gradient-card shadow-md flex flex-col justify-between min-h-[110px] sm:min-h-[125px] rounded-2xl hover:shadow-lg transition-shadow">
+          <div className="flex items-center justify-between gap-1 sm:gap-2">
+            <p className="text-xs sm:text-sm text-muted-foreground font-semibold truncate">Medium Problems</p>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-accent/15 flex items-center justify-center text-accent shrink-0 font-mono text-sm sm:text-base font-bold">
+              &lt;/&gt;
             </div>
-            <Code2 className="h-10 w-10 text-accent" />
+          </div>
+          <div className="mt-2">
+            <p className="text-3xl sm:text-4xl font-black tracking-tight text-accent">{stats.medium}</p>
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-card shadow-md">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Hard Problems</p>
-              <p className="text-3xl font-bold text-destructive">{stats.hard}</p>
+        <Card className="p-4 sm:p-5 bg-gradient-card shadow-md flex flex-col justify-between min-h-[110px] sm:min-h-[125px] rounded-2xl hover:shadow-lg transition-shadow">
+          <div className="flex items-center justify-between gap-1 sm:gap-2">
+            <p className="text-xs sm:text-sm text-muted-foreground font-semibold truncate">Hard Problems</p>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-destructive/15 flex items-center justify-center text-destructive shrink-0">
+              <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
-            <TrendingUp className="h-10 w-10 text-destructive" />
+          </div>
+          <div className="mt-2">
+            <p className="text-3xl sm:text-4xl font-black tracking-tight text-destructive">{stats.hard}</p>
           </div>
         </Card>
       </div>
@@ -240,13 +248,13 @@ const StudentDashboard = () => {
       {/* Company Challenges Section */}
       <div className="space-y-4">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-semibold">Company Challenges</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold">Company Challenges</h2>
           <Button variant="hero" onClick={() => navigate('/company-challenges')}>
             View Challenges
           </Button>
         </div>
 
-        <Card className="bg-white dark:bg-card shadow-lg p-6">
+        <Card className="bg-white dark:bg-card shadow-lg p-4 sm:p-6">
           {companyChallenges.length === 0 ? (
             <div className="p-12 text-center">
               <Trophy className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
@@ -254,53 +262,57 @@ const StudentDashboard = () => {
               <p className="text-muted-foreground">Companies will post challenges here!</p>
             </div>
           ) : (
-            <ScrollArea className="h-[600px]">
-              <div className="space-y-4 pr-4">
-                {companyChallenges.slice(0, 10).map((challenge) => (
+            <div className="space-y-4">
+              {companyChallenges.slice(0, 10).map((challenge) => {
+                const isSolved = stats.solvedIds.includes((challenge._id || challenge.id).toString());
+
+                return (
                   <Card
                     key={challenge._id || challenge.id}
-                    className="p-6 hover:shadow-lg transition-shadow relative overflow-hidden"
+                    className="p-4 sm:p-6 hover:shadow-lg transition-shadow bg-white dark:bg-card relative overflow-hidden group"
                   >
-                    {stats.solvedIds.includes((challenge._id || challenge.id).toString()) && (
-                      <div className="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 text-xs font-semibold rounded-bl-lg flex items-center gap-1 z-10 shadow-sm">
+                    {isSolved && (
+                      <div className="absolute top-0 right-0 bg-green-500 text-white px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold rounded-bl-lg flex items-center gap-1 z-10 shadow-sm">
                         <CheckCircle2 className="h-3 w-3" />
                         Solved
                       </div>
                     )}
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-xl font-semibold">{challenge.title}</h3>
-                          <Badge className={getDifficultyColor(challenge.difficulty)}>
+                    <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
+                      <div className="flex-1 w-full">
+                        <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3 mb-1 sm:mb-2">
+                          <h3 className="text-lg sm:text-xl font-semibold truncate pr-16 sm:pr-0">{challenge.title}</h3>
+                          <Badge className={`${getDifficultyColor(challenge.difficulty)} text-xs px-2 py-0.5`}>
                             {challenge.difficulty}
                           </Badge>
                         </div>
-                        <p className="text-sm text-primary font-medium mb-2">
+                        <p className="text-xs sm:text-sm text-primary font-medium mb-1.5 sm:mb-2">
                           by {challenge.company?.company_name || "Unknown Company"}
                         </p>
-                        <p className="text-muted-foreground mb-4 line-clamp-2">
+                        <p className="text-xs sm:text-sm text-muted-foreground mb-3 line-clamp-2">
                           {challenge.description}
                         </p>
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-sm">
+                        <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
+                          {challenge.topic && (
+                            <span>Topic: {challenge.topic}</span>
+                          )}
                           {challenge.deadline && (
-                            <span className="text-muted-foreground">
-                              Deadline: {new Date(challenge.deadline).toLocaleDateString()}
-                            </span>
+                            <span>Deadline: {new Date(challenge.deadline).toLocaleDateString()}</span>
                           )}
                         </div>
                       </div>
                       <Button
                         variant="hero"
-                        className="self-center"
+                        size="sm"
+                        className="w-full sm:w-auto mt-2 sm:mt-0"
                         onClick={() => navigate(`/compiler?title=${encodeURIComponent(challenge.title)}&description=${encodeURIComponent(challenge.description)}&difficulty=${challenge.difficulty}&company=${encodeURIComponent(challenge.company?.company_name || 'Unknown Company')}&topic=${encodeURIComponent(challenge.topic || '')}&inputExample=${encodeURIComponent(challenge.input_example || '')}&outputExample=${encodeURIComponent(challenge.output_example || '')}&source=company&problemId=${challenge._id || challenge.id}`)}
                       >
-                        {stats.solvedIds.includes((challenge._id || challenge.id).toString()) ? "Practice Again" : "Solve"}
+                        {isSolved ? "Practice Again" : "Solve"}
                       </Button>
                     </div>
                   </Card>
-                ))}
-              </div>
-            </ScrollArea>
+                );
+              })}
+            </div>
           )}
         </Card>
       </div>

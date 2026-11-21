@@ -90,18 +90,15 @@ export function PageSkeleton() {
 export function StudentDashboardSkeleton() {
   return (
     <div className="container mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-300">
-      {/* Stats Cards Skeleton */}
-      <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Stats Cards Skeleton - Responsive 2x2 Grid on Mobile */}
+      <div className="grid gap-3 sm:gap-6 grid-cols-2 lg:grid-cols-4">
         {[...Array(4)].map((_, i) => (
-          <Card key={i} className="p-6 bg-gradient-card shadow-md space-y-4">
-            <div className="flex items-center justify-between">
-              <Skeleton className="h-4 w-28 rounded" />
-              <Skeleton className="h-8 w-8 rounded-lg" />
+          <Card key={i} className="p-4 sm:p-5 bg-gradient-card shadow-md flex flex-col justify-between min-h-[110px] sm:min-h-[125px] rounded-2xl">
+            <div className="flex items-center justify-between gap-1 sm:gap-2">
+              <Skeleton className="h-4 w-20 sm:w-28 rounded" />
+              <Skeleton className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl shrink-0" />
             </div>
-            <div className="space-y-2">
-              <Skeleton className="h-8 w-20 rounded" />
-              <Skeleton className="h-3 w-36 rounded" />
-            </div>
+            <Skeleton className="h-8 sm:h-9 w-20 sm:w-24 rounded-lg mt-2" />
           </Card>
         ))}
       </div>
@@ -136,23 +133,23 @@ export function StudentDashboardSkeleton() {
       {/* Company Challenges Section Skeleton */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <Skeleton className="h-7 w-52 rounded-lg" />
-          <Skeleton className="h-9 w-36 rounded-lg" />
+          <Skeleton className="h-7 w-48 sm:w-52 rounded-lg" />
+          <Skeleton className="h-9 w-32 sm:w-36 rounded-lg" />
         </div>
-        <Card className="bg-white dark:bg-card shadow-lg p-6 space-y-4">
+        <Card className="bg-white dark:bg-card shadow-lg p-4 sm:p-6 space-y-4">
           {[...Array(3)].map((_, i) => (
-            <div key={i} className="p-6 rounded-xl border border-border/60 bg-muted/10 space-y-3">
-              <div className="flex items-start justify-between gap-4">
-                <div className="space-y-2 flex-1">
+            <div key={i} className="p-4 sm:p-6 rounded-xl border border-border/60 bg-muted/10 space-y-3">
+              <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
+                <div className="space-y-2 flex-1 w-full">
                   <div className="flex items-center gap-3">
-                    <Skeleton className="h-6 w-56 rounded" />
+                    <Skeleton className="h-6 w-48 sm:w-56 rounded" />
                     <Skeleton className="h-5 w-16 rounded-full" />
                   </div>
                   <Skeleton className="h-4 w-32 rounded" />
                   <Skeleton className="h-4 w-3/4 rounded" />
                   <Skeleton className="h-3 w-40 rounded" />
                 </div>
-                <Skeleton className="h-10 w-24 rounded-lg shrink-0 self-center" />
+                <Skeleton className="h-9 w-full sm:w-24 rounded-lg shrink-0 mt-2 sm:mt-0" />
               </div>
             </div>
           ))}
@@ -177,15 +174,15 @@ export function CompanyDashboardSkeleton() {
         <Skeleton className="h-10 w-44 rounded-lg" />
       </div>
 
-      {/* Stats Cards */}
-      <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-3">
-        {[...Array(3)].map((_, i) => (
-          <Card key={i} className="p-6 bg-gradient-card shadow-md space-y-4">
-            <div className="flex items-center justify-between">
-              <Skeleton className="h-4 w-28 rounded" />
-              <Skeleton className="h-8 w-8 rounded-lg" />
+      {/* Stats Cards Skeleton - Responsive 2x2 Grid on Mobile */}
+      <div className="grid gap-3 sm:gap-6 grid-cols-2 lg:grid-cols-4">
+        {[...Array(4)].map((_, i) => (
+          <Card key={i} className="p-4 sm:p-5 bg-gradient-card shadow-md flex flex-col justify-between min-h-[110px] sm:min-h-[125px] rounded-2xl">
+            <div className="flex items-center justify-between gap-1 sm:gap-2">
+              <Skeleton className="h-4 w-20 sm:w-28 rounded" />
+              <Skeleton className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl shrink-0" />
             </div>
-            <Skeleton className="h-8 w-20 rounded" />
+            <Skeleton className="h-8 sm:h-9 w-20 sm:w-24 rounded-lg mt-2" />
           </Card>
         ))}
       </div>
@@ -317,21 +314,21 @@ export function LeaderboardSkeleton() {
         <Skeleton className="h-4 w-96 max-w-full rounded mx-auto" />
       </div>
 
-      {/* Podium Top 3 */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto pt-6">
+      {/* Podium Top 3 - Always 3-Column Podium */}
+      <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-2xl sm:max-w-3xl mx-auto pt-4 sm:pt-6 items-end">
         {[1, 0, 2].map((idx) => (
           <Card
             key={idx}
-            className={`p-6 bg-card border border-border/60 text-center space-y-4 ${
-              idx === 0 ? "md:-mt-4 border-primary/40 shadow-lg" : ""
+            className={`p-2.5 sm:p-5 bg-card border border-border/60 text-center space-y-2 sm:space-y-4 rounded-xl sm:rounded-2xl ${
+              idx === 0 ? "-translate-y-2 sm:-translate-y-4 border-primary/40 shadow-lg" : ""
             }`}
           >
-            <Skeleton className="h-16 w-16 rounded-full mx-auto" />
-            <div className="space-y-2">
-              <Skeleton className="h-5 w-32 rounded mx-auto" />
-              <Skeleton className="h-4 w-20 rounded mx-auto" />
+            <Skeleton className={`${idx === 0 ? "h-12 w-12 sm:h-16 sm:w-16" : "h-10 w-10 sm:h-14 sm:w-14"} rounded-full mx-auto`} />
+            <div className="space-y-1 sm:space-y-2">
+              <Skeleton className="h-3 sm:h-5 w-16 sm:w-28 rounded mx-auto" />
+              <Skeleton className="h-3 sm:h-4 w-12 sm:w-16 rounded mx-auto" />
             </div>
-            <Skeleton className="h-8 w-24 rounded-lg mx-auto" />
+            <Skeleton className="h-5 sm:h-7 w-14 sm:w-20 rounded-lg mx-auto" />
           </Card>
         ))}
       </div>

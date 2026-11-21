@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import coinImage from "@/assets/reward-coin.png";
+import googleLogo from "@/assets/companies/google.png";
+import appleLogo from "@/assets/companies/apple.png";
+import microsoftLogo from "@/assets/companies/microsoft.png";
 import "@/components/coin.css";
 import { 
   Play, 
@@ -473,85 +476,85 @@ export const DemoVideoSection = () => {
             </div>
           </div>
 
-          {/* Main Visual Display Area */}
-          <div className="relative aspect-video w-full bg-[#f4f6f8] text-slate-800 overflow-hidden flex flex-col justify-between">
+          {/* Main Visual Display Area - Fully responsive with min-height on mobile */}
+          <div className="relative min-h-[500px] sm:min-h-[540px] md:min-h-0 md:aspect-video w-full bg-[#f4f6f8] text-slate-800 overflow-hidden flex flex-col justify-between">
             
             {/* EXACT TOP NAVBAR FROM REAL CODECONNECT APP */}
-            <div className="border-b border-slate-200/80 bg-white/95 px-6 py-3 flex items-center justify-between shrink-0 shadow-xs">
-              <div className="flex items-center gap-2 font-bold text-lg text-[#2563eb]">
-                <span className="font-mono text-base font-extrabold">&lt;/&gt;</span>
+            <div className="border-b border-slate-200/80 bg-white/95 px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between shrink-0 shadow-xs">
+              <div className="flex items-center gap-1.5 sm:gap-2 font-bold text-base sm:text-lg text-[#2563eb]">
+                <span className="font-mono text-sm sm:text-base font-extrabold">&lt;/&gt;</span>
                 <span className="tracking-tight">CodeConnect</span>
               </div>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
                 {/* Notification Bell with red badge */}
                 <div className="relative cursor-pointer text-slate-600 hover:text-slate-900">
-                  <Bell className="w-5 h-5" />
+                  <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-red-500 ring-2 ring-white"></span>
                 </div>
                 {/* User Avatar Circle "R" */}
-                <div className="w-8 h-8 rounded-full bg-[#dbeafe] text-[#2563eb] font-bold flex items-center justify-center text-sm shadow-xs border border-blue-200">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#dbeafe] text-[#2563eb] font-bold flex items-center justify-center text-xs sm:text-sm shadow-xs border border-blue-200">
                   R
                 </div>
               </div>
             </div>
 
             {/* SCREEN CONTENT AREA (100% Matching User Screenshots) */}
-            <div className="flex-1 p-4 sm:p-6 overflow-y-auto bg-[#f3f4f6]">
+            <div className="flex-1 p-3.5 sm:p-6 overflow-y-auto bg-[#f3f4f6]">
               
               {/* SCENE 1: STUDENT DASHBOARD (IMAGE 1) */}
               {activeTab === 0 && (
-                <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn">
-                  {/* 4 Stat Cards */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="space-y-4 sm:space-y-6 max-w-5xl mx-auto animate-fadeIn">
+                  {/* 4 Stat Cards - Responsive 2x2 Grid on Mobile, 4-Cols on Desktop */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
                     {/* Card 1: Total Coins */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200/70 shadow-xs flex items-center justify-between">
-                      <div>
-                        <div className="text-xs font-medium text-slate-500 mb-1">Total Coins</div>
-                        <div className="text-3xl font-extrabold text-[#f59e0b]">540</div>
+                    <div className="bg-white p-3.5 sm:p-5 rounded-2xl border border-slate-200/70 shadow-xs flex flex-col justify-between min-h-[105px] sm:min-h-[125px]">
+                      <div className="flex items-center justify-between gap-1">
+                        <div className="text-xs sm:text-sm font-semibold text-slate-500 truncate">Total Coins</div>
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-50 flex items-center justify-center text-[#f59e0b] shrink-0">
+                          <Trophy className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </div>
                       </div>
-                      <div className="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center text-[#f59e0b]">
-                        <Trophy className="w-7 h-7" />
-                      </div>
+                      <div className="mt-2 text-3xl sm:text-4xl font-black tracking-tight text-[#f59e0b]">540</div>
                     </div>
 
                     {/* Card 2: Easy Problems */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200/70 shadow-xs flex items-center justify-between">
-                      <div>
-                        <div className="text-xs font-medium text-slate-500 mb-1">Easy Problems</div>
-                        <div className="text-3xl font-extrabold text-[#10b981]">9</div>
+                    <div className="bg-white p-3.5 sm:p-5 rounded-2xl border border-slate-200/70 shadow-xs flex flex-col justify-between min-h-[105px] sm:min-h-[125px]">
+                      <div className="flex items-center justify-between gap-1">
+                        <div className="text-xs sm:text-sm font-semibold text-slate-500 truncate">Easy Problems</div>
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-[#10b981] shrink-0">
+                          <Target className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </div>
                       </div>
-                      <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-[#10b981]">
-                        <Target className="w-7 h-7" />
-                      </div>
+                      <div className="mt-2 text-3xl sm:text-4xl font-black tracking-tight text-[#10b981]">9</div>
                     </div>
 
                     {/* Card 3: Medium Problems */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200/70 shadow-xs flex items-center justify-between">
-                      <div>
-                        <div className="text-xs font-medium text-slate-500 mb-1">Medium Problems</div>
-                        <div className="text-3xl font-extrabold text-[#f59e0b]">8</div>
+                    <div className="bg-white p-3.5 sm:p-5 rounded-2xl border border-slate-200/70 shadow-xs flex flex-col justify-between min-h-[105px] sm:min-h-[125px]">
+                      <div className="flex items-center justify-between gap-1">
+                        <div className="text-xs sm:text-sm font-semibold text-slate-500 truncate">Medium Problems</div>
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-50 flex items-center justify-center text-[#f59e0b] font-mono text-sm sm:text-base font-bold shrink-0">
+                          &lt;/&gt;
+                        </div>
                       </div>
-                      <div className="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center text-[#f59e0b] font-mono text-xl font-bold">
-                        &lt;/&gt;
-                      </div>
+                      <div className="mt-2 text-3xl sm:text-4xl font-black tracking-tight text-[#f59e0b]">8</div>
                     </div>
 
                     {/* Card 4: Hard Problems */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200/70 shadow-xs flex items-center justify-between">
-                      <div>
-                        <div className="text-xs font-medium text-slate-500 mb-1">Hard Problems</div>
-                        <div className="text-3xl font-extrabold text-[#ef4444]">5</div>
+                    <div className="bg-white p-3.5 sm:p-5 rounded-2xl border border-slate-200/70 shadow-xs flex flex-col justify-between min-h-[105px] sm:min-h-[125px]">
+                      <div className="flex items-center justify-between gap-1">
+                        <div className="text-xs sm:text-sm font-semibold text-slate-500 truncate">Hard Problems</div>
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-rose-50 flex items-center justify-center text-[#ef4444] shrink-0">
+                          <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </div>
                       </div>
-                      <div className="w-12 h-12 rounded-full bg-rose-50 flex items-center justify-center text-[#ef4444]">
-                        <TrendingUp className="w-7 h-7" />
-                      </div>
+                      <div className="mt-2 text-3xl sm:text-4xl font-black tracking-tight text-[#ef4444]">5</div>
                     </div>
                   </div>
 
                   {/* Welcome Section */}
                   <div>
-                    <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1">
+                    <h1 className="text-xl sm:text-3xl font-bold text-slate-900 mb-1">
                       Welcome back, Ramu Parasa
                     </h1>
                     <p className="text-xs sm:text-sm text-slate-500">
@@ -562,52 +565,52 @@ export const DemoVideoSection = () => {
                   {/* Practice Problems Section */}
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <h2 className="text-lg font-bold text-slate-900">Practice Problems</h2>
-                      <button className="px-4 py-2 bg-[#4f46e5] hover:bg-[#4338ca] text-white rounded-lg text-xs font-medium shadow-xs">
+                      <h2 className="text-base sm:text-lg font-bold text-slate-900">Practice Problems</h2>
+                      <button className="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#4f46e5] hover:bg-[#4338ca] text-white rounded-lg text-xs font-medium shadow-xs">
                         View All Problems
                       </button>
                     </div>
 
-                    <div className="bg-white rounded-2xl border border-slate-200/80 p-4 space-y-3 shadow-xs">
+                    <div className="bg-white rounded-2xl border border-slate-200/80 p-3.5 sm:p-4 space-y-3 shadow-xs">
                       {/* Problem 1: Set Matrix Zeroes */}
-                      <div className="p-4 rounded-xl border border-slate-200 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="p-3 sm:p-4 rounded-xl border border-slate-200 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                         <div>
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="font-bold text-sm text-slate-900">Set Matrix Zeroes</span>
-                            <span className="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] text-[11px] font-semibold">
+                            <span className="font-bold text-xs sm:text-sm text-slate-900">Set Matrix Zeroes</span>
+                            <span className="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] text-[10px] sm:text-[11px] font-semibold">
                               Medium
                             </span>
                           </div>
-                          <div className="text-xs text-slate-500">Topics: Matrix</div>
+                          <div className="text-[11px] sm:text-xs text-slate-500">Topics: Matrix</div>
                         </div>
 
-                        <div className="flex sm:flex-col items-end gap-1.5">
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#10b981] text-white text-[11px] font-medium">
+                        <div className="flex items-center sm:flex-col sm:items-end justify-between sm:justify-start gap-2">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#10b981] text-white text-[10px] sm:text-[11px] font-medium">
                             <Check className="w-3 h-3" /> Solved
                           </span>
-                          <button className="px-3.5 py-1.5 bg-[#4f46e5] text-white rounded-lg text-xs font-medium shadow-xs hover:bg-[#4338ca]">
+                          <button className="w-full sm:w-auto px-3.5 py-1.5 bg-[#4f46e5] text-white rounded-lg text-xs font-medium shadow-xs hover:bg-[#4338ca]">
                             Practice Again
                           </button>
                         </div>
                       </div>
 
                       {/* Problem 2: 3Sum */}
-                      <div className="p-4 rounded-xl border border-slate-200 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="p-3 sm:p-4 rounded-xl border border-slate-200 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                         <div>
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="font-bold text-sm text-slate-900">3Sum</span>
-                            <span className="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] text-[11px] font-semibold">
+                            <span className="font-bold text-xs sm:text-sm text-slate-900">3Sum</span>
+                            <span className="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] text-[10px] sm:text-[11px] font-semibold">
                               Medium
                             </span>
                           </div>
-                          <div className="text-xs text-slate-500">Topics: Array, Two Pointers, So...</div>
+                          <div className="text-[11px] sm:text-xs text-slate-500">Topics: Array, Two Pointers, So...</div>
                         </div>
 
-                        <div className="flex sm:flex-col items-end gap-1.5">
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#10b981] text-white text-[11px] font-medium">
+                        <div className="flex items-center sm:flex-col sm:items-end justify-between sm:justify-start gap-2">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#10b981] text-white text-[10px] sm:text-[11px] font-medium">
                             <Check className="w-3 h-3" /> Solved
                           </span>
-                          <button className="px-3.5 py-1.5 bg-[#4f46e5] text-white rounded-lg text-xs font-medium shadow-xs hover:bg-[#4338ca]">
+                          <button className="w-full sm:w-auto px-3.5 py-1.5 bg-[#4f46e5] text-white rounded-lg text-xs font-medium shadow-xs hover:bg-[#4338ca]">
                             Practice Again
                           </button>
                         </div>
@@ -979,10 +982,10 @@ export const DemoVideoSection = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {/* Google */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+                    <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
                       <div>
-                        <div className="w-12 h-12 rounded-full bg-[#dbeafe] text-[#2563eb] font-bold text-lg flex items-center justify-center mb-3">
-                          G
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-slate-200/80 bg-white flex items-center justify-center p-2.5 mb-3 shadow-xs overflow-hidden">
+                          <img src={googleLogo} alt="Google" className="w-full h-full object-contain" />
                         </div>
                         <h2 className="font-bold text-base text-slate-900 mb-1">Google</h2>
                         <p className="text-xs text-slate-500 leading-relaxed mb-4">
@@ -995,10 +998,10 @@ export const DemoVideoSection = () => {
                     </div>
 
                     {/* Apple */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+                    <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
                       <div>
-                        <div className="w-12 h-12 rounded-full bg-[#dbeafe] text-[#2563eb] font-bold text-lg flex items-center justify-center mb-3">
-                          A
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-slate-200/80 bg-white flex items-center justify-center p-2.5 mb-3 shadow-xs overflow-hidden">
+                          <img src={appleLogo} alt="Apple" className="w-full h-full object-contain" />
                         </div>
                         <h2 className="font-bold text-base text-slate-900 mb-1">Apple</h2>
                         <p className="text-xs text-slate-500 leading-relaxed mb-4">
@@ -1011,10 +1014,10 @@ export const DemoVideoSection = () => {
                     </div>
 
                     {/* Microsoft */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+                    <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
                       <div>
-                        <div className="w-12 h-12 rounded-full bg-[#dbeafe] text-[#2563eb] font-bold text-lg flex items-center justify-center mb-3">
-                          M
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-slate-200/80 bg-white flex items-center justify-center p-2.5 mb-3 shadow-xs overflow-hidden">
+                          <img src={microsoftLogo} alt="Microsoft" className="w-full h-full object-contain" />
                         </div>
                         <h2 className="font-bold text-base text-slate-900 mb-1">Microsoft</h2>
                         <p className="text-xs text-slate-500 leading-relaxed mb-4">
@@ -1192,6 +1195,8 @@ export const DemoVideoSection = () => {
                     key={chap.id}
                     onClick={() => jumpToChapter(idx)}
                     className={`flex flex-col items-start p-2.5 rounded-xl text-left transition-all text-xs border ${
+                      idx === 4 ? "col-span-2 sm:col-span-1" : ""
+                    } ${
                       isActive 
                         ? "bg-primary text-primary-foreground border-primary shadow-sm" 
                         : "bg-card hover:bg-muted border-border text-foreground"
