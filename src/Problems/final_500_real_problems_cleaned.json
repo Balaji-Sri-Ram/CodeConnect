@@ -6393,5 +6393,16 @@
     ],
     "input": "6\n-1 0 0 1 1 1\nabaabc",
     "output": "6 3 1 1 1 1"
+  },
+  {
+    "title": "Check if All A's Appears Before All B's",
+    "description": "You are given a string s consisting only of characters 'a' and 'b'.\n\nYour task is to determine whether all occurrences of 'a' appear before all occurrences of 'b'.\n\nIn other words, there should not be any character 'a' appearing after a character 'b'.\n\nReturn true if the condition is satisfied. Otherwise, return false.\n\nInput:\nThe first line contains a string s consisting of only 'a' and 'b'.\n\nOutput:\nPrint true if all 'a' characters appear before all 'b' characters. Otherwise, print false.\n\nConstraints:\n1 <= s.length <= 100\ns[i] is either 'a' or 'b'.",
+    "difficulty": "Easy",
+    "topics": [
+      "String",
+      "Two Pointers"
+    ],
+    "input": "aaabbb",
+    "output": "true"
   }
 ]
