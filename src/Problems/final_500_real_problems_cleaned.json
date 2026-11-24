@@ -6404,5 +6404,18 @@
     ],
     "input": "aaabbb",
     "output": "true"
+  },
+  {
+      "title": "Maximum Subarray With Equal Products",
+    "description": "You are given an integer array nums.\n\nA subarray is called valid if the product of all its elements is equal to the least common multiple (LCM) of all its elements multiplied by the greatest common divisor (GCD) of all its elements.\n\nReturn the length of the longest valid subarray.\n\nThe product of an array is the multiplication of all its elements.\n\nInput:\nThe first line contains an integer n, representing the length of the array.\nThe second line contains n space-separated integers representing nums.\n\nOutput:\nPrint the length of the longest valid subarray.\n\nConstraints:\n1 <= n <= 100\n1 <= nums[i] <= 10",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Math",
+      "GCD",
+      "LCM"
+    ],
+    "input": "5\n1 2 3 4 5",
+    "output": "3"
   }
 ]
