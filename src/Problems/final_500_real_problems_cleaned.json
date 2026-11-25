@@ -6417,5 +6417,18 @@
     ],
     "input": "5\n1 2 3 4 5",
     "output": "3"
+  },
+  {
+    "title": "Smallest Unique Subarray",
+    "description": "You are given an integer array nums.\n\nA subarray is called unique if every element in that subarray appears exactly once.\n\nYour task is to find the length of the shortest non-empty unique subarray.\n\nIf multiple subarrays have the same minimum length, any one of them is acceptable.\n\nReturn the minimum length of such a subarray.\n\nInput:\nThe first line contains an integer n, representing the length of the array.\nThe second line contains n space-separated integers representing nums.\n\nOutput:\nPrint the minimum length of a non-empty subarray in which every element appears exactly once.\n\nConstraints:\n1 <= n <= 100000\n1 <= nums[i] <= 1000000000",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Sliding Window",
+      "Binary Search"
+    ],
+    "input": "6\n1 2 2 3 4 4",
+    "output": "1"
   }
 ]
