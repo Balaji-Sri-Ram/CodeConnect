@@ -6442,5 +6442,17 @@
     ],
     "input": "5 10\n3 1 4 2 6",
     "output": "4"
+  },
+  {
+    "title": "Stone Removal Game",
+    "description": "Alice and Bob are playing a game with n stones. Alice always starts first. On each turn, a player must remove a number of stones equal to the current turn number, starting from 10 on the first turn, then 9 on the second turn, and so on, decreasing by 1 each turn.\n\nIf a player cannot remove the required number of stones because fewer stones remain, that player loses the game.\n\nReturn the name of the player who wins the game, assuming both players play optimally.\n\nInput:\nThe first line contains an integer n, representing the initial number of stones.\n\nOutput:\nPrint Alice if Alice wins, otherwise print Bob.\n\nConstraints:\n1 <= n <= 1000",
+    "difficulty": "Easy",
+    "topics": [
+      "Math",
+      "Simulation",
+      "Game Theory"
+    ],
+    "input": "12",
+    "output": "Alice"
   }
 ]
