@@ -6454,5 +6454,17 @@
     ],
     "input": "12",
     "output": "Alice"
+  },
+  {
+    "title": "Maximum Number of Items From Sale II",
+    "description": "You are given an integer array prices, where prices[i] represents the price of the ith item, and an integer budget.\n\nYou want to buy as many items as possible without exceeding your budget. However, the sale offers a special deal: for every item you buy, you may receive another item for free if its price satisfies the sale condition.\n\nReturn the maximum number of items you can obtain.\n\nInput:\nThe first line contains two integers n and budget, representing the number of items and your total budget.\nThe second line contains n space-separated integers representing prices.\n\nOutput:\nPrint the maximum number of items you can obtain.\n\nConstraints:\n1 <= n <= 1000\n1 <= prices[i] <= 1000\n1 <= budget <= 100000",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Dynamic Programming",
+      "Greedy"
+    ],
+    "input": "5 10\n2 3 4 5 6",
+    "output": "4"
   }
 ]
